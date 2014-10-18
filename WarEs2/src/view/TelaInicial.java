@@ -248,7 +248,7 @@ public class TelaInicial extends javax.swing.JFrame {
         jComboBox8.setEnabled(false);
         jPanel1.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 460, 210, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/telainicial.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/telainicial.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
