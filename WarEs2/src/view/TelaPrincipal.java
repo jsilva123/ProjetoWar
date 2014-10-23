@@ -8,6 +8,7 @@ package view;
 
 import java.awt.Color;
 import java.util.Random;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,6 +38,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton8.setBackground(Color.yellow);
         jButton9.setBackground(Color.yellow);
         
+        jTabbedPane1.setEnabledAt(1, false);
+        jTabbedPane1.setEnabledAt(2, false);
+        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -50,14 +54,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
         jButton10 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jButton41 = new javax.swing.JButton();
+        jButton42 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -183,29 +189,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel7.setText("Jogando:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 300, 130, 30));
 
-        jLabel11.setBackground(new java.awt.Color(51, 51, 255));
-        jLabel11.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel11.setText("War Brasil");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, -10, 220, 90));
-
         jButton7.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton7.setText("1");
         jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 40, 20));
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 40, 20));
 
         jButton8.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton8.setText("1");
         jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 40, 20));
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 40, 20));
 
         jButton9.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton9.setText("1");
         jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 40, 20));
+        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 40, 20));
 
         jTabbedPane1.setFocusable(false);
-        jTabbedPane1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         jTabbedPane1.setRequestFocusEnabled(false);
         jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -224,16 +224,41 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel5.add(jButton10);
         jButton10.setBounds(180, 230, 90, 30);
 
-        jButton16.setBackground(new java.awt.Color(158, 216, 242));
-        jButton16.setForeground(new java.awt.Color(158, 216, 242));
-        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/map_pin_fill-48.png"))); // NOI18N
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setText("Exércitos restantes:");
+        jPanel5.add(jLabel3);
+        jLabel3.setBounds(90, 130, 150, 20);
+
+        jButton41.setBackground(new java.awt.Color(158, 216, 242));
+        jButton41.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jButton41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/map_pin_fill-48.png"))); // NOI18N
+        jButton41.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton41.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jButton41.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        jButton41.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                jButton41ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton16);
-        jButton16.setBounds(110, 50, 60, 50);
+        jPanel5.add(jButton41);
+        jButton41.setBounds(20, 50, 60, 50);
+
+        jButton42.setBackground(new java.awt.Color(158, 216, 242));
+        jButton42.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jButton42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/cancelar.png"))); // NOI18N
+        jButton42.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton42.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jButton42.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        jButton42.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton42ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton42);
+        jButton42.setBounds(20, 120, 60, 50);
+
+        jLabel4.setText("Total de Exércitos");
+        jPanel5.add(jLabel4);
+        jLabel4.setBounds(100, 40, 160, 15);
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/war_brasil4.png"))); // NOI18N
         jPanel5.add(jLabel19);
@@ -337,7 +362,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel4.add(jButton3);
         jButton3.setBounds(160, 50, 60, 50);
         jPanel4.add(jSpinner1);
-        jSpinner1.setBounds(190, 120, 50, 40);
+        jSpinner1.setBounds(190, 130, 50, 30);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Número De Exércitos:");
@@ -391,16 +416,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jButton6.setText("Trocar");
         jPanel2.add(jButton6);
-        jButton6.setBounds(90, 230, 90, 30);
+        jButton6.setBounds(30, 140, 90, 30);
 
-        jButton12.setText("Finalizar");
+        jButton12.setText("Finalizar Turno");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
             }
         });
         jPanel2.add(jButton12);
-        jButton12.setBounds(180, 230, 90, 30);
+        jButton12.setBounds(150, 230, 120, 30);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/war_brasil4.png"))); // NOI18N
         jPanel2.add(jLabel10);
@@ -420,22 +445,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton17.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton17.setText("1");
         jButton17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 40, 20));
+        jPanel1.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 40, 20));
 
         jButton18.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton18.setText("1");
         jButton18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 40, 20));
+        jPanel1.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 40, 20));
 
         jButton19.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton19.setText("1");
         jButton19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 40, 20));
+        jPanel1.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 40, 20));
 
         jButton20.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton20.setText("1");
         jButton20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 40, 20));
+        jPanel1.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 40, 20));
 
         jButton21.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton21.setText("1");
@@ -445,17 +470,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton22.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton22.setText("1");
         jButton22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 40, 20));
+        jPanel1.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 40, 20));
 
         jButton23.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton23.setText("1");
         jButton23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 40, 20));
+        jPanel1.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 40, 20));
 
         jButton24.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton24.setText("1");
         jButton24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 40, 20));
+        jPanel1.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 40, 20));
 
         jButton25.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton25.setText("1");
@@ -465,27 +490,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton26.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton26.setText("1");
         jButton26.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 40, 20));
+        jPanel1.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 40, 20));
 
         jButton27.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton27.setText("1");
         jButton27.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 40, 20));
+        jPanel1.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 40, 20));
 
         jButton28.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton28.setText("1");
         jButton28.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 40, 20));
+        jPanel1.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 40, 20));
 
         jButton29.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton29.setText("1");
         jButton29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 40, 20));
+        jPanel1.add(jButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 40, 20));
 
         jButton30.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton30.setText("1");
         jButton30.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton30, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, 40, 20));
+        jPanel1.add(jButton30, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 40, 20));
 
         jButton31.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton31.setText("1");
@@ -495,32 +520,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton32.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton32.setText("1");
         jButton32.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 40, 20));
+        jPanel1.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 40, 20));
 
         jButton33.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton33.setText("1");
         jButton33.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 40, 20));
+        jPanel1.add(jButton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 40, 20));
 
         jButton34.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton34.setText("1");
         jButton34.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton34, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 500, 40, 20));
+        jPanel1.add(jButton34, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 510, 40, 20));
 
         jButton35.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton35.setText("1");
         jButton35.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, 40, 20));
+        jPanel1.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 470, 40, 20));
 
         jButton36.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton36.setText("1");
         jButton36.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton36, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 40, 20));
+        jPanel1.add(jButton36, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 40, 20));
 
         jButton37.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton37.setText("1");
         jButton37.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, 40, 20));
+        jPanel1.add(jButton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 40, 20));
 
         jButton38.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton38.setText("1");
@@ -530,9 +555,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton39.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton39.setText("1");
         jButton39.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 40, 20));
+        jPanel1.add(jButton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 40, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/war_brasil3.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mapa.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
@@ -588,7 +613,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTabbedPane1.setEnabledAt(1, true);
         jTabbedPane1.setSelectedIndex(1);
         jTabbedPane1.setEnabledAt(2, false);
-        jTabbedPane1.setEnabledAt(3, false);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
@@ -602,13 +626,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTabbedPane1.setEnabledAt(2, true);
         jTabbedPane1.setSelectedIndex(2);
         jTabbedPane1.setEnabledAt(1, false);
-        jTabbedPane1.setEnabledAt(3, false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
          jTabbedPane1.setEnabledAt(0, false);
-        jTabbedPane1.setEnabledAt(3, true);
         jTabbedPane1.setSelectedIndex(3);
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(2, false);
@@ -620,12 +642,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTabbedPane1.setEnabledAt(0, true);
         jTabbedPane1.setSelectedIndex(0);
         jTabbedPane1.setEnabledAt(2, false);
-        jTabbedPane1.setEnabledAt(3, false);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String a = "/view/imagens/war.jpg";
+        String a = "/view/imagens/Cartas Objetivo/con_nordeste_centrooeste.jpg";
         JOptionPane.showMessageDialog(this, null, "Objetivo", 2,new javax.swing.ImageIcon(getClass().getResource(a)));
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -641,14 +662,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton15ActionPerformed
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton16ActionPerformed
-
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         new TelaInicial().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton41ActionPerformed
+
+    private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton42ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -663,7 +688,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
@@ -690,6 +714,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton41;
+    private javax.swing.JButton jButton42;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -697,7 +723,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -706,6 +731,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

@@ -67,7 +67,6 @@ public class TelaInicial extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
         jComboBox7 = new javax.swing.JComboBox();
         jComboBox8 = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
@@ -99,7 +98,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 520, 140, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 530, 140, 30));
 
         jTextField1.setEnabled(false);
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, 210, -1));
@@ -234,12 +233,6 @@ public class TelaInicial extends javax.swing.JFrame {
         jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, 210, -1));
         jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 210, -1));
 
-        jLabel20.setBackground(new java.awt.Color(51, 51, 255));
-        jLabel20.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel20.setText("War Brasil");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, -10, 230, 80));
-
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione uma cor", "Vermelho", "Amarelo", "Verde", "Azul", "Preto", "Branco" }));
         jComboBox7.setEnabled(false);
         jPanel1.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 210, 30));
@@ -248,7 +241,7 @@ public class TelaInicial extends javax.swing.JFrame {
         jComboBox8.setEnabled(false);
         jPanel1.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 460, 210, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/telainicial.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/Tela inicial.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
@@ -401,7 +394,6 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
