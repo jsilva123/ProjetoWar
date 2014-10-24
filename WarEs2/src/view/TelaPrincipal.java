@@ -76,6 +76,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
@@ -83,6 +85,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
+        jButton43 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -114,6 +117,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton37 = new javax.swing.JButton();
         jButton38 = new javax.swing.JButton();
         jButton39 = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -136,7 +140,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextArea1.setText("Início do jogo ~> +01 de exército todos os terrenos\n");
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 470, 100));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, 590, 100));
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton1.setText("1");
@@ -145,7 +149,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
         jLabel2.setText("Console:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 440, 110, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 110, 30));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -183,11 +187,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jTable2.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 270, 130));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 330, 300, 130));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Jogando:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 300, 130, 30));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, 130, 30));
 
         jButton7.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton7.setText("1");
@@ -222,15 +226,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton10);
-        jButton10.setBounds(180, 230, 90, 30);
+        jButton10.setBounds(280, 240, 90, 30);
 
-        jLabel3.setText("Exércitos restantes:");
+        jLabel3.setText("Exércitos restantes: 5");
         jPanel5.add(jLabel3);
-        jLabel3.setBounds(90, 130, 150, 20);
+        jLabel3.setBounds(110, 150, 180, 20);
 
         jButton41.setBackground(new java.awt.Color(158, 216, 242));
         jButton41.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jButton41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/map_pin_fill-48.png"))); // NOI18N
+        jButton41.setToolTipText("Alocar Exército");
         jButton41.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton41.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jButton41.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
@@ -240,11 +245,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton41);
-        jButton41.setBounds(20, 50, 60, 50);
+        jButton41.setBounds(100, 80, 60, 50);
 
         jButton42.setBackground(new java.awt.Color(158, 216, 242));
         jButton42.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jButton42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/cancelar.png"))); // NOI18N
+        jButton42.setToolTipText("Remover Exército");
         jButton42.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton42.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jButton42.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
@@ -254,15 +260,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton42);
-        jButton42.setBounds(20, 120, 60, 50);
+        jButton42.setBounds(230, 80, 60, 50);
 
-        jLabel4.setText("Total de Exércitos");
+        jLabel4.setText("Total de Exércitos: 15");
         jPanel5.add(jLabel4);
-        jLabel4.setBounds(100, 40, 160, 15);
+        jLabel4.setBounds(120, 10, 160, 17);
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/war_brasil4.png"))); // NOI18N
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         jPanel5.add(jLabel19);
-        jLabel19.setBounds(2, -5, 290, 280);
+        jLabel19.setBounds(0, 0, 390, 280);
 
         jTabbedPane1.addTab("Alocar", jPanel5);
 
@@ -271,40 +277,39 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/1 vermelho.png"))); // NOI18N
         jPanel3.add(jLabel14);
-        jLabel14.setBounds(110, 20, 53, 50);
+        jLabel14.setBounds(140, 40, 53, 50);
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/2 vermelho.png"))); // NOI18N
         jPanel3.add(jLabel15);
-        jLabel15.setBounds(110, 90, 53, 50);
+        jLabel15.setBounds(140, 110, 53, 50);
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/1 vermelho.png"))); // NOI18N
         jPanel3.add(jLabel17);
-        jLabel17.setBounds(110, 160, 53, 50);
+        jLabel17.setBounds(140, 180, 53, 50);
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/2.png"))); // NOI18N
         jPanel3.add(jLabel18);
-        jLabel18.setBounds(200, 160, 53, 50);
+        jLabel18.setBounds(240, 180, 53, 50);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/1.png"))); // NOI18N
         jPanel3.add(jLabel13);
-        jLabel13.setBounds(200, 20, 53, 50);
+        jLabel13.setBounds(240, 40, 53, 50);
 
         jButton5.setBackground(new java.awt.Color(158, 216, 242));
         jButton5.setForeground(new java.awt.Color(158, 216, 242));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/Close3.png"))); // NOI18N
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.setOpaque(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
         jPanel3.add(jButton5);
-        jButton5.setBounds(20, 160, 60, 50);
+        jButton5.setBounds(40, 180, 60, 50);
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/2.png"))); // NOI18N
         jPanel3.add(jLabel16);
-        jLabel16.setBounds(200, 90, 53, 50);
+        jLabel16.setBounds(240, 110, 53, 50);
 
         jButton4.setText("Finalizar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -313,39 +318,44 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton4);
-        jButton4.setBounds(180, 230, 90, 30);
+        jButton4.setBounds(280, 240, 90, 30);
 
         jButton13.setBackground(new java.awt.Color(158, 216, 242));
         jButton13.setForeground(new java.awt.Color(158, 216, 242));
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/1411846837_cannon.png"))); // NOI18N
         jButton13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton13.setOpaque(false);
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
             }
         });
         jPanel3.add(jButton13);
-        jButton13.setBounds(20, 20, 60, 50);
+        jButton13.setBounds(40, 40, 60, 50);
 
         jButton14.setBackground(new java.awt.Color(158, 216, 242));
         jButton14.setForeground(new java.awt.Color(158, 216, 242));
         jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/dice.png"))); // NOI18N
         jButton14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton14.setOpaque(false);
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton14ActionPerformed(evt);
             }
         });
         jPanel3.add(jButton14);
-        jButton14.setBounds(20, 90, 60, 50);
+        jButton14.setBounds(40, 110, 60, 50);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/war_brasil4.png"))); // NOI18N
-        jLabel8.setText("jLabel8");
+        jLabel11.setText("Ataque");
+        jPanel3.add(jLabel11);
+        jLabel11.setBounds(140, 10, 70, 17);
+
+        jLabel12.setText("Defesa");
+        jPanel3.add(jLabel12);
+        jLabel12.setBounds(240, 10, 70, 17);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         jLabel8.setOpaque(true);
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(0, 0, 290, 270);
+        jLabel8.setBounds(0, 0, 400, 280);
 
         jTabbedPane1.addTab("Atacar", jPanel3);
 
@@ -360,14 +370,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton3);
-        jButton3.setBounds(160, 50, 60, 50);
+        jButton3.setBounds(60, 100, 60, 50);
         jPanel4.add(jSpinner1);
-        jSpinner1.setBounds(190, 130, 50, 30);
+        jSpinner1.setBounds(200, 120, 70, 30);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Número De Exércitos:");
         jPanel4.add(jLabel9);
-        jLabel9.setBounds(30, 120, 170, 40);
+        jLabel9.setBounds(160, 80, 170, 40);
 
         jButton11.setText("Finalizar");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -376,7 +386,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton11);
-        jButton11.setBounds(180, 230, 90, 30);
+        jButton11.setBounds(280, 240, 90, 30);
 
         jButton15.setBackground(new java.awt.Color(158, 216, 242));
         jButton15.setForeground(new java.awt.Color(158, 216, 242));
@@ -389,11 +399,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton15);
-        jButton15.setBounds(70, 50, 60, 50);
+        jButton15.setBounds(60, 30, 60, 50);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/war_brasil4.png"))); // NOI18N
+        jButton43.setBackground(new java.awt.Color(158, 216, 242));
+        jButton43.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jButton43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/cancelar.png"))); // NOI18N
+        jButton43.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton43.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jButton43.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        jButton43.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton43ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton43);
+        jButton43.setBounds(60, 170, 60, 50);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         jPanel4.add(jLabel5);
-        jLabel5.setBounds(0, 0, 290, 270);
+        jLabel5.setBounds(0, 0, 400, 280);
 
         jTabbedPane1.addTab("Mover", jPanel4);
 
@@ -412,11 +436,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton2);
-        jButton2.setBounds(20, 20, 80, 80);
+        jButton2.setBounds(40, 20, 80, 80);
 
         jButton6.setText("Trocar");
         jPanel2.add(jButton6);
-        jButton6.setBounds(30, 140, 90, 30);
+        jButton6.setBounds(130, 240, 90, 30);
 
         jButton12.setText("Finalizar Turno");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -425,22 +449,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton12);
-        jButton12.setBounds(150, 230, 120, 30);
+        jButton12.setBounds(250, 240, 120, 30);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/war_brasil4.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(0, 0, 290, 270);
+        jLabel10.setBounds(0, 0, 390, 280);
 
         jTabbedPane1.addTab("Cartas", jPanel2);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 290, 300));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 375, 300));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 300, 290, 20));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 300, 378, 20));
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(608, 0, 20, 470));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1125, 0, 10, 480));
 
         jButton17.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jButton17.setText("1");
@@ -557,10 +581,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton39.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jButton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 40, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mapa.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
+        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(748, 0, 20, 470));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mapa.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 580));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 580));
 
         jMenu1.setText("Arquivo");
 
@@ -675,6 +703,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton42ActionPerformed
 
+    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton43ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -716,6 +748,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton42;
+    private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -723,6 +756,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -752,6 +787,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable2;

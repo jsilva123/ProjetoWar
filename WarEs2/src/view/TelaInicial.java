@@ -86,11 +86,11 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nome Jogador 2:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 120, 40));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 120, 40));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cor:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 90, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 90, 20));
 
         jButton1.setText("Iniciar Partida");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -98,10 +98,10 @@ public class TelaInicial extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 530, 140, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 540, 140, 30));
 
         jTextField1.setEnabled(false);
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, 210, -1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, 210, -1));
 
         jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setText("Jogador X Cpu");
@@ -110,7 +110,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 jRadioButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
+        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3", "4", "5", "6" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +118,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 jComboBox2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 80, 30));
+        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 80, 30));
 
         jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setText("Jogador X Jogador");
@@ -127,16 +127,16 @@ public class TelaInicial extends javax.swing.JFrame {
                 jRadioButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, -1, -1));
+        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, -1, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Modo de Jogo: ");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 120, 20));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 120, 20));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Número de Jogadores:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, -1, 30));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 210, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, 30));
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 210, -1));
 
         jTextField3.setEnabled(false);
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -144,30 +144,30 @@ public class TelaInicial extends javax.swing.JFrame {
                 jTextField3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 210, -1));
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 420, 210, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nome Jogador 4:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 380, 120, 40));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, 120, 40));
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione uma cor", "Vermelho", "Amarelo", "Verde", "Azul", "Preto", "Branco" }));
-        jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 210, 30));
+        jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 210, 30));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Cor:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 90, 20));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, 90, 20));
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Nome Jogador 3:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 120, 40));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 120, 40));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Cor:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 90, 20));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 350, 90, 20));
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione uma cor", "Vermelho", "Amarelo", "Verde", "Azul", "Preto", "Branco" }));
         jComboBox4.setEnabled(false);
-        jPanel1.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 510, 210, 30));
+        jPanel1.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, 210, 30));
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione uma cor", "Vermelho", "Amarelo", "Verde", "Azul", "Preto", "Branco" }));
         jComboBox5.addActionListener(new java.awt.event.ActionListener() {
@@ -175,76 +175,76 @@ public class TelaInicial extends javax.swing.JFrame {
                 jComboBox5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, 210, 30));
+        jPanel1.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 210, 30));
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione uma cor", "Vermelho", "Amarelo", "Verde", "Azul", "Preto", "Branco" }));
-        jPanel1.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 210, 30));
+        jPanel1.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 210, 30));
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Nome Jogador 1:");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 120, 40));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 120, 40));
 
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Nome Jogador 5:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, 120, 40));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, 120, 40));
 
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Nome Jogador 6:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, 120, 40));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 120, 40));
 
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Cor:");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 90, 20));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 90, 20));
 
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Cor:");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 90, 20));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 90, 20));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Cor:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 90, 20));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 490, 10));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 450, 90, 20));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 490, 10));
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 210, 40, 350));
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 560, 490, 20));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 220, 40, 350));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 570, 490, 20));
 
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 40, 110));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 490, 20));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 490, 20));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 40, 110));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 490, 20));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 490, 20));
 
         jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 40, 350));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 40, 350));
 
         jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, 20, 110));
+        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 80, 20, 110));
 
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Opçôes De Jogo:");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 140, 40));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 140, 40));
 
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Opçôes Jogadores:");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 140, 40));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 210, -1));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 140, 40));
+        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 210, -1));
 
         jTextField5.setEnabled(false);
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, 210, -1));
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 210, -1));
+        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 520, 210, -1));
+        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 210, -1));
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione uma cor", "Vermelho", "Amarelo", "Verde", "Azul", "Preto", "Branco" }));
         jComboBox7.setEnabled(false);
-        jPanel1.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 210, 30));
+        jPanel1.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, 210, 30));
 
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione uma cor", "Vermelho", "Amarelo", "Verde", "Azul", "Preto", "Branco" }));
         jComboBox8.setEnabled(false);
-        jPanel1.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 460, 210, 30));
+        jPanel1.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, 210, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/Tela inicial.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 580));
 
         jMenu1.setText("Arquivo");
 
