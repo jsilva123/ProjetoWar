@@ -1,14 +1,25 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Regiao {
 
-    private String nome;
-    private int bonusExercito;
-    private ArrayList<Estado> estados;
+    private final ConstantesRegioes constantes; 
+    private final int bonusExercito;
 
-    public Regiao() {
-    
+    public Regiao(int bonusExercito, ConstantesRegioes constantes) {
+        this.constantes = constantes;
+        this.bonusExercito = bonusExercito;
     }
+    
+    public int getBonusExercito(){
+        return bonusExercito;
+    }
+    
+    public String getNome(){
+        return constantes.getNome();
+    }
+    
+    public Estado[] getEstados(){
+        return constantes.getEstados();
+    }
+    
 }

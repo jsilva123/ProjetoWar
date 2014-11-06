@@ -1,25 +1,17 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Estado {
 
-    private NomesEstados nome;
+    private final ConstantesEstados constantes;
     private int numeroExercitos;
-    private ArrayList<Estado> vizinhos;
 
-    public Estado(int numeroExercitos, NomesEstados nome, ArrayList<Estado> vizinhos) {
-        this.numeroExercitos = numeroExercitos;
-        this.nome = nome;
-        this.vizinhos = vizinhos;
+    public Estado(ConstantesEstados constantes) {
+        this.numeroExercitos = 1;
+        this.constantes = constantes;
     }
 
-    public NomesEstados getNome() {
-        return nome;
-    }
-
-    public void setNome(NomesEstados nome) {
-        this.nome = nome;
+    public String getNome() {
+        return constantes.getNome();
     }
 
     public int getNumeroExercitos() {
@@ -30,12 +22,8 @@ public class Estado {
         this.numeroExercitos = numeroExercitos;
     }
 
-    public ArrayList<Estado> getVizinhos() {
-        return vizinhos;
-    }
-
-    public void setVizinhos(ArrayList<Estado> vizinhos) {
-        this.vizinhos = vizinhos;
+    public int[] getVizinhos() {
+        return constantes.getVizinhos();
     }
 
 }

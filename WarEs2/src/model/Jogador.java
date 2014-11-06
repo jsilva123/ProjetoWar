@@ -13,7 +13,7 @@ public class Jogador {
     private ArrayList<CartaTerritorio> cartasTerritorio;
     
     public Jogador(){
-        
+       
     }
 
     public String getNome() {

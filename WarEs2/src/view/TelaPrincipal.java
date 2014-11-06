@@ -266,7 +266,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel4.setText("Total de Exércitos: 15");
         jPanel5.add(jLabel4);
-        jLabel4.setBounds(120, 10, 160, 14);
+        jLabel4.setBounds(120, 10, 160, 15);
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         jPanel5.add(jLabel19);
@@ -348,15 +348,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel11.setText("Rio de janeiro");
         jPanel3.add(jLabel11);
-        jLabel11.setBounds(130, 30, 80, 14);
+        jLabel11.setBounds(130, 30, 80, 15);
 
         jLabel12.setText("Minas Gerais");
         jPanel3.add(jLabel12);
-        jLabel12.setBounds(270, 30, 90, 14);
+        jLabel12.setBounds(270, 30, 90, 15);
 
         jLabel20.setText("X");
         jPanel3.add(jLabel20);
-        jLabel20.setBounds(230, 30, 20, 14);
+        jLabel20.setBounds(230, 30, 20, 15);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         jLabel8.setOpaque(true);

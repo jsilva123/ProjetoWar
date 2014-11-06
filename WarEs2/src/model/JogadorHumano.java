@@ -10,6 +10,6 @@ package model;
  *
  * @author Felipe
  */
-public class JogadorHumano {
+public class JogadorHumano extends Jogador{
     
 }
