@@ -7,7 +7,7 @@ package Controller;
 
 import java.util.ArrayList;
 import java.util.Random;
-import model.CartaTerritorio;
+import model.CartaEstado;
 import model.ConstantesEstados;
 import model.Jogador;
 
@@ -17,23 +17,23 @@ import model.Jogador;
  */
 public class DistribuiTerritorio {
 
-    private ArrayList<CartaTerritorio> baralhoTerritorio;
+    private ArrayList<CartaEstado> baralhoTerritorio;
 
     public void geraBaralho() {
         Random random = new Random();
         int indice;
         baralhoTerritorio = new ArrayList<>(24);
-        CartaTerritorio carta;
+        CartaEstado carta;
         for (ConstantesEstados e : ConstantesEstados.values()) {
-            carta = new CartaTerritorio(e);
+            //carta = new CartaEstado(e);
             if (baralhoTerritorio.isEmpty()) {
-                baralhoTerritorio.add(random.nextInt(25) + 1, carta);
+               // baralhoTerritorio.add(random.nextInt(25) + 1, carta);
             } else {
                 do {
                     indice = random.nextInt(25) + 1;
                 } while (baralhoTerritorio.get(indice) == null);
 
-                baralhoTerritorio.add(indice, carta);
+               // baralhoTerritorio.add(indice, carta);
             }
 
         }
@@ -57,7 +57,7 @@ public class DistribuiTerritorio {
 
     }
 
-    public ArrayList<CartaTerritorio> getBaralhoTerritorio() {
+    public ArrayList<CartaEstado> getBaralhoTerritorio() {
         return baralhoTerritorio;
     }
 

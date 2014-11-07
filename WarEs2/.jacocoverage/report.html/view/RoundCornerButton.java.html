@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RoundCornerButton.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;WarEs2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">view</a> &gt; <span class="el_source">RoundCornerButton.java</span></div><h1>RoundCornerButton.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package view;
+
+import java.awt.Color;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
+import javax.swing.JButton;
+
+/**
+ *
+ * @author Felipe
+ */
+public class RoundCornerButton extends JButton {
+  private static final float arcwidth  = 16.0f;
+  private static final float archeight = 16.0f;
+  protected static final int focusstroke = 2;
+<span class="nc" id="L26">  protected final Color fc = new Color(100,150,255,200);</span>
+<span class="nc" id="L27">  protected final Color ac = new Color(230,230,230);</span>
+<span class="nc" id="L28">  protected final Color rc = Color.ORANGE;</span>
+  protected Shape shape;
+  protected Shape border;
+  protected Shape base;
+  public RoundCornerButton(String text) {
+<span class="nc" id="L33">    super(text);</span>
+    //setRolloverEnabled(true);
+<span class="nc" id="L35">    setContentAreaFilled(false);</span>
+<span class="nc" id="L36">    setBackground(new Color(250, 250, 250));</span>
+<span class="nc" id="L37">    initShape();</span>
+<span class="nc" id="L38">  }</span>
+  protected void initShape() {
+<span class="nc bnc" id="L40" title="All 2 branches missed.">    if(!getBounds().equals(base)) {</span>
+<span class="nc" id="L41">      base = getBounds();</span>
+<span class="nc" id="L42">      shape = new RoundRectangle2D.Float(0, 0,</span>
+<span class="nc" id="L43">                        getWidth()-1, getHeight()-1,</span>
+                        arcwidth, archeight);
+<span class="nc" id="L45">      border = new RoundRectangle2D.Float(focusstroke, focusstroke,</span>
+<span class="nc" id="L46">                        getWidth()-1-focusstroke*2,</span>
+<span class="nc" id="L47">                        getHeight()-1-focusstroke*2,</span>
+                        arcwidth, archeight);
+    }
+<span class="nc" id="L50">  }</span>
+  @Override protected void paintComponent(Graphics g) {
+<span class="nc" id="L52">    initShape();</span>
+<span class="nc" id="L53">    Graphics2D g2 = (Graphics2D)g;</span>
+<span class="nc" id="L54">    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,</span>
+                        RenderingHints.VALUE_ANTIALIAS_ON);
+<span class="nc bnc" id="L56" title="All 2 branches missed.">    if(getModel().isArmed()) {</span>
+<span class="nc" id="L57">      g2.setColor(ac);</span>
+<span class="nc" id="L58">      g2.fill(shape);</span>
+<span class="nc bnc" id="L59" title="All 4 branches missed.">    }else if(isRolloverEnabled() &amp;&amp; getModel().isRollover()) {</span>
+<span class="nc" id="L60">      paintFocusAndRollover(g2, rc);</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">    }else if(hasFocus()) {</span>
+<span class="nc" id="L62">      paintFocusAndRollover(g2, fc);</span>
+    }else{
+<span class="nc" id="L64">      g2.setColor(getBackground());</span>
+<span class="nc" id="L65">      g2.fill(shape);</span>
+    }
+<span class="nc" id="L67">    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,</span>
+                        RenderingHints.VALUE_ANTIALIAS_OFF);
+<span class="nc" id="L69">    g2.setColor(getBackground());</span>
+<span class="nc" id="L70">    super.paintComponent(g2);</span>
+<span class="nc" id="L71">  }</span>
+  private void paintFocusAndRollover(Graphics2D g2, Color color) {
+<span class="nc" id="L73">    g2.setPaint(new GradientPaint(0, 0, color,</span>
+<span class="nc" id="L74">                                  getWidth()-1, getHeight()-1, color.brighter(), true));</span>
+<span class="nc" id="L75">    g2.fill(shape);</span>
+<span class="nc" id="L76">    g2.setColor(getBackground());</span>
+<span class="nc" id="L77">    g2.fill(border);</span>
+<span class="nc" id="L78">  }</span>
+  @Override protected void paintBorder(Graphics g) {
+<span class="nc" id="L80">    initShape();</span>
+<span class="nc" id="L81">    Graphics2D g2 = (Graphics2D)g;</span>
+<span class="nc" id="L82">    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,</span>
+                        RenderingHints.VALUE_ANTIALIAS_ON);
+<span class="nc" id="L84">    g2.setColor(getForeground());</span>
+<span class="nc" id="L85">    g2.draw(shape);</span>
+<span class="nc" id="L86">    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,</span>
+                        RenderingHints.VALUE_ANTIALIAS_OFF);
+<span class="nc" id="L88">  }</span>
+  @Override public boolean contains(int x, int y) {
+<span class="nc" id="L90">    initShape();</span>
+<span class="nc" id="L91">    return shape.contains(x, y);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

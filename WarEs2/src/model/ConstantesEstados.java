@@ -52,5 +52,5 @@ public enum ConstantesEstados {
     public int[] getVizinhos(){
         return vizinhos;
     }
-
+    
 }

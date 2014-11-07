@@ -10,6 +10,10 @@ public class Estado {
         this.constantes = constantes;
     }
 
+    public int getIdEstado(){
+        return constantes.getIdEstado();
+    }
+    
     public String getNome() {
         return constantes.getNome();
     }

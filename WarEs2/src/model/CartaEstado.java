@@ -1,17 +1,23 @@
 package model;
 
-public class CartaTerritorio extends Carta{
+public class CartaEstado extends Carta{
  
+    private int idCartaEstado;
     private String simbolo;
     private ConstantesEstados territorio;
     
-    public CartaTerritorio(ConstantesEstados t){
+    public CartaEstado(ConstantesEstados t,String simbolo, int idCartaEstado){
         territorio = ConstantesEstados.ACRE;
-        
+        this.simbolo = simbolo;
+        this.idCartaEstado = idCartaEstado;
     }
 
     public String getSimbolo() {
         return simbolo;
+    }
+    
+    public int getIdCartaEstado(){
+        return idCartaEstado;
     }
 
     public void setSimbolo(String simbolo) {

@@ -8,9 +8,9 @@ public class Jogador {
      
     private String nome;
     private Color cor;
-    private ArrayList<Estado> estados;
+    private ArrayList<Integer> estados;
     private CartaObjetivo Cartaobjetivo;
-    private ArrayList<CartaTerritorio> cartasTerritorio;
+    private ArrayList<CartaEstado> cartasTerritorio;
     
     public Jogador(){
        
@@ -40,10 +40,12 @@ public class Jogador {
         this.Cartaobjetivo = Cartaobjetivo;
     }
 
-    public ArrayList<CartaTerritorio> getCartasTerritorio() {
+    public ArrayList<CartaEstado> getCartasTerritorio() {
         return cartasTerritorio;
     }
 
-    
+    public ArrayList<Integer> getEstados(){
+        return estados;
+    }
     
 }
