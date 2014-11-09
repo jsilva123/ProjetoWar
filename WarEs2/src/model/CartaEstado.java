@@ -1,18 +1,22 @@
 package model;
 
-public class CartaEstado extends Carta{
+public class CartaEstado implements Carta{
  
-    private int idCartaEstado;
-    private String simbolo;
-    private ConstantesEstados territorio;
+    // 1 = quadrado
+    // 2 = triangulo
+    // 3 = circulo
     
-    public CartaEstado(ConstantesEstados t,String simbolo, int idCartaEstado){
-        territorio = ConstantesEstados.ACRE;
+    private final int idCartaEstado;
+    private int simbolo;
+    private ConstantesEstados estado;
+    
+    public CartaEstado(ConstantesEstados estado,int simbolo, int idCartaEstado){
+        this.estado = estado;
         this.simbolo = simbolo;
         this.idCartaEstado = idCartaEstado;
     }
 
-    public String getSimbolo() {
+    public int getSimbolo() {
         return simbolo;
     }
     
@@ -20,16 +24,41 @@ public class CartaEstado extends Carta{
         return idCartaEstado;
     }
 
-    public void setSimbolo(String simbolo) {
+    public void setSimbolo(int simbolo) {
         this.simbolo = simbolo;
     }
 
-    public ConstantesEstados getTerritorio() {
-        return territorio;
+    public ConstantesEstados getEstado() {
+        return estado;
     }
 
-    public void setTerritorio(ConstantesEstados territorio) {
-        this.territorio = territorio;
+    public void setTerritorio(ConstantesEstados estado) {
+        this.estado = estado;
+    }
+
+    @Override
+    public int getIdCarta() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getNome() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setNome(String nome) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getDescricao() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setDescricao(String descricao) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

@@ -1,27 +1,15 @@
 package model;
 
-public class Carta {
-    
-    private String nome;
-    private String descricao;
+public interface Carta {
 
-    public Carta() {
-    }
-    
-    public String getNome() {
-        return nome;
-    }
+    public int getIdCarta();
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public String getNome();
 
-    public String getDescricao() {
-        return descricao;
-    }
+    public void setNome(String nome);
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+    public String getDescricao();
+
+    public void setDescricao(String descricao);
 
 }

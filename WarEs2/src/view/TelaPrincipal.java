@@ -265,7 +265,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel4.setText("Total de Exércitos: 15");
         jPanel5.add(jLabel4);
-        jLabel4.setBounds(120, 10, 160, 15);
+        jLabel4.setBounds(120, 10, 160, 17);
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         jPanel5.add(jLabel19);
@@ -276,25 +276,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setLayout(null);
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/1 vermelho.png"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima1v.gif"))); // NOI18N
         jPanel3.add(jLabel14);
-        jLabel14.setBounds(130, 60, 53, 50);
+        jLabel14.setBounds(120, 70, 70, 70);
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/2 vermelho.png"))); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima2v.gif"))); // NOI18N
         jPanel3.add(jLabel15);
-        jLabel15.setBounds(220, 60, 53, 50);
+        jLabel15.setBounds(190, 70, 70, 70);
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/1 vermelho.png"))); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima3v.gif"))); // NOI18N
         jPanel3.add(jLabel17);
-        jLabel17.setBounds(310, 60, 53, 50);
+        jLabel17.setBounds(260, 70, 70, 70);
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/2.png"))); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima3.gif"))); // NOI18N
         jPanel3.add(jLabel18);
-        jLabel18.setBounds(310, 140, 53, 50);
+        jLabel18.setBounds(260, 150, 80, 70);
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/1.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima2.gif"))); // NOI18N
         jPanel3.add(jLabel13);
-        jLabel13.setBounds(220, 130, 70, 70);
+        jLabel13.setBounds(190, 150, 70, 70);
 
         jButton5.setBackground(new java.awt.Color(158, 216, 242));
         jButton5.setForeground(new java.awt.Color(158, 216, 242));
@@ -308,9 +308,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel3.add(jButton5);
         jButton5.setBounds(40, 180, 60, 50);
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/2.png"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima1.gif"))); // NOI18N
         jPanel3.add(jLabel16);
-        jLabel16.setBounds(130, 130, 70, 70);
+        jLabel16.setBounds(120, 150, 70, 70);
 
         jButton4.setText("Finalizar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -347,15 +347,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel11.setText("Rio de janeiro");
         jPanel3.add(jLabel11);
-        jLabel11.setBounds(130, 30, 80, 15);
+        jLabel11.setBounds(130, 30, 80, 17);
 
         jLabel12.setText("Minas Gerais");
         jPanel3.add(jLabel12);
-        jLabel12.setBounds(270, 30, 90, 15);
+        jLabel12.setBounds(270, 30, 90, 17);
 
         jLabel20.setText("X");
         jPanel3.add(jLabel20);
-        jLabel20.setBounds(230, 30, 20, 15);
+        jLabel20.setBounds(230, 30, 20, 17);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         jLabel8.setOpaque(true);

@@ -9,13 +9,24 @@ public class Jogador {
     private String nome;
     private Color cor;
     private ArrayList<Integer> estados;
+    private boolean ultimoJogador;
     private CartaObjetivo Cartaobjetivo;
     private ArrayList<CartaEstado> cartasTerritorio;
     
     public Jogador(){
-       
+       this.ultimoJogador = false;
     }
 
+    public boolean isUltimoJogador() {
+        return ultimoJogador;
+    }
+
+    public void setUltimoJogador(boolean ultimoJogador) {
+        this.ultimoJogador = ultimoJogador;
+    }
+
+    
+    
     public String getNome() {
         return nome;
     }
