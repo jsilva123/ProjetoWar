@@ -5,6 +5,7 @@ public class CartaEstado implements Carta{
     // 1 = quadrado
     // 2 = triangulo
     // 3 = circulo
+    // 4 = coringa
     
     private final int idCartaEstado;
     private int simbolo;
@@ -12,6 +13,15 @@ public class CartaEstado implements Carta{
     
     public CartaEstado(ConstantesEstados estado,int simbolo, int idCartaEstado){
         this.estado = estado;
+        this.simbolo = simbolo;
+        this.idCartaEstado = idCartaEstado;
+    }
+    /**
+     * construtor para carta CORINGA
+     * @param simbolo
+     * @param idCartaEstado 
+     */
+    public CartaEstado(int simbolo, int idCartaEstado){
         this.simbolo = simbolo;
         this.idCartaEstado = idCartaEstado;
     }
