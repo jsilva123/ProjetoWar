@@ -188,7 +188,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jTable2.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 330, 300, 130));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 330, 300, 130));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Jogando:");
@@ -638,6 +638,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         int numDado = new Random().nextInt(6);
         jTable2.setRowSelectionInterval(numDado,numDado);
+        jTable2.setSelectionBackground(Color.RED);
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
