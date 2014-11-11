@@ -53,4 +53,12 @@ public enum ConstantesEstados {
         return vizinhos;
     }
     
+    public static ConstantesEstados getConstantesPorId(int idEstado){
+        for(ConstantesEstados c : ConstantesEstados.values()){
+            if (c.getIdEstado() == idEstado)
+                return c;
+        }
+        return ConstantesEstados.ACRE;
+    }
+    
 }

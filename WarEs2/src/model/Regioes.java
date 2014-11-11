@@ -2,45 +2,45 @@ package model;
 
 public enum Regioes {
 
-    NORTE(1, "Norte", 4, new Estado[]{
-        new Estado(ConstantesEstados.ACRE),
-        new Estado(ConstantesEstados.RONDONIA),
-        new Estado(ConstantesEstados.AMAZONAS),
-        new Estado(ConstantesEstados.RORAIMA),
-        new Estado(ConstantesEstados.AMAPA),
-        new Estado(ConstantesEstados.PARA),
-        new Estado(ConstantesEstados.TOCANTINS)}),
-    NORDESTE(2, "Nordeste", 5, new Estado[]{
-        new Estado(ConstantesEstados.MARANHAO),
-        new Estado(ConstantesEstados.PIAUI),
-        new Estado(ConstantesEstados.BAHIA),
-        new Estado(ConstantesEstados.SERGIPE),
-        new Estado(ConstantesEstados.ALAGOAS),
-        new Estado(ConstantesEstados.PERNAMBUCO),
-        new Estado(ConstantesEstados.RIOGRANDEDONORTE),
-        new Estado(ConstantesEstados.CEARA),
-        new Estado(ConstantesEstados.PARAIBA)}),
-    CENTROOESTE(3, "Centro Oeste", 4, new Estado[]{
-        new Estado(ConstantesEstados.MATOGROSSO),
-        new Estado(ConstantesEstados.MATOGROSSODOSUL),
-        new Estado(ConstantesEstados.GOIAS),
-        new Estado(ConstantesEstados.DISTRITOFEDERAL)}),
-    SUDESTE(4, "Sudeste", 3, new Estado[]{
-        new Estado(ConstantesEstados.RIODEJANEIRO),
-        new Estado(ConstantesEstados.SAOPAULO),
-        new Estado(ConstantesEstados.MINASGERAIS),
-        new Estado(ConstantesEstados.ESPIRITOSANTO)}),
-    SUL(5, "Sul", 2, new Estado[]{
-        new Estado(ConstantesEstados.SANTACATARINA),
-        new Estado(ConstantesEstados.RIOGRANDEDOSUL),
-        new Estado(ConstantesEstados.PARANA)});
+    NORTE(1, "Norte", 4, new ConstantesEstados[]{
+        ConstantesEstados.ACRE,
+        ConstantesEstados.RONDONIA,
+        ConstantesEstados.AMAZONAS,
+        ConstantesEstados.RORAIMA,
+        ConstantesEstados.AMAPA,
+        ConstantesEstados.PARA,
+        ConstantesEstados.TOCANTINS}),
+    NORDESTE(2, "Nordeste", 5, new ConstantesEstados[]{
+        ConstantesEstados.MARANHAO,
+        ConstantesEstados.PIAUI,
+        ConstantesEstados.BAHIA,
+        ConstantesEstados.SERGIPE,
+        ConstantesEstados.ALAGOAS,
+        ConstantesEstados.PERNAMBUCO,
+        ConstantesEstados.RIOGRANDEDONORTE,
+        ConstantesEstados.CEARA,
+        ConstantesEstados.PARAIBA}),
+    CENTROOESTE(3, "Centro Oeste", 4, new ConstantesEstados[]{
+        ConstantesEstados.MATOGROSSO,
+        ConstantesEstados.MATOGROSSODOSUL,
+        ConstantesEstados.GOIAS,
+        ConstantesEstados.DISTRITOFEDERAL}),
+    SUDESTE(4, "Sudeste", 3, new ConstantesEstados[]{
+        ConstantesEstados.RIODEJANEIRO,
+        ConstantesEstados.SAOPAULO,
+        ConstantesEstados.MINASGERAIS,
+        ConstantesEstados.ESPIRITOSANTO}),
+    SUL(5, "Sul", 2, new ConstantesEstados[]{
+        ConstantesEstados.SANTACATARINA,
+        ConstantesEstados.RIOGRANDEDOSUL,
+        ConstantesEstados.PARANA});
 
     private final int idRegiao;
     private final String nome;
-    private final Estado[] estados;
+    private final ConstantesEstados[] estados;
     private final int bonusExercito;
 
-    private Regioes(int id, String nome, int bonusExercito, Estado[] estados) {
+    private Regioes(int id, String nome, int bonusExercito, ConstantesEstados[] estados) {
         this.idRegiao = id;
         this.nome = nome;
         this.bonusExercito = bonusExercito;
@@ -55,7 +55,7 @@ public enum Regioes {
         return nome;
     }
 
-    public Estado[] getEstados() {
+    public ConstantesEstados[] getEstados() {
         return estados;
     }
 

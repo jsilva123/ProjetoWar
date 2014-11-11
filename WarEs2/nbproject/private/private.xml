@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/felipe/git/ProjetoWar/WarEs2/src/model/JogadorHumano.java</file>
-            <file>file:/home/felipe/git/ProjetoWar/WarEs2/src/model/CartaEstado.java</file>
-            <file>file:/home/felipe/git/ProjetoWar/WarEs2/src/model/Carta.java</file>
-            <file>file:/home/felipe/git/ProjetoWar/WarEs2/src/view/TelaPrincipal.java</file>
+            <file>file:/home/felipe/git/ProjetoWar/WarEs2/src/model/Turno.java</file>
+            <file>file:/home/felipe/git/ProjetoWar/WarEs2/src/model/Estado.java</file>
+            <file>file:/home/felipe/git/ProjetoWar/WarEs2/src/model/ConstantesEstados.java</file>
+            <file>file:/home/felipe/git/ProjetoWar/WarEs2/src/model/War.java</file>
+            <file>file:/home/felipe/git/ProjetoWar/WarEs2/src/Controller/IniciaJogo.java</file>
+            <file>file:/home/felipe/git/ProjetoWar/WarEs2/src/Controller/WarController.java</file>
             <file>file:/home/felipe/git/ProjetoWar/WarEs2/src/model/Regioes.java</file>
-            <file>file:/home/felipe/git/ProjetoWar/WarEs2/src/model/CartaObjetivo.java</file>
             <file>file:/home/felipe/git/ProjetoWar/WarEs2/src/model/Jogador.java</file>
         </group>
     </open-files>

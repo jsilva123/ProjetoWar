@@ -5,9 +5,9 @@ public class Estado {
     private final ConstantesEstados constantes;
     private int numeroExercitos;
 
-    public Estado(ConstantesEstados constantes) {
+    public Estado(ConstantesEstados constante) {
         this.numeroExercitos = 1;
-        this.constantes = constantes;
+        this.constantes = constante;
     }
 
     public int getIdEstado(){
@@ -28,6 +28,14 @@ public class Estado {
 
     public int[] getVizinhos() {
         return constantes.getVizinhos();
+    }
+    
+    public void ganhaExercitos(int quantidade){
+        numeroExercitos = numeroExercitos + quantidade;
+    }
+    
+    public void perdeExercitos(int quantidade){
+        numeroExercitos = numeroExercitos - quantidade;
     }
 
 }
