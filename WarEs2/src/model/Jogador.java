@@ -80,14 +80,36 @@ public class Jogador {
         });
     }
 
+    public int getTotalDeExercitos() {
+        int total = 0;
+        total = estados.stream().map((estado) -> estado.getNumeroExercitos()).reduce(total, Integer::sum);
+        return total;
+    }
+
     public int getNumExercitoNoEstado(int idEstado) {
-       int numeroExercito = 0;
+        int numeroExercito = 0;
         for (Estado estado : estados) {
             if (estado.getIdEstado() == idEstado) {
                 numeroExercito = estado.getNumeroExercitos();
-            } 
+            }
         }
-       return numeroExercito;
+        return numeroExercito;
+    }
+
+    public String nomeDaCor() {
+        if (getCor() == Color.RED) {
+            return "Vermelho";
+        } else if (getCor() == Color.BLACK) {
+            return "Preto";
+        } else if (getCor() == Color.WHITE) {
+            return "Branco";
+        } else if (getCor() == Color.GREEN) {
+            return "Verde";
+        } else if (getCor() == Color.YELLOW) {
+            return "Amarelo";
+        } else {
+            return "Azul";
+        }
     }
 
 }

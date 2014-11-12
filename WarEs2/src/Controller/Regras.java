@@ -33,19 +33,8 @@ public class Regras {
      * @param j
      * @return - retorna os estador a terem os exercitos aumentados
      */
-    public ArrayList<Integer> verificaPossuiEstadoCarta(CartaEstado c1, CartaEstado c2, CartaEstado c3, Jogador j) {
-        ArrayList<Integer> retorno = new ArrayList<>();
-        if (j.getEstados().contains(c1.getIdCartaEstado())) {
-            retorno.add(c1.getIdCartaEstado());
-        }
-        if (j.getEstados().contains(c2.getIdCartaEstado())) {
-            retorno.add(c2.getIdCartaEstado());
-        }
-        if (j.getEstados().contains(c3.getIdCartaEstado())) {
-            retorno.add(c3.getIdCartaEstado());
-        }
-
-        return retorno;
+    public boolean verificaPossuiEstadoCarta(CartaEstado c1, Jogador j) {
+        return j.getEstados().stream().anyMatch((estado) -> (estado.getIdEstado()== c1.getIdCartaEstado()));
     }
 
     /**
@@ -120,7 +109,7 @@ public class Regras {
      */
     public void atualizaAposConquista(Jogador vencedor, Jogador perdedor, Estado conquistado, Estado atacante, int qtdDeslocamento) {
         conquistado.setNumeroExercitos(qtdDeslocamento);
-        atacante.setNumeroExercitos(atacante.getNumeroExercitos() - qtdDeslocamento);
+        atacante.perdeExercitos(qtdDeslocamento);
         vencedor.getEstados().add(conquistado);
         perdedor.getEstados().remove(conquistado);
 

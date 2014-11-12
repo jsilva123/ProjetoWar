@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.util.ArrayList;
 import model.CartaEstado;
 import model.CartaObjetivo;
-import model.ConstantesEstados;
 import model.Estado;
 import model.Jogador;
 

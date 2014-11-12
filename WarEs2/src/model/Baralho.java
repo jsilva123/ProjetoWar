@@ -13,6 +13,8 @@ public class Baralho {
     public Baralho(int numObjetivos, int numTerritorios){
         this.numObjetivos = numObjetivos;
         this.numTerritorios = numTerritorios;
+        cartasEstados = new ArrayList<>();
+        cartasObjetivos = new ArrayList<>();
         criaCartasObjetivo();
         criaCartasTerritorio();
     }
