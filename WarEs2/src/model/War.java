@@ -11,6 +11,7 @@ public class War {
     private int numeroJogadores;
     private int numeroTerritorios;
     private ArrayList<Jogador> jogadores;
+    private Turno turno;
     
     public War(int numeroJodagores){
         this.fimDeJogo = false;
@@ -35,22 +36,16 @@ public class War {
         
     }
     
-    
-    
-    
-    
-    
-    
-    public void primeiraRodada(){
         
-        for (int i = 0; i < jogadores.size(); i++) {
-            if (jogadores.get(i).isUltimoJogador()){
-                
-                
-                
-            }
-            
-        }
+        
+        
+        
+        
+        
+    public void primeiraRodada(){
+        turno.getJogadorCorrente();
+        
+        
          
     }
     
