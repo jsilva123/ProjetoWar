@@ -35,14 +35,14 @@ public class Regras {
      */
     public ArrayList<Integer> verificaPossuiEstadoCarta(CartaEstado c1, CartaEstado c2, CartaEstado c3, Jogador j) {
         ArrayList<Integer> retorno = new ArrayList<>();
-        if (j.getEstados().contains(c1.getIdCarta())) {
-            retorno.add(c1.getIdCarta());
+        if (j.getEstados().contains(c1.getIdCartaEstado())) {
+            retorno.add(c1.getIdCartaEstado());
         }
-        if (j.getEstados().contains(c2.getIdCarta())) {
-            retorno.add(c2.getIdCarta());
+        if (j.getEstados().contains(c2.getIdCartaEstado())) {
+            retorno.add(c2.getIdCartaEstado());
         }
-        if (j.getEstados().contains(c3.getIdCarta())) {
-            retorno.add(c3.getIdCarta());
+        if (j.getEstados().contains(c3.getIdCartaEstado())) {
+            retorno.add(c3.getIdCartaEstado());
         }
 
         return retorno;

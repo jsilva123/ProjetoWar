@@ -3,7 +3,6 @@ package Controller;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Random;
 import model.CartaObjetivo;
 import model.ConstantesEstados;
 import model.Estado;
@@ -13,20 +12,6 @@ import model.Jogador;
 public class IniciaJogo {
     
     
-    public int[] embaralhaCartas(int numCartas){
-        Random gerador = new Random();
-        int[] idsCartas = new int[numCartas];
-        for (int i = 0; i< numCartas; i++){
-            idsCartas[i] = i;
-        }
-        for (int i = 0; i < numCartas; i++){
-            int randomico = gerador.nextInt(numCartas);
-            int aux2 = idsCartas[i];
-            idsCartas[i] = idsCartas[randomico];
-            idsCartas[randomico] = aux2;
-        }
-        return idsCartas;
-    }
     
     public ArrayList<Jogador> iniciaJogadores( String[] nomes,Color[] cores){
         ArrayList<Jogador> jogadores = new ArrayList<>();
