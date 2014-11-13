@@ -6,17 +6,197 @@
 package Controller;
 
 import java.util.ArrayList;
+import javafx.scene.paint.Color;
 import model.CartaEstado;
+import model.CartaObjetivo;
+import model.ConstantesEstados;
 import model.Estado;
 import model.Jogador;
+import model.Regioes;
 
 /**
  *
  * @author Luiz Felipe e Roberto 
  */
+
+
+
+/**
+ * 
+ * @author Martelo
+ */
 public class Regras {
     
+    /**
+     * verifica se um jogador atingiu o seu objetivo.  O switch possui como parâmetro o id da cartaObjetivo do jogador.
+     * @param jogador
+     * @param cartaObjetivo
+     * @param jogadores é um ArrayList de todos os jogadores que compõem uma partida
+     * @return 
+     */
+    public boolean verificaJogadorGanhouJogo(Jogador jogador, CartaObjetivo cartaObjetivo, ArrayList<Jogador> jogadores){
+        switch(cartaObjetivo.getIdCarta()){
+            case 0:
+                return (jogador.getEstados().size() >= 15);
+            case 1:
+                return(verificaJogadorPossuiTodaRegiao(jogador, Regioes.NORDESTE) && verificaJogadorPossuiTodaRegiao(jogador, Regioes.CENTROOESTE));
+            case 2:
+                return(verificaJogadorPossuiTodaRegiao(jogador, Regioes.NORDESTE) && verificaJogadorPossuiTodaRegiao(jogador, Regioes.SUDESTE));
+            case 3:
+                if(verificaJogadorPossuiTodaRegiao(jogador, Regioes.NORTE) && verificaJogadorPossuiTodaRegiao(jogador, Regioes.CENTROOESTE)){
+                    return (verificaJogadorPossuiTodaRegiao(jogador, Regioes.SUL) ||
+                            verificaJogadorPossuiTodaRegiao(jogador, Regioes.SUDESTE) ||
+                            verificaJogadorPossuiTodaRegiao(jogador, Regioes.NORDESTE));
+                }
+                else
+                    return false;                
+            case 4:
+                if(verificaJogadorPossuiTodaRegiao(jogador, Regioes.NORTE) && verificaJogadorPossuiTodaRegiao(jogador, Regioes.SUL)){
+                    return (verificaJogadorPossuiTodaRegiao(jogador, Regioes.CENTROOESTE) ||
+                            verificaJogadorPossuiTodaRegiao(jogador, Regioes.SUDESTE) ||
+                            verificaJogadorPossuiTodaRegiao(jogador, Regioes.NORDESTE));
+                }
+                else
+                    return false; 
+            case 5:
+                if(jogador.getEstados().size() >= 11){
+                    for(Estado estadoJogador : jogador.getEstados()){
+                        if(estadoJogador.getNumeroExercitos() < 2)
+                            return false;
+                    }
+                    return true;
+                }
+                else
+                    return false;
+            case 6: //destroi amarelo
+                if (!jogador.getCor().equals(java.awt.Color.YELLOW) && jogador.getAtivo()) {
+                    for (Jogador j : jogadores) {
+                        if (j.getCor().equals(java.awt.Color.YELLOW) && !j.getAtivo()) {
+                            return j.getAssassino().equals(jogador.getCor());
+                        }
+                    }
+                } else if (jogador.getCor().equals(java.awt.Color.YELLOW)) {
+                    return jogador.getEstados().size() >= 15;
+                }                
+                for (Jogador j : jogadores) {
+                    if (j.getCor().equals(java.awt.Color.YELLOW)) {
+                        if(j.getAtivo()== false)
+                            return jogador.getEstados().size() >= 15;
+                    }
+                }                
+                return false;
+            case 7: //destroi azul
+                if (!jogador.getCor().equals(java.awt.Color.BLUE) && jogador.getAtivo()) {
+                    for (Jogador j : jogadores) {
+                        if (j.getCor().equals(java.awt.Color.BLUE) && !j.getAtivo()) {
+                            return j.getAssassino().equals(jogador.getCor());
+                        }
+                    }
+                } else if (jogador.getCor().equals(java.awt.Color.BLUE)) {
+                    return jogador.getEstados().size() >= 15;
+                }                
+                for (Jogador j : jogadores) {
+                    if (j.getCor().equals(java.awt.Color.BLUE)) {
+                        if(j.getAtivo()== false)
+                            return jogador.getEstados().size() >= 15;
+                    }
+                }                
+                return false;       
+            case 8: //destroi branco
+                if (!jogador.getCor().equals(java.awt.Color.WHITE) && jogador.getAtivo()) {
+                    for (Jogador j : jogadores) {
+                        if (j.getCor().equals(java.awt.Color.WHITE) && !j.getAtivo()) {
+                            return j.getAssassino().equals(jogador.getCor());
+                        }
+                    }
+                } else if (jogador.getCor().equals(java.awt.Color.WHITE)) {
+                    return jogador.getEstados().size() >= 15;
+                }                
+                for (Jogador j : jogadores) {
+                    if (j.getCor().equals(java.awt.Color.WHITE)) {
+                        if(j.getAtivo()== false)
+                            return jogador.getEstados().size() >= 15;
+                    }
+                }                
+                return false;
+            case 9: //destroi preto
+                if (!jogador.getCor().equals(java.awt.Color.BLACK) && jogador.getAtivo()) {
+                    for (Jogador j : jogadores) {
+                        if (j.getCor().equals(java.awt.Color.BLACK) && !j.getAtivo()) {
+                            return j.getAssassino().equals(jogador.getCor());
+                        }
+                    }
+                } else if (jogador.getCor().equals(java.awt.Color.BLACK)) {
+                    return jogador.getEstados().size() >= 15;
+                }                
+                for (Jogador j : jogadores) {
+                    if (j.getCor().equals(java.awt.Color.BLACK)) {
+                        if(j.getAtivo()== false)
+                            return jogador.getEstados().size() >= 15;
+                    }
+                }                
+                return false;
+            case 10: //destroi Verde
+                if (!jogador.getCor().equals(java.awt.Color.GREEN) && jogador.getAtivo()) {
+                    for (Jogador j : jogadores) {
+                        if (j.getCor().equals(java.awt.Color.GREEN) && !j.getAtivo()) {
+                            return j.getAssassino().equals(jogador.getCor());
+                        }
+                    }
+                } else if (jogador.getCor().equals(java.awt.Color.GREEN)) {
+                    return jogador.getEstados().size() >= 15;
+                }                
+                for (Jogador j : jogadores) {
+                    if (j.getCor().equals(java.awt.Color.GREEN)) {
+                        if(j.getAtivo()== false)
+                            return jogador.getEstados().size() >= 15;
+                    }
+                }                
+                return false;
+            case 11: //destroi vermelho
+                if (!jogador.getCor().equals(java.awt.Color.RED) && jogador.getAtivo()) {
+                    for (Jogador j : jogadores) {
+                        if (j.getCor().equals(java.awt.Color.RED) && !j.getAtivo()) {
+                            return j.getAssassino().equals(jogador.getCor());
+                        }
+                    }
+                } else if (jogador.getCor().equals(java.awt.Color.RED)) {
+                    return jogador.getEstados().size() >= 15;
+                }                
+                for (Jogador j : jogadores) {
+                    if (j.getCor().equals(java.awt.Color.RED)) {
+                        if(j.getAtivo()== false)
+                            return jogador.getEstados().size() >= 15;
+                    }
+                }                
+                return false;
+            default:
+                return false;
+        }
+    }
     
+    /**
+     * verifica se o um jogador possui todos os estados de uma regiao específica
+     * @author Martelo
+     * @param jogador
+     * @param regiao
+     * @return 
+     */
+     public boolean verificaJogadorPossuiTodaRegiao(Jogador jogador, Regioes regiao){        
+        for (ConstantesEstados estadoRegiao : regiao.getEstados()) { //estado da região = constante estados
+            boolean jogadorPossui  = false;
+            for (Estado estadoJogador : jogador.getEstados()) { // Estado
+                if(estadoRegiao.getIdEstado() == estadoJogador.getIdEstado()){
+                    jogadorPossui = true;
+                }
+                if(jogadorPossui)
+                    break;
+            }
+            if(!jogadorPossui)
+                return false;
+        }
+         return true;
+     }
     
     public boolean verificaElimicacaoConcorrente(Jogador jogador){
         return jogador.getEstados().isEmpty();

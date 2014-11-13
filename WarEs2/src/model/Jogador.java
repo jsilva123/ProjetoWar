@@ -12,6 +12,9 @@ public class Jogador {
     private CartaObjetivo Cartaobjetivo;
     private ArrayList<CartaEstado> cartasTerritorio;
     private int nExercitosGanhos;
+    
+    private boolean ativo;
+    private Color assassino;
 
     public Jogador(String nome, Color cor) {
         this.ultimoJogador = false;
@@ -20,7 +23,8 @@ public class Jogador {
         this.cor = cor;
         this.estados = new ArrayList<>();
         this.cartasTerritorio = new ArrayList<>();
-       
+        
+        this.ativo = true;
     }
 
     public int getnExercitosGanhos() {
@@ -114,5 +118,25 @@ public class Jogador {
             return "Azul";
         }
     }
+
+    
+    
+    public boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public Color getAssassino() {
+        return assassino;
+    }
+
+    public void setAssassino(Color assassino) {
+        this.assassino = assassino;
+    }
+    
+    
 
 }
