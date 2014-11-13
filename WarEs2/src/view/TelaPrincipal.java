@@ -74,6 +74,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MATOGROSSODOSUL = new javax.swing.JButton();
         BAHIA = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        Trocar = new javax.swing.JPanel();
+        TROCAR = new javax.swing.JButton();
+        FINALIZARTRCA = new javax.swing.JButton();
+        VALORDATROCA = new javax.swing.JLabel();
+        ALOCACAO1 = new javax.swing.JLabel();
         Alocacao = new javax.swing.JPanel();
         FINALIZARALOCAR = new javax.swing.JButton();
         EXERCITORESTANTE = new javax.swing.JLabel();
@@ -105,10 +110,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton43 = new javax.swing.JButton();
         MOVER = new javax.swing.JLabel();
         Cartas = new javax.swing.JPanel();
-        OBJETIVO = new javax.swing.JButton();
-        TROCAR = new javax.swing.JButton();
-        FINALIZARTROCA = new javax.swing.JButton();
-        VALORDATROCA = new javax.swing.JLabel();
+        FINALIZARTURNO = new javax.swing.JButton();
+        CARTA1 = new javax.swing.JButton();
+        CARTA2 = new javax.swing.JButton();
+        CARTA4 = new javax.swing.JButton();
+        CARTA3 = new javax.swing.JButton();
+        CARTA5 = new javax.swing.JButton();
         CARTAS = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -136,7 +143,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         DF = new javax.swing.JButton();
         PARA = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
+        OBJETIVO = new javax.swing.JButton();
+        FOTODEFUNDO = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -233,6 +241,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jTabbedPane1MouseClicked(evt);
             }
         });
+
+        Trocar.setLayout(null);
+
+        TROCAR.setText("Trocar");
+        Trocar.add(TROCAR);
+        TROCAR.setBounds(280, 170, 90, 30);
+
+        FINALIZARTRCA.setText("Finalizar");
+        FINALIZARTRCA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FINALIZARTRCAActionPerformed(evt);
+            }
+        });
+        Trocar.add(FINALIZARTRCA);
+        FINALIZARTRCA.setBounds(280, 240, 90, 30);
+
+        VALORDATROCA.setText("Valor da troca: + 10");
+        Trocar.add(VALORDATROCA);
+        VALORDATROCA.setBounds(20, 220, 160, 40);
+
+        ALOCACAO1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
+        Trocar.add(ALOCACAO1);
+        ALOCACAO1.setBounds(0, 0, 390, 280);
+
+        jTabbedPane1.addTab("Trocar", Trocar);
 
         Alocacao.setLayout(null);
 
@@ -444,37 +477,89 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         Cartas.setLayout(null);
 
-        OBJETIVO.setBackground(new java.awt.Color(158, 216, 242));
-        OBJETIVO.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        OBJETIVO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/Question-48.png"))); // NOI18N
-        OBJETIVO.setText("Objetivo");
-        OBJETIVO.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        OBJETIVO.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        OBJETIVO.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        OBJETIVO.addActionListener(new java.awt.event.ActionListener() {
+        FINALIZARTURNO.setText("Finalizar Turno");
+        FINALIZARTURNO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OBJETIVOActionPerformed(evt);
+                FINALIZARTURNOActionPerformed(evt);
             }
         });
-        Cartas.add(OBJETIVO);
-        OBJETIVO.setBounds(20, 10, 80, 80);
+        Cartas.add(FINALIZARTURNO);
+        FINALIZARTURNO.setBounds(250, 240, 120, 30);
 
-        TROCAR.setText("Trocar");
-        Cartas.add(TROCAR);
-        TROCAR.setBounds(130, 240, 90, 30);
-
-        FINALIZARTROCA.setText("Finalizar Turno");
-        FINALIZARTROCA.addActionListener(new java.awt.event.ActionListener() {
+        CARTA1.setBackground(new java.awt.Color(158, 216, 242));
+        CARTA1.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        CARTA1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/Question-48.png"))); // NOI18N
+        CARTA1.setText("CARTA 2");
+        CARTA1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        CARTA1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        CARTA1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        CARTA1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FINALIZARTROCAActionPerformed(evt);
+                CARTA1ActionPerformed(evt);
             }
         });
-        Cartas.add(FINALIZARTROCA);
-        FINALIZARTROCA.setBounds(250, 240, 120, 30);
+        Cartas.add(CARTA1);
+        CARTA1.setBounds(140, 10, 80, 80);
 
-        VALORDATROCA.setText("Valor da troca:");
-        Cartas.add(VALORDATROCA);
-        VALORDATROCA.setBounds(50, 180, 90, 40);
+        CARTA2.setBackground(new java.awt.Color(158, 216, 242));
+        CARTA2.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        CARTA2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/Question-48.png"))); // NOI18N
+        CARTA2.setText("CARTA 3");
+        CARTA2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        CARTA2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        CARTA2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        CARTA2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CARTA2ActionPerformed(evt);
+            }
+        });
+        Cartas.add(CARTA2);
+        CARTA2.setBounds(260, 10, 80, 80);
+
+        CARTA4.setBackground(new java.awt.Color(158, 216, 242));
+        CARTA4.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        CARTA4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/Question-48.png"))); // NOI18N
+        CARTA4.setText("CARTA 4");
+        CARTA4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        CARTA4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        CARTA4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        CARTA4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CARTA4ActionPerformed(evt);
+            }
+        });
+        Cartas.add(CARTA4);
+        CARTA4.setBounds(20, 100, 80, 80);
+
+        CARTA3.setBackground(new java.awt.Color(158, 216, 242));
+        CARTA3.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        CARTA3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/Question-48.png"))); // NOI18N
+        CARTA3.setText("CARTA 5");
+        CARTA3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        CARTA3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        CARTA3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        CARTA3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CARTA3ActionPerformed(evt);
+            }
+        });
+        Cartas.add(CARTA3);
+        CARTA3.setBounds(140, 100, 80, 80);
+
+        CARTA5.setBackground(new java.awt.Color(158, 216, 242));
+        CARTA5.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        CARTA5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/Question-48.png"))); // NOI18N
+        CARTA5.setText("CARTA 1");
+        CARTA5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        CARTA5.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        CARTA5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        CARTA5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CARTA5ActionPerformed(evt);
+            }
+        });
+        Cartas.add(CARTA5);
+        CARTA5.setBounds(20, 10, 80, 80);
 
         CARTAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         Cartas.add(CARTAS);
@@ -615,8 +700,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(748, 0, 20, 470));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mapa.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 580));
+        OBJETIVO.setBackground(new java.awt.Color(158, 216, 242));
+        OBJETIVO.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        OBJETIVO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/Question-48.png"))); // NOI18N
+        OBJETIVO.setText("Objetivo");
+        OBJETIVO.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        OBJETIVO.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        OBJETIVO.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        OBJETIVO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OBJETIVOActionPerformed(evt);
+            }
+        });
+        jPanel1.add(OBJETIVO, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, 80, 80));
+
+        FOTODEFUNDO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mapa.jpg"))); // NOI18N
+        jPanel1.add(FOTODEFUNDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 580));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 580));
 
@@ -696,13 +795,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTabbedPane1.setEnabledAt(2, false);
     }//GEN-LAST:event_finalizar_moverActionPerformed
 
-    private void FINALIZARTROCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FINALIZARTROCAActionPerformed
+    private void FINALIZARTURNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FINALIZARTURNOActionPerformed
         // TODO add your handling code here:
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(0, true);
         jTabbedPane1.setSelectedIndex(0);
         jTabbedPane1.setEnabledAt(2, false);
-    }//GEN-LAST:event_FINALIZARTROCAActionPerformed
+    }//GEN-LAST:event_FINALIZARTURNOActionPerformed
 
     private void OBJETIVOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OBJETIVOActionPerformed
         // TODO add your handling code here:
@@ -743,6 +842,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_RIODEJANEIROActionPerformed
 
+    private void FINALIZARTRCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FINALIZARTRCAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FINALIZARTRCAActionPerformed
+
+    private void CARTA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CARTA1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CARTA1ActionPerformed
+
+    private void CARTA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CARTA2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CARTA2ActionPerformed
+
+    private void CARTA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CARTA4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CARTA4ActionPerformed
+
+    private void CARTA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CARTA3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CARTA3ActionPerformed
+
+    private void CARTA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CARTA5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CARTA5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -752,6 +875,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton ACRE;
     private javax.swing.JButton ALAGOAS;
     private javax.swing.JLabel ALOCACAO;
+    private javax.swing.JLabel ALOCACAO1;
     private javax.swing.JButton ALOCAR;
     private javax.swing.JButton AMAPA;
     private javax.swing.JButton AMAZONAS;
@@ -761,6 +885,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel Alocacao;
     private javax.swing.JPanel Ataque;
     private javax.swing.JButton BAHIA;
+    private javax.swing.JButton CARTA1;
+    private javax.swing.JButton CARTA2;
+    private javax.swing.JButton CARTA3;
+    private javax.swing.JButton CARTA4;
+    private javax.swing.JButton CARTA5;
     private javax.swing.JLabel CARTAS;
     private javax.swing.JButton CEARA;
     private javax.swing.JPanel Cartas;
@@ -772,7 +901,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel EXERCITORESTANTE;
     private javax.swing.JButton FINALIZARALOCAR;
     private javax.swing.JButton FINALIZARATAQUE;
-    private javax.swing.JButton FINALIZARTROCA;
+    private javax.swing.JButton FINALIZARTRCA;
+    private javax.swing.JButton FINALIZARTURNO;
+    private javax.swing.JLabel FOTODEFUNDO;
     private javax.swing.JButton GOIAS;
     private javax.swing.JLabel Jogando;
     private javax.swing.JButton MARANHAO;
@@ -802,6 +933,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton TOCANTINS;
     private javax.swing.JLabel TOTALEXERCITOS;
     private javax.swing.JButton TROCAR;
+    private javax.swing.JPanel Trocar;
     private javax.swing.JLabel VALORDATROCA;
     private javax.swing.JTextArea console;
     private javax.swing.JLabel dado1_amarelo;
@@ -814,7 +946,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton43;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

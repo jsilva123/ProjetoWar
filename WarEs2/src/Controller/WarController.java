@@ -93,18 +93,21 @@ public class WarController {
     }
 
     public void atualizaMapa(JButton[] botoes) {
-        for (Jogador jogador : jogadores) {
+        jogadores.stream().forEach((jogador) -> {
             for (Estado estado : jogador.getEstados()) {
                 botoes[estado.getIdEstado()].setText(Integer.toString(estado.getNumeroExercitos()));
                 botoes[estado.getIdEstado()].setBackground(jogador.getCor());
-                if (jogador.getCor() == Color.BLACK || jogador.getCor() == Color.BLUE) {
+                if (jogador.getCor() == Color.BLUE || jogador.getCor() == Color.BLACK) {
                     botoes[estado.getIdEstado()].setForeground(Color.WHITE);
                 } else {
                     botoes[estado.getIdEstado()].setForeground(Color.BLACK);
                 }
 
             }
-        }
+        });
     }
 
+    public Jogador getJogadorCorrente(){
+        return jogadores.get(turno.getJogadorCorrente());
+    }
 }
