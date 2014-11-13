@@ -36,6 +36,7 @@ public class WarController {
         dados = new Dado();
         baralho = new Baralho(12, 28);
         regras = new Regras();
+        turno = new Turno(4);
         iniciador = new IniciaJogo();
         numeroDaTroca = 0;
     }
@@ -110,4 +111,17 @@ public class WarController {
     public Jogador getJogadorCorrente(){
         return jogadores.get(turno.getJogadorCorrente());
     }
+    
+    public String getCaminhoFotoObjetivoJogador(){
+        return "/view/imagens/Cartas Objetivo/" + Integer.toString(jogadores.get(turno.getJogadorCorrente()).getCartaObjetivo().getIdCarta()) + ".jpg";
+    }
+    
+    public String getCaminhoFotoEstadoJogador(int numeroDaCarta){
+        return "/view/imagens/Cartas Território/" + Integer.toString(jogadores.get(turno.getJogadorCorrente()).getCartasTerritorio().get(numeroDaCarta).getIdCartaEstado()) + ".jpg";
+    }
+    
+    public int getNumeroDeCartasEstadoJogador(){
+        return jogadores.get(turno.getJogadorCorrente()).getCartasTerritorio().size();
+    }
+    
 }

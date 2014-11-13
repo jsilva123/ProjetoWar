@@ -7,7 +7,7 @@ public class Turno {
     private int etapa;
     private final int numMaxEtapa;
     
-    private Turno(int numMaxEtapa){
+    public Turno(int numMaxEtapa){
         this.jogadorCorrente = 0;
         this.etapa = 1;
         this.numMaxEtapa = numMaxEtapa;
