@@ -18,6 +18,9 @@ public class Jogador {
         this.nExercitosGanhos = 0;
         this.nome = nome;
         this.cor = cor;
+        this.estados = new ArrayList<>();
+        this.cartasTerritorio = new ArrayList<>();
+       
     }
 
     public int getnExercitosGanhos() {

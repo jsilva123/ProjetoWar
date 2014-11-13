@@ -57,6 +57,14 @@ public class WarController {
         jogadores = iniciador.iniciaJogadores(nomes, cores);
     }
     
+    public void distribuiEstados(){
+        iniciador.distribuiTerritorios(jogadores, baralho.getCartasEstados());
+    }
+    
+    public void distribuiObjetivos(){
+       iniciador.distribuiObjetivo(jogadores, baralho.getCartasObjetivos());
+    }
+    
     public String getNomeJogador(int idJogador){
         return jogadores.get(idJogador).getNome();
     }

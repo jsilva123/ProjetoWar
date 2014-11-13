@@ -155,17 +155,17 @@
                       <Data value="Branco"/>
                       <Data value="Verde"/>
                       <Data value="Preto"/>
-                      <Data value="Vermelho"/>
-                      <Data value="Azul"/>
-                      <Data value="Amarelo"/>
+                      <Data value=" - "/>
+                      <Data value=" - "/>
+                      <Data value=" - "/>
                     </Column>
                     <Column editable="false" title="Ex&#xe9;citos" type="java.lang.String">
                       <Data value="22"/>
                       <Data value="17"/>
                       <Data value="7"/>
-                      <Data value="9"/>
-                      <Data value="18"/>
-                      <Data value="11"/>
+                      <Data value=" -"/>
+                      <Data value=" - "/>
+                      <Data value=" -"/>
                     </Column>
                   </Table>
                 </Property>
@@ -894,7 +894,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton20">
+        <Component class="javax.swing.JButton" name="ACRE">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="8" style="1"/>
