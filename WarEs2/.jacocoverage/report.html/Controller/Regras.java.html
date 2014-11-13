@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Regras.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;WarEs2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Controller</a> &gt; <span class="el_source">Regras.java</span></div><h1>Regras.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Controller;
+
+import java.util.ArrayList;
+import model.CartaEstado;
+import model.Estado;
+import model.Jogador;
+
+/**
+ *
+ * @author Luiz Felipe e Roberto 
+ */
+<span class="nc" id="L17">public class Regras {</span>
+    
+    
+    
+    public boolean verificaElimicacaoConcorrente(Jogador jogador){
+<span class="nc" id="L22">        return jogador.getEstados().isEmpty();</span>
+            
+    }
+
+    /**
+     * verificar condição para adicionar 2 exercitos extras nos territorios
+     * retornados
+     *
+     * @param c1
+     * @param c2
+     * @param c3
+     * @param j
+     * @return - retorna os estador a terem os exercitos aumentados
+     */
+    public boolean verificaPossuiEstadoCarta(CartaEstado c1, Jogador j) {
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        return j.getEstados().stream().anyMatch((estado) -&gt; (estado.getIdEstado()== c1.getIdCartaEstado()));</span>
+    }
+
+    /**
+     * Deve ser verificada a cada rodada
+     *
+     * @param j - jogador corrente
+     * @return - true caso jogador seja obrigado a realizar a troca
+     */
+    public boolean VerificaTrocaObrigatoria(Jogador j) {
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        return j.getCartasTerritorio().size() &gt;= 5;</span>
+    }
+
+    public boolean validaTrocaCartas(int numDaTroca, CartaEstado c1, CartaEstado c2, CartaEstado c3) {
+<span class="nc bnc" id="L51" title="All 6 branches missed.">        if (c1.getSimbolo() == 4 &amp;&amp; c2.getSimbolo() != 4 &amp;&amp; c3.getSimbolo() != 4) {//c1 coringa</span>
+<span class="nc bnc" id="L52" title="All 4 branches missed.">            if ((c2.getSimbolo() != c3.getSimbolo()) || (c2.getSimbolo() == c3.getSimbolo())) {</span>
+<span class="nc" id="L53">                return true;</span>
+            }
+        }
+<span class="nc bnc" id="L56" title="All 6 branches missed.">        if (c2.getSimbolo() == 4 &amp;&amp; c1.getSimbolo() != 4 &amp;&amp; c3.getSimbolo() != 4) {//c2 coringa</span>
+<span class="nc bnc" id="L57" title="All 4 branches missed.">            if ((c1.getSimbolo() != c3.getSimbolo()) || (c1.getSimbolo() == c3.getSimbolo())) {</span>
+<span class="nc" id="L58">                return true;</span>
+            }
+        }
+<span class="nc bnc" id="L61" title="All 6 branches missed.">        if (c3.getSimbolo() == 4 &amp;&amp; c2.getSimbolo() != 4 &amp;&amp; c1.getSimbolo() != 4) {//c3 coringa</span>
+<span class="nc bnc" id="L62" title="All 4 branches missed.">            if ((c2.getSimbolo() != c1.getSimbolo()) || (c2.getSimbolo() == c1.getSimbolo())) {</span>
+<span class="nc" id="L63">                return true;</span>
+            }
+        }
+
+<span class="nc bnc" id="L67" title="All 6 branches missed.">        if (c1.getSimbolo() == 4 &amp;&amp; c2.getSimbolo() == 4 &amp;&amp; c3.getSimbolo() != 4) {//c1 e c2 coringa</span>
+<span class="nc" id="L68">            return true;</span>
+        }
+<span class="nc bnc" id="L70" title="All 6 branches missed.">        if (c2.getSimbolo() == 4 &amp;&amp; c1.getSimbolo() != 4 &amp;&amp; c3.getSimbolo() == 4) {//c2 e c3 coringa</span>
+<span class="nc" id="L71">            return true;</span>
+        }
+<span class="nc bnc" id="L73" title="All 6 branches missed.">        if (c3.getSimbolo() == 4 &amp;&amp; c2.getSimbolo() != 4 &amp;&amp; c1.getSimbolo() == 4) {//c1 e c3 coringa</span>
+<span class="nc" id="L74">            return true;</span>
+        }
+
+<span class="nc bnc" id="L77" title="All 6 branches missed.">        return (c1.getSimbolo() != c2.getSimbolo() &amp;&amp; c1.getSimbolo() != c3.getSimbolo() &amp;&amp; c2.getSimbolo() != c3.getSimbolo())</span>
+<span class="nc bnc" id="L78" title="All 4 branches missed.">                || (c1.getSimbolo() == c2.getSimbolo() &amp;&amp; c1.getSimbolo() == c3.getSimbolo());</span>
+    }
+
+    public boolean conquistaCarta(Estado e) {
+<span class="nc" id="L82">        return conquistaTerritorio(e);</span>
+    }
+
+    //VER ONDE COLOCAR
+    public void desloca(Estado origem, Estado destino, int qtdDeslocamento) {
+<span class="nc" id="L87">        origem.setNumeroExercitos(origem.getNumeroExercitos() - qtdDeslocamento);</span>
+<span class="nc" id="L88">        destino.setNumeroExercitos(destino.getNumeroExercitos() + qtdDeslocamento);</span>
+
+<span class="nc" id="L90">    }</span>
+
+    public boolean validaDeslocamento(Estado origem, Estado destino, int qtdDeslocamento, Estado ultimoDestino) {
+<span class="nc bnc" id="L93" title="All 2 branches missed.">        if (ultimoDestino == null) {</span>
+<span class="nc bnc" id="L94" title="All 4 branches missed.">            return qtdDeslocamento &lt; origem.getNumeroExercitos() &amp;&amp; verificaVizinhos(origem, destino);</span>
+        } else {
+<span class="nc bnc" id="L96" title="All 6 branches missed.">            return qtdDeslocamento &lt; origem.getNumeroExercitos() &amp;&amp; verificaVizinhos(origem, destino) &amp;&amp; origem.getIdEstado() != ultimoDestino.getIdEstado();</span>
+        }
+    }
+
+    /**
+     * atualiza o numero de exercitos do estado conquistado e do estado
+     * atacante, atualiza tambem o jogador dono do estado conquistado.
+     *
+     * @param vencedor jogador que consquistou o territorio
+     * @param perdedor jogador derrotado
+     * @param conquistado territorio conquistado
+     * @param atacante territorio de origem do ataque
+     * @param qtdDeslocamento numero de exercitos a ser deslocado
+     */
+    public void atualizaAposConquista(Jogador vencedor, Jogador perdedor, Estado conquistado, Estado atacante, int qtdDeslocamento) {
+<span class="nc" id="L111">        conquistado.setNumeroExercitos(qtdDeslocamento);</span>
+<span class="nc" id="L112">        atacante.perdeExercitos(qtdDeslocamento);</span>
+<span class="nc" id="L113">        vencedor.getEstados().add(conquistado);</span>
+<span class="nc" id="L114">        perdedor.getEstados().remove(conquistado);</span>
+
+<span class="nc" id="L116">    }</span>
+
+    public boolean deslocaExercitoAposConquista(int numAtaque, int numDesloca) {
+<span class="nc bnc" id="L119" title="All 2 branches missed.">        return numDesloca &lt;= numAtaque;</span>
+    }
+
+    public boolean conquistaTerritorio(Estado defensor) {
+<span class="nc bnc" id="L123" title="All 2 branches missed.">        return defensor.getNumeroExercitos() == 0;</span>
+    }
+
+    public void batalha(Estado atacante, Estado defensor, int numExercitos, int[] dadosAtacante, int[] dadosDefensor) {
+<span class="nc" id="L127">        dadosDefensor = ordena(dadosDefensor);</span>
+<span class="nc" id="L128">        dadosAtacante = ordena(dadosAtacante);</span>
+        int comparacoes;
+        //1º indice = numero de exercitos perdidos pelo atacante
+        //2ª indice = numero de exercitos perdidos pelo defensor
+<span class="nc" id="L132">        int[] perdas = {0, 0};</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">        if (dadosAtacante.length &gt; dadosDefensor.length) {</span>
+<span class="nc" id="L134">            comparacoes = dadosDefensor.length;</span>
+        } else {
+<span class="nc" id="L136">            comparacoes = dadosAtacante.length;</span>
+        }
+
+<span class="nc bnc" id="L139" title="All 2 branches missed.">        for (int i = 1; i &lt;= comparacoes; i++) {</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">            if (dadosAtacante[dadosAtacante.length - i] &gt; dadosDefensor[dadosDefensor.length - i]) {</span>
+<span class="nc" id="L141">                perdas[1]++;</span>
+            } else {
+<span class="nc" id="L143">                perdas[0]++;</span>
+            }
+        }
+
+        
+<span class="nc" id="L148">        atacante.perdeExercitos(perdas[0]);</span>
+<span class="nc" id="L149">        defensor.perdeExercitos(perdas[1]);</span>
+
+<span class="nc" id="L151">    }</span>
+
+    public boolean condicaoAtaque(Estado atacante, Estado defensor, int numExercitos) {
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        if (atacante.getNumeroExercitos() &gt; 1) {</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">            if (verificaVizinhos(atacante, defensor)) {</span>
+<span class="nc bnc" id="L156" title="All 6 branches missed.">                if (numExercitos &lt; atacante.getNumeroExercitos() &amp;&amp; numExercitos &gt;= 1 &amp;&amp; numExercitos &lt;= 3) {</span>
+<span class="nc" id="L157">                    return true;</span>
+                }
+            }
+        } else {
+<span class="nc" id="L161">            return false;</span>
+        }
+<span class="nc" id="L163">        return false;</span>
+    }
+
+    public boolean verificaVizinhos(Estado e1, Estado e2) {
+<span class="nc bnc" id="L167" title="All 2 branches missed.">        for (int v : e1.getVizinhos()) {</span>
+<span class="nc bnc" id="L168" title="All 2 branches missed.">            if (v == e2.getIdEstado()) {</span>
+<span class="nc" id="L169">                return true;</span>
+            }
+        }
+<span class="nc" id="L172">        return false;</span>
+    }
+
+    public int[] ordena(int[] vetor) {
+        int aux;
+<span class="nc bnc" id="L177" title="All 2 branches missed.">        for (int i = 0; i &lt; vetor.length; i++) {</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">            for (int j = 0; j &lt; vetor.length - 1; j++) {</span>
+<span class="nc bnc" id="L179" title="All 2 branches missed.">                if (vetor[j] &gt; vetor[j + 1]) {</span>
+<span class="nc" id="L180">                    aux = vetor[j];</span>
+<span class="nc" id="L181">                    vetor[j] = vetor[j + 1];</span>
+<span class="nc" id="L182">                    vetor[j + 1] = aux;</span>
+                }
+            }
+        }
+<span class="nc" id="L186">        return vetor;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

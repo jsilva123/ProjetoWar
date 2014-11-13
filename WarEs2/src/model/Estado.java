@@ -37,5 +37,9 @@ public class Estado {
     public void perdeExercitos(int quantidade){
         numeroExercitos = numeroExercitos - quantidade;
     }
+    
+    public ConstantesEstados getConstantesEstados(){
+        return this.constantes;
+    }
 
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Turno.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;WarEs2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">model</a> &gt; <span class="el_source">Turno.java</span></div><h1>Turno.java</h1><pre class="source lang-java linenums">
+package model;
+
+public class Turno {
+    
+    private int jogadorCorrente;
+    private int etapa;
+    private final int numMaxEtapa;
+    
+<span class="nc" id="L10">    private Turno(int numMaxEtapa){</span>
+<span class="nc" id="L11">        this.jogadorCorrente = 0;</span>
+<span class="nc" id="L12">        this.etapa = 1;</span>
+<span class="nc" id="L13">        this.numMaxEtapa = numMaxEtapa;</span>
+<span class="nc" id="L14">    }</span>
+    
+    public int getEtapa(){
+<span class="nc" id="L17">     return etapa;</span>
+    }
+    
+    public int getJogadorCorrente(){
+<span class="nc" id="L21">        return jogadorCorrente;</span>
+    }
+    
+    public void finalizaTurno(int numJogadores){
+<span class="nc" id="L25">        jogadorCorrente++;</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (jogadorCorrente == numJogadores){</span>
+<span class="nc" id="L27">            jogadorCorrente = 0;</span>
+        }
+              
+<span class="nc" id="L30">    }</span>
+    
+    public void finalizaEtapa(){
+<span class="nc" id="L33">        etapa++;</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if(etapa == numMaxEtapa){</span>
+<span class="nc" id="L35">            etapa = 1;</span>
+        }
+<span class="nc" id="L37">    }</span>
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

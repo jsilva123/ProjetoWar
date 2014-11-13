@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Regioes.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;WarEs2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">model</a> &gt; <span class="el_source">Regioes.java</span></div><h1>Regioes.java</h1><pre class="source lang-java linenums">    package model;
+
+<span class="nc" id="L3">public enum Regioes {</span>
+
+<span class="nc" id="L5">    NORTE(1, &quot;Norte&quot;, 4, new ConstantesEstados[]{</span>
+        ConstantesEstados.ACRE,
+        ConstantesEstados.RONDONIA,
+        ConstantesEstados.AMAZONAS,
+        ConstantesEstados.RORAIMA,
+        ConstantesEstados.AMAPA,
+        ConstantesEstados.PARA,
+        ConstantesEstados.TOCANTINS}),
+<span class="nc" id="L13">    NORDESTE(2, &quot;Nordeste&quot;, 5, new ConstantesEstados[]{</span>
+        ConstantesEstados.MARANHAO,
+        ConstantesEstados.PIAUI,
+        ConstantesEstados.BAHIA,
+        ConstantesEstados.SERGIPE,
+        ConstantesEstados.ALAGOAS,
+        ConstantesEstados.PERNAMBUCO,
+        ConstantesEstados.RIOGRANDEDONORTE,
+        ConstantesEstados.CEARA,
+        ConstantesEstados.PARAIBA}),
+<span class="nc" id="L23">    CENTROOESTE(3, &quot;Centro Oeste&quot;, 4, new ConstantesEstados[]{</span>
+        ConstantesEstados.MATOGROSSO,
+        ConstantesEstados.MATOGROSSODOSUL,
+        ConstantesEstados.GOIAS,
+        ConstantesEstados.DISTRITOFEDERAL}),
+<span class="nc" id="L28">    SUDESTE(4, &quot;Sudeste&quot;, 3, new ConstantesEstados[]{</span>
+        ConstantesEstados.RIODEJANEIRO,
+        ConstantesEstados.SAOPAULO,
+        ConstantesEstados.MINASGERAIS,
+        ConstantesEstados.ESPIRITOSANTO}),
+<span class="nc" id="L33">    SUL(5, &quot;Sul&quot;, 2, new ConstantesEstados[]{</span>
+        ConstantesEstados.SANTACATARINA,
+        ConstantesEstados.RIOGRANDEDOSUL,
+        ConstantesEstados.PARANA});
+
+    private final int idRegiao;
+    private final String nome;
+    private final ConstantesEstados[] estados;
+    private final int bonusExercito;
+
+<span class="nc" id="L43">    private Regioes(int id, String nome, int bonusExercito, ConstantesEstados[] estados) {</span>
+<span class="nc" id="L44">        this.idRegiao = id;</span>
+<span class="nc" id="L45">        this.nome = nome;</span>
+<span class="nc" id="L46">        this.bonusExercito = bonusExercito;</span>
+<span class="nc" id="L47">        this.estados = estados;</span>
+<span class="nc" id="L48">    }</span>
+
+    public int getIdRegiao() {
+<span class="nc" id="L51">        return idRegiao;</span>
+    }
+
+    public String getNome() {
+<span class="nc" id="L55">        return nome;</span>
+    }
+
+    public ConstantesEstados[] getEstados() {
+<span class="nc" id="L59">        return estados;</span>
+    }
+
+    public int getBonusExercito() {
+<span class="nc" id="L63">        return bonusExercito;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

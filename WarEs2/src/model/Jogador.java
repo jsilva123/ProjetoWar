@@ -12,9 +12,19 @@ public class Jogador {
     private CartaObjetivo Cartaobjetivo;
     private ArrayList<CartaEstado> cartasTerritorio;
     private int nExercitosGanhos;
+    private int qtdRegioes;
+
+    public int getQtdRegioes() {
+        return qtdRegioes;
+    }
+
+    public void setQtdRegioes(int qtdRegioes) {
+        this.qtdRegioes = qtdRegioes;
+    }
     
     private boolean ativo;
     private Color assassino;
+    private boolean conquistouTerritorio;
 
     public Jogador(String nome, Color cor) {
         this.ultimoJogador = false;
@@ -23,6 +33,7 @@ public class Jogador {
         this.cor = cor;
         this.estados = new ArrayList<>();
         this.cartasTerritorio = new ArrayList<>();
+        this.qtdRegioes = 0;
         
         this.ativo = true;
     }
@@ -135,6 +146,22 @@ public class Jogador {
 
     public void setAssassino(Color assassino) {
         this.assassino = assassino;
+    }
+
+    public CartaObjetivo getCartaobjetivo() {
+        return Cartaobjetivo;
+    }
+
+    public void setCartaobjetivo(CartaObjetivo Cartaobjetivo) {
+        this.Cartaobjetivo = Cartaobjetivo;
+    }
+
+    public boolean isConquistouTerritorio() {
+        return conquistouTerritorio;
+    }
+
+    public void setConquistouTerritorio(boolean conquistouTerritorio) {
+        this.conquistouTerritorio = conquistouTerritorio;
     }
     
     

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>IniciaJogo.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;WarEs2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Controller</a> &gt; <span class="el_source">IniciaJogo.java</span></div><h1>IniciaJogo.java</h1><pre class="source lang-java linenums">package Controller;
+
+import java.awt.Color;
+import java.util.ArrayList;
+import model.CartaEstado;
+import model.CartaObjetivo;
+import model.Estado;
+import model.Jogador;
+
+<span class="nc" id="L10">public class IniciaJogo {</span>
+
+    public ArrayList&lt;Jogador&gt; iniciaJogadores(String[] nomes, Color[] cores) {
+<span class="nc" id="L13">        ArrayList&lt;Jogador&gt; jogadores = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L14" title="All 2 branches missed.">        for (int i = 0; i &lt; nomes.length; i++) {</span>
+<span class="nc" id="L15">            jogadores.add(i, new Jogador(nomes[i], cores[i]));</span>
+        }
+
+<span class="nc" id="L18">        return jogadores;</span>
+    }
+
+    public void distribuiObjetivo(ArrayList&lt;Jogador&gt; jogadores, ArrayList&lt;CartaObjetivo&gt; cartaObjetivos) {
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        for (int i = 0; i &lt; jogadores.size(); i++) {</span>
+<span class="nc" id="L23">            jogadores.get(i).setCartaObjetivo(cartaObjetivos.remove(i));</span>
+        }
+<span class="nc" id="L25">    }</span>
+
+    public void distribuiTerritorios(ArrayList&lt;Jogador&gt; jogadores, ArrayList&lt;CartaEstado&gt; cartaEstados) {
+
+<span class="nc" id="L29">        int corrente = 0;</span>
+<span class="nc" id="L30">        int ultimoJogador = 0;</span>
+
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        for (CartaEstado cartaEstado : cartaEstados) {</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">            if (cartaEstado.getSimbolo() != 4) { // para não distribuir curingas no início</span>
+<span class="nc" id="L34">                jogadores.get(corrente).getEstados().add(new Estado(cartaEstado.getEstado()));</span>
+<span class="nc" id="L35">                ultimoJogador = corrente;</span>
+<span class="nc" id="L36">                corrente++;</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">                if (corrente == jogadores.size()) {</span>
+<span class="nc" id="L38">                    corrente = 0;</span>
+                }
+            }
+<span class="nc" id="L41">        }</span>
+<span class="nc" id="L42">        jogadores.get(ultimoJogador).setUltimoJogador(true);</span>
+<span class="nc" id="L43">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

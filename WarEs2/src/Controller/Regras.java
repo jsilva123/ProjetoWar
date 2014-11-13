@@ -227,7 +227,7 @@ public class Regras {
         return j.getCartasTerritorio().size() >= 5;
     }
 
-    public boolean validaTrocaCartas(int numDaTroca, CartaEstado c1, CartaEstado c2, CartaEstado c3) {
+    public boolean validaTrocaCartas(CartaEstado c1, CartaEstado c2, CartaEstado c3) {
         if (c1.getSimbolo() == 4 && c2.getSimbolo() != 4 && c3.getSimbolo() != 4) {//c1 coringa
             if ((c2.getSimbolo() != c3.getSimbolo()) || (c2.getSimbolo() == c3.getSimbolo())) {
                 return true;
@@ -260,13 +260,6 @@ public class Regras {
 
     public boolean conquistaCarta(Estado e) {
         return conquistaTerritorio(e);
-    }
-
-    //VER ONDE COLOCAR
-    public void desloca(Estado origem, Estado destino, int qtdDeslocamento) {
-        origem.setNumeroExercitos(origem.getNumeroExercitos() - qtdDeslocamento);
-        destino.setNumeroExercitos(destino.getNumeroExercitos() + qtdDeslocamento);
-
     }
 
     public boolean validaDeslocamento(Estado origem, Estado destino, int qtdDeslocamento, Estado ultimoDestino) {
@@ -303,32 +296,7 @@ public class Regras {
         return defensor.getNumeroExercitos() == 0;
     }
 
-    public void batalha(Estado atacante, Estado defensor, int numExercitos, int[] dadosAtacante, int[] dadosDefensor) {
-        dadosDefensor = ordena(dadosDefensor);
-        dadosAtacante = ordena(dadosAtacante);
-        int comparacoes;
-        //1º indice = numero de exercitos perdidos pelo atacante
-        //2ª indice = numero de exercitos perdidos pelo defensor
-        int[] perdas = {0, 0};
-        if (dadosAtacante.length > dadosDefensor.length) {
-            comparacoes = dadosDefensor.length;
-        } else {
-            comparacoes = dadosAtacante.length;
-        }
 
-        for (int i = 1; i <= comparacoes; i++) {
-            if (dadosAtacante[dadosAtacante.length - i] > dadosDefensor[dadosDefensor.length - i]) {
-                perdas[1]++;
-            } else {
-                perdas[0]++;
-            }
-        }
-
-        
-        atacante.perdeExercitos(perdas[0]);
-        defensor.perdeExercitos(perdas[1]);
-
-    }
 
     public boolean condicaoAtaque(Estado atacante, Estado defensor, int numExercitos) {
         if (atacante.getNumeroExercitos() > 1) {
@@ -352,18 +320,6 @@ public class Regras {
         return false;
     }
 
-    public int[] ordena(int[] vetor) {
-        int aux;
-        for (int i = 0; i < vetor.length; i++) {
-            for (int j = 0; j < vetor.length - 1; j++) {
-                if (vetor[j] > vetor[j + 1]) {
-                    aux = vetor[j];
-                    vetor[j] = vetor[j + 1];
-                    vetor[j + 1] = aux;
-                }
-            }
-        }
-        return vetor;
-    }
+
 
 }
