@@ -270,23 +270,7 @@ public class Regras {
         }
     }
 
-    /**
-     * atualiza o numero de exercitos do estado conquistado e do estado
-     * atacante, atualiza tambem o jogador dono do estado conquistado.
-     *
-     * @param vencedor jogador que consquistou o territorio
-     * @param perdedor jogador derrotado
-     * @param conquistado territorio conquistado
-     * @param atacante territorio de origem do ataque
-     * @param qtdDeslocamento numero de exercitos a ser deslocado
-     */
-    public void atualizaAposConquista(Jogador vencedor, Jogador perdedor, Estado conquistado, Estado atacante, int qtdDeslocamento) {
-        conquistado.setNumeroExercitos(qtdDeslocamento);
-        atacante.perdeExercitos(qtdDeslocamento);
-        vencedor.getEstados().add(conquistado);
-        perdedor.getEstados().remove(conquistado);
 
-    }
 
     public boolean deslocaExercitoAposConquista(int numAtaque, int numDesloca) {
         return numDesloca <= numAtaque;

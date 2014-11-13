@@ -31,7 +31,7 @@ import model.Jogador;
 
 <span class="nc bnc" id="L32" title="All 2 branches missed.">        for (CartaEstado cartaEstado : cartaEstados) {</span>
 <span class="nc bnc" id="L33" title="All 2 branches missed.">            if (cartaEstado.getSimbolo() != 4) { // para não distribuir curingas no início</span>
-<span class="nc" id="L34">                jogadores.get(corrente).getEstados().add(new Estado(cartaEstado.getEstado()));</span>
+<span class="nc" id="L34">                jogadores.get(corrente).getEstados().add(new Estado(cartaEstado.getEstado().getConstantesEstados()));</span>
 <span class="nc" id="L35">                ultimoJogador = corrente;</span>
 <span class="nc" id="L36">                corrente++;</span>
 <span class="nc bnc" id="L37" title="All 2 branches missed.">                if (corrente == jogadores.size()) {</span>

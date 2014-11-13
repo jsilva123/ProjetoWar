@@ -5,19 +5,22 @@ import java.util.Random;
 public class Dado {
     
     private final Random gerador;
-    private final int numDado;
+    private int numDado;
 
-<span class="nc" id="L10">    public Dado(){</span>
-<span class="nc" id="L11">        gerador = new Random();</span>
-<span class="nc" id="L12">        this.numDado = 0;</span>
-<span class="nc" id="L13">    }</span>
+<span class="fc" id="L10">    public Dado(){</span>
+<span class="fc" id="L11">        gerador = new Random();</span>
+<span class="fc" id="L12">        this.numDado = 1;</span>
+<span class="fc" id="L13">    }</span>
     
-  
-    
-    public int verifica(){
-<span class="nc" id="L18">        return numDado;</span>
+    public int[] jogarDado(int numeroDeDados){
+<span class="fc" id="L16">        int[] numSorteados = new int[numeroDeDados];</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        for(int i= 0;i&lt; numeroDeDados;i++){</span>
+<span class="fc" id="L18">           numDado = gerador.nextInt(6);</span>
+<span class="fc" id="L19">           numSorteados[i] = numDado;</span>
+        }
+        
+<span class="fc" id="L22">        return numSorteados;</span>
     }
-    
     
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

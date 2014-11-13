@@ -164,6 +164,8 @@ public class Jogador {
         this.conquistouTerritorio = conquistouTerritorio;
     }
     
-    
+    public Estado getEstadoPorId(int idEstado){
+        return null;
+    }
 
 }

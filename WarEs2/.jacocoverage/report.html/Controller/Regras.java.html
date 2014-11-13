@@ -6,20 +6,200 @@
 package Controller;
 
 import java.util.ArrayList;
+import javafx.scene.paint.Color;
 import model.CartaEstado;
+import model.CartaObjetivo;
+import model.ConstantesEstados;
 import model.Estado;
 import model.Jogador;
+import model.Regioes;
 
 /**
  *
  * @author Luiz Felipe e Roberto 
  */
-<span class="nc" id="L17">public class Regras {</span>
+
+
+
+/**
+ * 
+ * @author Martelo
+ */
+<span class="fc" id="L28">public class Regras {</span>
     
+    /**
+     * verifica se um jogador atingiu o seu objetivo.  O switch possui como parâmetro o id da cartaObjetivo do jogador.
+     * @param jogador
+     * @param cartaObjetivo
+     * @param jogadores é um ArrayList de todos os jogadores que compõem uma partida
+     * @return 
+     */
+    public boolean verificaJogadorGanhouJogo(Jogador jogador, CartaObjetivo cartaObjetivo, ArrayList&lt;Jogador&gt; jogadores){
+<span class="nc bnc" id="L38" title="All 13 branches missed.">        switch(cartaObjetivo.getIdCarta()){</span>
+            case 0:
+<span class="nc bnc" id="L40" title="All 2 branches missed.">                return (jogador.getEstados().size() &gt;= 15);</span>
+            case 1:
+<span class="nc bnc" id="L42" title="All 4 branches missed.">                return(verificaJogadorPossuiTodaRegiao(jogador, Regioes.NORDESTE) &amp;&amp; verificaJogadorPossuiTodaRegiao(jogador, Regioes.CENTROOESTE));</span>
+            case 2:
+<span class="nc bnc" id="L44" title="All 4 branches missed.">                return(verificaJogadorPossuiTodaRegiao(jogador, Regioes.NORDESTE) &amp;&amp; verificaJogadorPossuiTodaRegiao(jogador, Regioes.SUDESTE));</span>
+            case 3:
+<span class="nc bnc" id="L46" title="All 4 branches missed.">                if(verificaJogadorPossuiTodaRegiao(jogador, Regioes.NORTE) &amp;&amp; verificaJogadorPossuiTodaRegiao(jogador, Regioes.CENTROOESTE)){</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">                    return (verificaJogadorPossuiTodaRegiao(jogador, Regioes.SUL) ||</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">                            verificaJogadorPossuiTodaRegiao(jogador, Regioes.SUDESTE) ||</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">                            verificaJogadorPossuiTodaRegiao(jogador, Regioes.NORDESTE));</span>
+                }
+                else
+<span class="nc" id="L52">                    return false;                </span>
+            case 4:
+<span class="nc bnc" id="L54" title="All 4 branches missed.">                if(verificaJogadorPossuiTodaRegiao(jogador, Regioes.NORTE) &amp;&amp; verificaJogadorPossuiTodaRegiao(jogador, Regioes.SUL)){</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">                    return (verificaJogadorPossuiTodaRegiao(jogador, Regioes.CENTROOESTE) ||</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">                            verificaJogadorPossuiTodaRegiao(jogador, Regioes.SUDESTE) ||</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">                            verificaJogadorPossuiTodaRegiao(jogador, Regioes.NORDESTE));</span>
+                }
+                else
+<span class="nc" id="L60">                    return false; </span>
+            case 5:
+<span class="nc bnc" id="L62" title="All 2 branches missed.">                if(jogador.getEstados().size() &gt;= 11){</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">                    for(Estado estadoJogador : jogador.getEstados()){</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">                        if(estadoJogador.getNumeroExercitos() &lt; 2)</span>
+<span class="nc" id="L65">                            return false;</span>
+<span class="nc" id="L66">                    }</span>
+<span class="nc" id="L67">                    return true;</span>
+                }
+                else
+<span class="nc" id="L70">                    return false;</span>
+            case 6: //destroi amarelo
+<span class="nc bnc" id="L72" title="All 4 branches missed.">                if (!jogador.getCor().equals(java.awt.Color.YELLOW) &amp;&amp; jogador.getAtivo()) {</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">                    for (Jogador j : jogadores) {</span>
+<span class="nc bnc" id="L74" title="All 4 branches missed.">                        if (j.getCor().equals(java.awt.Color.YELLOW) &amp;&amp; !j.getAtivo()) {</span>
+<span class="nc" id="L75">                            return j.getAssassino().equals(jogador.getCor());</span>
+                        }
+<span class="nc" id="L77">                    }</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">                } else if (jogador.getCor().equals(java.awt.Color.YELLOW)) {</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">                    return jogador.getEstados().size() &gt;= 15;</span>
+                }                
+<span class="nc bnc" id="L81" title="All 2 branches missed.">                for (Jogador j : jogadores) {</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">                    if (j.getCor().equals(java.awt.Color.YELLOW)) {</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">                        if(j.getAtivo()== false)</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">                            return jogador.getEstados().size() &gt;= 15;</span>
+                    }
+<span class="nc" id="L86">                }                </span>
+<span class="nc" id="L87">                return false;</span>
+            case 7: //destroi azul
+<span class="nc bnc" id="L89" title="All 4 branches missed.">                if (!jogador.getCor().equals(java.awt.Color.BLUE) &amp;&amp; jogador.getAtivo()) {</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">                    for (Jogador j : jogadores) {</span>
+<span class="nc bnc" id="L91" title="All 4 branches missed.">                        if (j.getCor().equals(java.awt.Color.BLUE) &amp;&amp; !j.getAtivo()) {</span>
+<span class="nc" id="L92">                            return j.getAssassino().equals(jogador.getCor());</span>
+                        }
+<span class="nc" id="L94">                    }</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">                } else if (jogador.getCor().equals(java.awt.Color.BLUE)) {</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">                    return jogador.getEstados().size() &gt;= 15;</span>
+                }                
+<span class="nc bnc" id="L98" title="All 2 branches missed.">                for (Jogador j : jogadores) {</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">                    if (j.getCor().equals(java.awt.Color.BLUE)) {</span>
+<span class="nc bnc" id="L100" title="All 2 branches missed.">                        if(j.getAtivo()== false)</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">                            return jogador.getEstados().size() &gt;= 15;</span>
+                    }
+<span class="nc" id="L103">                }                </span>
+<span class="nc" id="L104">                return false;       </span>
+            case 8: //destroi branco
+<span class="nc bnc" id="L106" title="All 4 branches missed.">                if (!jogador.getCor().equals(java.awt.Color.WHITE) &amp;&amp; jogador.getAtivo()) {</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">                    for (Jogador j : jogadores) {</span>
+<span class="nc bnc" id="L108" title="All 4 branches missed.">                        if (j.getCor().equals(java.awt.Color.WHITE) &amp;&amp; !j.getAtivo()) {</span>
+<span class="nc" id="L109">                            return j.getAssassino().equals(jogador.getCor());</span>
+                        }
+<span class="nc" id="L111">                    }</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">                } else if (jogador.getCor().equals(java.awt.Color.WHITE)) {</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">                    return jogador.getEstados().size() &gt;= 15;</span>
+                }                
+<span class="nc bnc" id="L115" title="All 2 branches missed.">                for (Jogador j : jogadores) {</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">                    if (j.getCor().equals(java.awt.Color.WHITE)) {</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">                        if(j.getAtivo()== false)</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">                            return jogador.getEstados().size() &gt;= 15;</span>
+                    }
+<span class="nc" id="L120">                }                </span>
+<span class="nc" id="L121">                return false;</span>
+            case 9: //destroi preto
+<span class="nc bnc" id="L123" title="All 4 branches missed.">                if (!jogador.getCor().equals(java.awt.Color.BLACK) &amp;&amp; jogador.getAtivo()) {</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">                    for (Jogador j : jogadores) {</span>
+<span class="nc bnc" id="L125" title="All 4 branches missed.">                        if (j.getCor().equals(java.awt.Color.BLACK) &amp;&amp; !j.getAtivo()) {</span>
+<span class="nc" id="L126">                            return j.getAssassino().equals(jogador.getCor());</span>
+                        }
+<span class="nc" id="L128">                    }</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">                } else if (jogador.getCor().equals(java.awt.Color.BLACK)) {</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">                    return jogador.getEstados().size() &gt;= 15;</span>
+                }                
+<span class="nc bnc" id="L132" title="All 2 branches missed.">                for (Jogador j : jogadores) {</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">                    if (j.getCor().equals(java.awt.Color.BLACK)) {</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">                        if(j.getAtivo()== false)</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">                            return jogador.getEstados().size() &gt;= 15;</span>
+                    }
+<span class="nc" id="L137">                }                </span>
+<span class="nc" id="L138">                return false;</span>
+            case 10: //destroi Verde
+<span class="nc bnc" id="L140" title="All 4 branches missed.">                if (!jogador.getCor().equals(java.awt.Color.GREEN) &amp;&amp; jogador.getAtivo()) {</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">                    for (Jogador j : jogadores) {</span>
+<span class="nc bnc" id="L142" title="All 4 branches missed.">                        if (j.getCor().equals(java.awt.Color.GREEN) &amp;&amp; !j.getAtivo()) {</span>
+<span class="nc" id="L143">                            return j.getAssassino().equals(jogador.getCor());</span>
+                        }
+<span class="nc" id="L145">                    }</span>
+<span class="nc bnc" id="L146" title="All 2 branches missed.">                } else if (jogador.getCor().equals(java.awt.Color.GREEN)) {</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">                    return jogador.getEstados().size() &gt;= 15;</span>
+                }                
+<span class="nc bnc" id="L149" title="All 2 branches missed.">                for (Jogador j : jogadores) {</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">                    if (j.getCor().equals(java.awt.Color.GREEN)) {</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">                        if(j.getAtivo()== false)</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">                            return jogador.getEstados().size() &gt;= 15;</span>
+                    }
+<span class="nc" id="L154">                }                </span>
+<span class="nc" id="L155">                return false;</span>
+            case 11: //destroi vermelho
+<span class="nc bnc" id="L157" title="All 4 branches missed.">                if (!jogador.getCor().equals(java.awt.Color.RED) &amp;&amp; jogador.getAtivo()) {</span>
+<span class="nc bnc" id="L158" title="All 2 branches missed.">                    for (Jogador j : jogadores) {</span>
+<span class="nc bnc" id="L159" title="All 4 branches missed.">                        if (j.getCor().equals(java.awt.Color.RED) &amp;&amp; !j.getAtivo()) {</span>
+<span class="nc" id="L160">                            return j.getAssassino().equals(jogador.getCor());</span>
+                        }
+<span class="nc" id="L162">                    }</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">                } else if (jogador.getCor().equals(java.awt.Color.RED)) {</span>
+<span class="nc bnc" id="L164" title="All 2 branches missed.">                    return jogador.getEstados().size() &gt;= 15;</span>
+                }                
+<span class="nc bnc" id="L166" title="All 2 branches missed.">                for (Jogador j : jogadores) {</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">                    if (j.getCor().equals(java.awt.Color.RED)) {</span>
+<span class="nc bnc" id="L168" title="All 2 branches missed.">                        if(j.getAtivo()== false)</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">                            return jogador.getEstados().size() &gt;= 15;</span>
+                    }
+<span class="nc" id="L171">                }                </span>
+<span class="nc" id="L172">                return false;</span>
+            default:
+<span class="nc" id="L174">                return false;</span>
+        }
+    }
     
+    /**
+     * verifica se o um jogador possui todos os estados de uma regiao específica
+     * @author Martelo
+     * @param jogador
+     * @param regiao
+     * @return 
+     */
+     public boolean verificaJogadorPossuiTodaRegiao(Jogador jogador, Regioes regiao){        
+<span class="nc bnc" id="L186" title="All 2 branches missed.">        for (ConstantesEstados estadoRegiao : regiao.getEstados()) { //estado da região = constante estados</span>
+<span class="nc" id="L187">            boolean jogadorPossui  = false;</span>
+<span class="nc bnc" id="L188" title="All 2 branches missed.">            for (Estado estadoJogador : jogador.getEstados()) { // Estado</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">                if(estadoRegiao.getIdEstado() == estadoJogador.getIdEstado()){</span>
+<span class="nc" id="L190">                    jogadorPossui = true;</span>
+                }
+<span class="nc bnc" id="L192" title="All 2 branches missed.">                if(jogadorPossui)</span>
+<span class="nc" id="L193">                    break;</span>
+<span class="nc" id="L194">            }</span>
+<span class="nc bnc" id="L195" title="All 2 branches missed.">            if(!jogadorPossui)</span>
+<span class="nc" id="L196">                return false;</span>
+        }
+<span class="nc" id="L198">         return true;</span>
+     }
     
     public boolean verificaElimicacaoConcorrente(Jogador jogador){
-<span class="nc" id="L22">        return jogador.getEstados().isEmpty();</span>
+<span class="nc" id="L202">        return jogador.getEstados().isEmpty();</span>
             
     }
 
@@ -34,7 +214,7 @@ import model.Jogador;
      * @return - retorna os estador a terem os exercitos aumentados
      */
     public boolean verificaPossuiEstadoCarta(CartaEstado c1, Jogador j) {
-<span class="nc bnc" id="L37" title="All 2 branches missed.">        return j.getEstados().stream().anyMatch((estado) -&gt; (estado.getIdEstado()== c1.getIdCartaEstado()));</span>
+<span class="nc bnc" id="L217" title="All 2 branches missed.">        return j.getEstados().stream().anyMatch((estado) -&gt; (estado.getIdEstado()== c1.getIdCartaEstado()));</span>
     }
 
     /**
@@ -44,56 +224,49 @@ import model.Jogador;
      * @return - true caso jogador seja obrigado a realizar a troca
      */
     public boolean VerificaTrocaObrigatoria(Jogador j) {
-<span class="nc bnc" id="L47" title="All 2 branches missed.">        return j.getCartasTerritorio().size() &gt;= 5;</span>
+<span class="nc bnc" id="L227" title="All 2 branches missed.">        return j.getCartasTerritorio().size() &gt;= 5;</span>
     }
 
-    public boolean validaTrocaCartas(int numDaTroca, CartaEstado c1, CartaEstado c2, CartaEstado c3) {
-<span class="nc bnc" id="L51" title="All 6 branches missed.">        if (c1.getSimbolo() == 4 &amp;&amp; c2.getSimbolo() != 4 &amp;&amp; c3.getSimbolo() != 4) {//c1 coringa</span>
-<span class="nc bnc" id="L52" title="All 4 branches missed.">            if ((c2.getSimbolo() != c3.getSimbolo()) || (c2.getSimbolo() == c3.getSimbolo())) {</span>
-<span class="nc" id="L53">                return true;</span>
+    public boolean validaTrocaCartas(CartaEstado c1, CartaEstado c2, CartaEstado c3) {
+<span class="nc bnc" id="L231" title="All 6 branches missed.">        if (c1.getSimbolo() == 4 &amp;&amp; c2.getSimbolo() != 4 &amp;&amp; c3.getSimbolo() != 4) {//c1 coringa</span>
+<span class="nc bnc" id="L232" title="All 4 branches missed.">            if ((c2.getSimbolo() != c3.getSimbolo()) || (c2.getSimbolo() == c3.getSimbolo())) {</span>
+<span class="nc" id="L233">                return true;</span>
             }
         }
-<span class="nc bnc" id="L56" title="All 6 branches missed.">        if (c2.getSimbolo() == 4 &amp;&amp; c1.getSimbolo() != 4 &amp;&amp; c3.getSimbolo() != 4) {//c2 coringa</span>
-<span class="nc bnc" id="L57" title="All 4 branches missed.">            if ((c1.getSimbolo() != c3.getSimbolo()) || (c1.getSimbolo() == c3.getSimbolo())) {</span>
-<span class="nc" id="L58">                return true;</span>
+<span class="nc bnc" id="L236" title="All 6 branches missed.">        if (c2.getSimbolo() == 4 &amp;&amp; c1.getSimbolo() != 4 &amp;&amp; c3.getSimbolo() != 4) {//c2 coringa</span>
+<span class="nc bnc" id="L237" title="All 4 branches missed.">            if ((c1.getSimbolo() != c3.getSimbolo()) || (c1.getSimbolo() == c3.getSimbolo())) {</span>
+<span class="nc" id="L238">                return true;</span>
             }
         }
-<span class="nc bnc" id="L61" title="All 6 branches missed.">        if (c3.getSimbolo() == 4 &amp;&amp; c2.getSimbolo() != 4 &amp;&amp; c1.getSimbolo() != 4) {//c3 coringa</span>
-<span class="nc bnc" id="L62" title="All 4 branches missed.">            if ((c2.getSimbolo() != c1.getSimbolo()) || (c2.getSimbolo() == c1.getSimbolo())) {</span>
-<span class="nc" id="L63">                return true;</span>
+<span class="nc bnc" id="L241" title="All 6 branches missed.">        if (c3.getSimbolo() == 4 &amp;&amp; c2.getSimbolo() != 4 &amp;&amp; c1.getSimbolo() != 4) {//c3 coringa</span>
+<span class="nc bnc" id="L242" title="All 4 branches missed.">            if ((c2.getSimbolo() != c1.getSimbolo()) || (c2.getSimbolo() == c1.getSimbolo())) {</span>
+<span class="nc" id="L243">                return true;</span>
             }
         }
 
-<span class="nc bnc" id="L67" title="All 6 branches missed.">        if (c1.getSimbolo() == 4 &amp;&amp; c2.getSimbolo() == 4 &amp;&amp; c3.getSimbolo() != 4) {//c1 e c2 coringa</span>
-<span class="nc" id="L68">            return true;</span>
+<span class="nc bnc" id="L247" title="All 6 branches missed.">        if (c1.getSimbolo() == 4 &amp;&amp; c2.getSimbolo() == 4 &amp;&amp; c3.getSimbolo() != 4) {//c1 e c2 coringa</span>
+<span class="nc" id="L248">            return true;</span>
         }
-<span class="nc bnc" id="L70" title="All 6 branches missed.">        if (c2.getSimbolo() == 4 &amp;&amp; c1.getSimbolo() != 4 &amp;&amp; c3.getSimbolo() == 4) {//c2 e c3 coringa</span>
-<span class="nc" id="L71">            return true;</span>
+<span class="nc bnc" id="L250" title="All 6 branches missed.">        if (c2.getSimbolo() == 4 &amp;&amp; c1.getSimbolo() != 4 &amp;&amp; c3.getSimbolo() == 4) {//c2 e c3 coringa</span>
+<span class="nc" id="L251">            return true;</span>
         }
-<span class="nc bnc" id="L73" title="All 6 branches missed.">        if (c3.getSimbolo() == 4 &amp;&amp; c2.getSimbolo() != 4 &amp;&amp; c1.getSimbolo() == 4) {//c1 e c3 coringa</span>
-<span class="nc" id="L74">            return true;</span>
+<span class="nc bnc" id="L253" title="All 6 branches missed.">        if (c3.getSimbolo() == 4 &amp;&amp; c2.getSimbolo() != 4 &amp;&amp; c1.getSimbolo() == 4) {//c1 e c3 coringa</span>
+<span class="nc" id="L254">            return true;</span>
         }
 
-<span class="nc bnc" id="L77" title="All 6 branches missed.">        return (c1.getSimbolo() != c2.getSimbolo() &amp;&amp; c1.getSimbolo() != c3.getSimbolo() &amp;&amp; c2.getSimbolo() != c3.getSimbolo())</span>
-<span class="nc bnc" id="L78" title="All 4 branches missed.">                || (c1.getSimbolo() == c2.getSimbolo() &amp;&amp; c1.getSimbolo() == c3.getSimbolo());</span>
+<span class="nc bnc" id="L257" title="All 6 branches missed.">        return (c1.getSimbolo() != c2.getSimbolo() &amp;&amp; c1.getSimbolo() != c3.getSimbolo() &amp;&amp; c2.getSimbolo() != c3.getSimbolo())</span>
+<span class="nc bnc" id="L258" title="All 4 branches missed.">                || (c1.getSimbolo() == c2.getSimbolo() &amp;&amp; c1.getSimbolo() == c3.getSimbolo());</span>
     }
 
     public boolean conquistaCarta(Estado e) {
-<span class="nc" id="L82">        return conquistaTerritorio(e);</span>
+<span class="nc" id="L262">        return conquistaTerritorio(e);</span>
     }
 
-    //VER ONDE COLOCAR
-    public void desloca(Estado origem, Estado destino, int qtdDeslocamento) {
-<span class="nc" id="L87">        origem.setNumeroExercitos(origem.getNumeroExercitos() - qtdDeslocamento);</span>
-<span class="nc" id="L88">        destino.setNumeroExercitos(destino.getNumeroExercitos() + qtdDeslocamento);</span>
-
-<span class="nc" id="L90">    }</span>
-
     public boolean validaDeslocamento(Estado origem, Estado destino, int qtdDeslocamento, Estado ultimoDestino) {
-<span class="nc bnc" id="L93" title="All 2 branches missed.">        if (ultimoDestino == null) {</span>
-<span class="nc bnc" id="L94" title="All 4 branches missed.">            return qtdDeslocamento &lt; origem.getNumeroExercitos() &amp;&amp; verificaVizinhos(origem, destino);</span>
+<span class="nc bnc" id="L266" title="All 2 branches missed.">        if (ultimoDestino == null) {</span>
+<span class="nc bnc" id="L267" title="All 4 branches missed.">            return qtdDeslocamento &lt; origem.getNumeroExercitos() &amp;&amp; verificaVizinhos(origem, destino);</span>
         } else {
-<span class="nc bnc" id="L96" title="All 6 branches missed.">            return qtdDeslocamento &lt; origem.getNumeroExercitos() &amp;&amp; verificaVizinhos(origem, destino) &amp;&amp; origem.getIdEstado() != ultimoDestino.getIdEstado();</span>
+<span class="nc bnc" id="L269" title="All 6 branches missed.">            return qtdDeslocamento &lt; origem.getNumeroExercitos() &amp;&amp; verificaVizinhos(origem, destino) &amp;&amp; origem.getIdEstado() != ultimoDestino.getIdEstado();</span>
         }
     }
 
@@ -108,83 +281,46 @@ import model.Jogador;
      * @param qtdDeslocamento numero de exercitos a ser deslocado
      */
     public void atualizaAposConquista(Jogador vencedor, Jogador perdedor, Estado conquistado, Estado atacante, int qtdDeslocamento) {
-<span class="nc" id="L111">        conquistado.setNumeroExercitos(qtdDeslocamento);</span>
-<span class="nc" id="L112">        atacante.perdeExercitos(qtdDeslocamento);</span>
-<span class="nc" id="L113">        vencedor.getEstados().add(conquistado);</span>
-<span class="nc" id="L114">        perdedor.getEstados().remove(conquistado);</span>
+<span class="nc" id="L284">        conquistado.setNumeroExercitos(qtdDeslocamento);</span>
+<span class="nc" id="L285">        atacante.perdeExercitos(qtdDeslocamento);</span>
+<span class="nc" id="L286">        vencedor.getEstados().add(conquistado);</span>
+<span class="nc" id="L287">        perdedor.getEstados().remove(conquistado);</span>
 
-<span class="nc" id="L116">    }</span>
+<span class="nc" id="L289">    }</span>
 
     public boolean deslocaExercitoAposConquista(int numAtaque, int numDesloca) {
-<span class="nc bnc" id="L119" title="All 2 branches missed.">        return numDesloca &lt;= numAtaque;</span>
+<span class="pc bpc" id="L292" title="1 of 2 branches missed.">        return numDesloca &lt;= numAtaque;</span>
     }
 
     public boolean conquistaTerritorio(Estado defensor) {
-<span class="nc bnc" id="L123" title="All 2 branches missed.">        return defensor.getNumeroExercitos() == 0;</span>
+<span class="nc bnc" id="L296" title="All 2 branches missed.">        return defensor.getNumeroExercitos() == 0;</span>
     }
 
-    public void batalha(Estado atacante, Estado defensor, int numExercitos, int[] dadosAtacante, int[] dadosDefensor) {
-<span class="nc" id="L127">        dadosDefensor = ordena(dadosDefensor);</span>
-<span class="nc" id="L128">        dadosAtacante = ordena(dadosAtacante);</span>
-        int comparacoes;
-        //1º indice = numero de exercitos perdidos pelo atacante
-        //2ª indice = numero de exercitos perdidos pelo defensor
-<span class="nc" id="L132">        int[] perdas = {0, 0};</span>
-<span class="nc bnc" id="L133" title="All 2 branches missed.">        if (dadosAtacante.length &gt; dadosDefensor.length) {</span>
-<span class="nc" id="L134">            comparacoes = dadosDefensor.length;</span>
-        } else {
-<span class="nc" id="L136">            comparacoes = dadosAtacante.length;</span>
-        }
 
-<span class="nc bnc" id="L139" title="All 2 branches missed.">        for (int i = 1; i &lt;= comparacoes; i++) {</span>
-<span class="nc bnc" id="L140" title="All 2 branches missed.">            if (dadosAtacante[dadosAtacante.length - i] &gt; dadosDefensor[dadosDefensor.length - i]) {</span>
-<span class="nc" id="L141">                perdas[1]++;</span>
-            } else {
-<span class="nc" id="L143">                perdas[0]++;</span>
-            }
-        }
-
-        
-<span class="nc" id="L148">        atacante.perdeExercitos(perdas[0]);</span>
-<span class="nc" id="L149">        defensor.perdeExercitos(perdas[1]);</span>
-
-<span class="nc" id="L151">    }</span>
 
     public boolean condicaoAtaque(Estado atacante, Estado defensor, int numExercitos) {
-<span class="nc bnc" id="L154" title="All 2 branches missed.">        if (atacante.getNumeroExercitos() &gt; 1) {</span>
-<span class="nc bnc" id="L155" title="All 2 branches missed.">            if (verificaVizinhos(atacante, defensor)) {</span>
-<span class="nc bnc" id="L156" title="All 6 branches missed.">                if (numExercitos &lt; atacante.getNumeroExercitos() &amp;&amp; numExercitos &gt;= 1 &amp;&amp; numExercitos &lt;= 3) {</span>
-<span class="nc" id="L157">                    return true;</span>
+<span class="nc bnc" id="L302" title="All 2 branches missed.">        if (atacante.getNumeroExercitos() &gt; 1) {</span>
+<span class="nc bnc" id="L303" title="All 2 branches missed.">            if (verificaVizinhos(atacante, defensor)) {</span>
+<span class="nc bnc" id="L304" title="All 6 branches missed.">                if (numExercitos &lt; atacante.getNumeroExercitos() &amp;&amp; numExercitos &gt;= 1 &amp;&amp; numExercitos &lt;= 3) {</span>
+<span class="nc" id="L305">                    return true;</span>
                 }
             }
         } else {
-<span class="nc" id="L161">            return false;</span>
+<span class="nc" id="L309">            return false;</span>
         }
-<span class="nc" id="L163">        return false;</span>
+<span class="nc" id="L311">        return false;</span>
     }
 
     public boolean verificaVizinhos(Estado e1, Estado e2) {
-<span class="nc bnc" id="L167" title="All 2 branches missed.">        for (int v : e1.getVizinhos()) {</span>
-<span class="nc bnc" id="L168" title="All 2 branches missed.">            if (v == e2.getIdEstado()) {</span>
-<span class="nc" id="L169">                return true;</span>
+<span class="nc bnc" id="L315" title="All 2 branches missed.">        for (int v : e1.getVizinhos()) {</span>
+<span class="nc bnc" id="L316" title="All 2 branches missed.">            if (v == e2.getIdEstado()) {</span>
+<span class="nc" id="L317">                return true;</span>
             }
         }
-<span class="nc" id="L172">        return false;</span>
+<span class="nc" id="L320">        return false;</span>
     }
 
-    public int[] ordena(int[] vetor) {
-        int aux;
-<span class="nc bnc" id="L177" title="All 2 branches missed.">        for (int i = 0; i &lt; vetor.length; i++) {</span>
-<span class="nc bnc" id="L178" title="All 2 branches missed.">            for (int j = 0; j &lt; vetor.length - 1; j++) {</span>
-<span class="nc bnc" id="L179" title="All 2 branches missed.">                if (vetor[j] &gt; vetor[j + 1]) {</span>
-<span class="nc" id="L180">                    aux = vetor[j];</span>
-<span class="nc" id="L181">                    vetor[j] = vetor[j + 1];</span>
-<span class="nc" id="L182">                    vetor[j + 1] = aux;</span>
-                }
-            }
-        }
-<span class="nc" id="L186">        return vetor;</span>
-    }
+
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

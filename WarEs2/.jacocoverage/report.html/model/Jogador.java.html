@@ -1,50 +1,170 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Jogador.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;WarEs2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">model</a> &gt; <span class="el_source">Jogador.java</span></div><h1>Jogador.java</h1><pre class="source lang-java linenums">
-package model;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Jogador.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;WarEs2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">model</a> &gt; <span class="el_source">Jogador.java</span></div><h1>Jogador.java</h1><pre class="source lang-java linenums">package model;
 
 import java.awt.Color;
 import java.util.ArrayList;
 
 public class Jogador {
-     
+
     private String nome;
     private Color cor;
     private ArrayList&lt;Estado&gt; estados;
+    private boolean ultimoJogador;
     private CartaObjetivo Cartaobjetivo;
-    private ArrayList&lt;CartaTerritorio&gt; cartasTerritorio;
+    private ArrayList&lt;CartaEstado&gt; cartasTerritorio;
+    private int nExercitosGanhos;
+    private int qtdRegioes;
+
+    public int getQtdRegioes() {
+<span class="nc" id="L18">        return qtdRegioes;</span>
+    }
+
+    public void setQtdRegioes(int qtdRegioes) {
+<span class="nc" id="L22">        this.qtdRegioes = qtdRegioes;</span>
+<span class="nc" id="L23">    }</span>
     
-<span class="nc" id="L15">    public Jogador(){</span>
-       
-<span class="nc" id="L17">    }</span>
+    private boolean ativo;
+    private Color assassino;
+    private boolean conquistouTerritorio;
+
+<span class="nc" id="L29">    public Jogador(String nome, Color cor) {</span>
+<span class="nc" id="L30">        this.ultimoJogador = false;</span>
+<span class="nc" id="L31">        this.nExercitosGanhos = 0;</span>
+<span class="nc" id="L32">        this.nome = nome;</span>
+<span class="nc" id="L33">        this.cor = cor;</span>
+<span class="nc" id="L34">        this.estados = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L35">        this.cartasTerritorio = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L36">        this.qtdRegioes = 0;</span>
+        
+<span class="nc" id="L38">        this.ativo = true;</span>
+<span class="nc" id="L39">    }</span>
+
+    public int getnExercitosGanhos() {
+<span class="nc" id="L42">        return nExercitosGanhos;</span>
+    }
+
+    public void setnExercitosGanhos(int nExercitosGanhos) {
+<span class="nc" id="L46">        this.nExercitosGanhos = nExercitosGanhos;</span>
+<span class="nc" id="L47">    }</span>
+
+    public boolean isUltimoJogador() {
+<span class="nc" id="L50">        return ultimoJogador;</span>
+    }
+
+    public void setUltimoJogador(boolean ultimoJogador) {
+<span class="nc" id="L54">        this.ultimoJogador = ultimoJogador;</span>
+<span class="nc" id="L55">    }</span>
 
     public String getNome() {
-<span class="nc" id="L20">        return nome;</span>
+<span class="nc" id="L58">        return nome;</span>
     }
 
     public void setNome(String nome) {
-<span class="nc" id="L24">        this.nome = nome;</span>
-<span class="nc" id="L25">    }</span>
+<span class="nc" id="L62">        this.nome = nome;</span>
+<span class="nc" id="L63">    }</span>
 
     public Color getCor() {
-<span class="nc" id="L28">        return cor;</span>
+<span class="nc" id="L66">        return cor;</span>
     }
 
     public void setCor(Color cor) {
-<span class="nc" id="L32">        this.cor = cor;</span>
-<span class="nc" id="L33">    }</span>
+<span class="nc" id="L70">        this.cor = cor;</span>
+<span class="nc" id="L71">    }</span>
+
+    public CartaObjetivo getCartaObjetivo() {
+<span class="nc" id="L74">        return Cartaobjetivo;</span>
+    }
+
+    public void setCartaObjetivo(CartaObjetivo Cartaobjetivo) {
+<span class="nc" id="L78">        this.Cartaobjetivo = Cartaobjetivo;</span>
+<span class="nc" id="L79">    }</span>
+
+    public ArrayList&lt;CartaEstado&gt; getCartasTerritorio() {
+<span class="nc" id="L82">        return cartasTerritorio;</span>
+    }
+
+    public ArrayList&lt;Estado&gt; getEstados() {
+<span class="nc" id="L86">        return estados;</span>
+    }
+
+    public void ganhaExercitos(int idEstado, int quantidade) {
+<span class="nc bnc" id="L90" title="All 2 branches missed.">        estados.stream().filter((estado) -&gt; (estado.getIdEstado() == idEstado)).forEach((estado) -&gt; {</span>
+<span class="nc" id="L91">            estado.ganhaExercitos(quantidade);</span>
+<span class="nc" id="L92">        });</span>
+<span class="nc" id="L93">    }</span>
+
+    public void perdeExercitos(int idEstado, int quantidade) {
+<span class="nc bnc" id="L96" title="All 2 branches missed.">        estados.stream().filter((estado) -&gt; (estado.getIdEstado() == idEstado)).forEach((estado) -&gt; {</span>
+<span class="nc" id="L97">            estado.perdeExercitos(quantidade);</span>
+<span class="nc" id="L98">        });</span>
+<span class="nc" id="L99">    }</span>
+
+    public int getTotalDeExercitos() {
+<span class="nc" id="L102">        int total = 0;</span>
+<span class="nc" id="L103">        total = estados.stream().map((estado) -&gt; estado.getNumeroExercitos()).reduce(total, Integer::sum);</span>
+<span class="nc" id="L104">        return total;</span>
+    }
+
+    public int getNumExercitoNoEstado(int idEstado) {
+<span class="nc" id="L108">        int numeroExercito = 0;</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">        for (Estado estado : estados) {</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">            if (estado.getIdEstado() == idEstado) {</span>
+<span class="nc" id="L111">                numeroExercito = estado.getNumeroExercitos();</span>
+            }
+<span class="nc" id="L113">        }</span>
+<span class="nc" id="L114">        return numeroExercito;</span>
+    }
+
+    public String nomeDaCor() {
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        if (getCor() == Color.RED) {</span>
+<span class="nc" id="L119">            return &quot;Vermelho&quot;;</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">        } else if (getCor() == Color.BLACK) {</span>
+<span class="nc" id="L121">            return &quot;Preto&quot;;</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">        } else if (getCor() == Color.WHITE) {</span>
+<span class="nc" id="L123">            return &quot;Branco&quot;;</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">        } else if (getCor() == Color.GREEN) {</span>
+<span class="nc" id="L125">            return &quot;Verde&quot;;</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">        } else if (getCor() == Color.YELLOW) {</span>
+<span class="nc" id="L127">            return &quot;Amarelo&quot;;</span>
+        } else {
+<span class="nc" id="L129">            return &quot;Azul&quot;;</span>
+        }
+    }
+
+    
+    
+    public boolean getAtivo() {
+<span class="nc" id="L136">        return ativo;</span>
+    }
+
+    public void setAtivo(boolean ativo) {
+<span class="nc" id="L140">        this.ativo = ativo;</span>
+<span class="nc" id="L141">    }</span>
+
+    public Color getAssassino() {
+<span class="nc" id="L144">        return assassino;</span>
+    }
+
+    public void setAssassino(Color assassino) {
+<span class="nc" id="L148">        this.assassino = assassino;</span>
+<span class="nc" id="L149">    }</span>
 
     public CartaObjetivo getCartaobjetivo() {
-<span class="nc" id="L36">        return Cartaobjetivo;</span>
+<span class="nc" id="L152">        return Cartaobjetivo;</span>
     }
 
     public void setCartaobjetivo(CartaObjetivo Cartaobjetivo) {
-<span class="nc" id="L40">        this.Cartaobjetivo = Cartaobjetivo;</span>
-<span class="nc" id="L41">    }</span>
+<span class="nc" id="L156">        this.Cartaobjetivo = Cartaobjetivo;</span>
+<span class="nc" id="L157">    }</span>
 
-    public ArrayList&lt;CartaTerritorio&gt; getCartasTerritorio() {
-<span class="nc" id="L44">        return cartasTerritorio;</span>
+    public boolean isConquistouTerritorio() {
+<span class="nc" id="L160">        return conquistouTerritorio;</span>
     }
 
+    public void setConquistouTerritorio(boolean conquistouTerritorio) {
+<span class="nc" id="L164">        this.conquistouTerritorio = conquistouTerritorio;</span>
+<span class="nc" id="L165">    }</span>
     
     
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>
