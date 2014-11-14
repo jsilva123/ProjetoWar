@@ -840,7 +840,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="ATACANTE">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Rio de janeiro"/>
+                    <Property name="text" type="java.lang.String" value="Origem"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -850,11 +850,11 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="DEFENSOR">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Minas Gerais"/>
+                    <Property name="text" type="java.lang.String" value="Destino"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="220" y="10" width="130" height="40"/>
+                      <AbsoluteConstraints x="240" y="10" width="130" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>

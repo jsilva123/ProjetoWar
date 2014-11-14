@@ -46,18 +46,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
             SAOPAULO, SERGIPE, TOCANTINS};
     }
 
+    public void atualizaTabelaJogadores(){
+         for (int i = 0; i < instance.getNumeroJogadores(); i++) {
+            tabelaJogadores.setValueAt(instance.getNomeJogador(i) + " (" + instance.getNomeCorJogador(i) + ")", i, 0);
+            tabelaJogadores.setValueAt(instance.getTotalDeExercitoJogador(i), i, 1);
+        }
+        tabelaJogadores.setRowSelectionInterval(instance.getNumeroJogadorCorrente(), instance.getNumeroJogadorCorrente());
+        tabelaJogadores.setSelectionBackground(instance.getCorJogador(instance.getNumeroJogadorCorrente()));
+    }
+    
+    
     private void iniciaComponentesDaTela() {
 
         instance.distribuiEstados();
         instance.distribuiObjetivos();
 
-        for (int i = 0; i < instance.getNumeroJogadores(); i++) {
-            tabelaJogadores.setValueAt(instance.getNomeJogador(i) + " (" + instance.getNomeCorJogador(i) + ")", i, 0);
-            tabelaJogadores.setValueAt(instance.getTotalDeExercitoJogador(i), i, 1);
-        }
+       
         geraVetorDeBotoes();
         instance.atualizaMapa(botoesEstado);
-        atualizaJogadorCorrente();
+        atualizaTabelaJogadores();
         desabilitaBotoes();
 
         jTabbedPane1.setEnabledAt(1, false);
@@ -542,13 +549,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Ataque.add(DADOS);
         DADOS.setBounds(20, 120, 60, 50);
 
-        ATACANTE.setText("Rio de janeiro");
+        ATACANTE.setText("Origem");
         Ataque.add(ATACANTE);
         ATACANTE.setBounds(70, 10, 130, 40);
 
-        DEFENSOR.setText("Minas Gerais");
+        DEFENSOR.setText("Destino");
         Ataque.add(DEFENSOR);
-        DEFENSOR.setBounds(220, 10, 130, 40);
+        DEFENSOR.setBounds(240, 10, 130, 40);
 
         x.setText("X");
         Ataque.add(x);
@@ -976,6 +983,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void FINALIZARALOCARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FINALIZARALOCARActionPerformed
         // TODO add your handling code here:
+        
+        instance .passaEtapa();
+        
         jTabbedPane1.setEnabledAt(2, true);
         jTabbedPane1.setSelectedIndex(2);
         jTabbedPane1.setEnabledAt(1, false);
@@ -1009,10 +1019,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTabbedPane1.setEnabledAt(3, false);
     }//GEN-LAST:event_finalizar_moverActionPerformed
 
-    public void atualizaJogadorCorrente() {
-        tabelaJogadores.setRowSelectionInterval(instance.getNumeroJogadorCorrente(), instance.getNumeroJogadorCorrente());
-        tabelaJogadores.setSelectionBackground(instance.getCorJogador(instance.getNumeroJogadorCorrente()));
-    }
 
     private void FINALIZARTURNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FINALIZARTURNOActionPerformed
         // TODO add your handling code here:
@@ -1028,7 +1034,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_OBJETIVOActionPerformed
 
     private void ATACARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ATACARActionPerformed
-        // TODO add your handling code here:
+
+        desabilitaBotoes();
+        habilitarBotoes(botoes);
     }//GEN-LAST:event_ATACARActionPerformed
 
     private void DADOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DADOSActionPerformed
@@ -1059,6 +1067,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void RIODEJANEIROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RIODEJANEIROActionPerformed
         if (botoesHabilitados[18]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(18, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             RIODEJANEIRO.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1120,6 +1143,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void PARAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PARAActionPerformed
         if (botoesHabilitados[13]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(13, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             PARA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1133,13 +1171,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 0:
                     break;
                 case 1:
+                    instance.alocaExercito(0, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
                     break;
                 case 2:
                     break;
                 case 3:
                     break;
             }
-
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
         } else {
             ACRE.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
         }
@@ -1148,6 +1190,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void ALAGOASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALAGOASActionPerformed
 
         if (botoesHabilitados[1]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(1, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             ALAGOAS.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1157,6 +1214,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void AMAPAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AMAPAActionPerformed
 
         if (botoesHabilitados[2]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(2, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             AMAPA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1166,7 +1238,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void AMAZONASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AMAZONASActionPerformed
 
         if (botoesHabilitados[3]) {
-
+ switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(3, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
         } else {
             AMAZONAS.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
         }// TODO add your handling code here:
@@ -1174,6 +1260,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void BAHIAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BAHIAActionPerformed
         if (botoesHabilitados[4]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(4, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             BAHIA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1183,6 +1284,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void CEARAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CEARAActionPerformed
 
         if (botoesHabilitados[5]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(5, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             CEARA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1191,6 +1307,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void DFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DFActionPerformed
         if (botoesHabilitados[6]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(6, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             DF.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1199,6 +1330,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void ESPIRITOSANTOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ESPIRITOSANTOActionPerformed
         if (botoesHabilitados[7]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(7, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             ESPIRITOSANTO.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1207,6 +1353,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void GOIASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GOIASActionPerformed
         if (botoesHabilitados[8]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(8, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             GOIAS.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1215,6 +1376,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void MARANHAOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MARANHAOActionPerformed
         if (botoesHabilitados[9]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(9, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             MARANHAO.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1223,6 +1399,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void MATOGROSSOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MATOGROSSOActionPerformed
         if (botoesHabilitados[10]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(10, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             MATOGROSSO.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1231,6 +1422,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void MATOGROSSODOSULActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MATOGROSSODOSULActionPerformed
         if (botoesHabilitados[11]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(11, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             MATOGROSSODOSUL.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1239,6 +1445,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void MINASGERAISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MINASGERAISActionPerformed
         if (botoesHabilitados[12]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(12, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             MINASGERAIS.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1248,6 +1469,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void PARAIBAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PARAIBAActionPerformed
 
         if (botoesHabilitados[14]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(14, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             PARAIBA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1256,6 +1492,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void PARANAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PARANAActionPerformed
         if (botoesHabilitados[15]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(15, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             PARANA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1264,6 +1515,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void PERNAMBUCOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PERNAMBUCOActionPerformed
         if (botoesHabilitados[16]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(16, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             PERNAMBUCO.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1272,6 +1538,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void PIAUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PIAUIActionPerformed
         if (botoesHabilitados[17]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(17, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             PIAUI.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1280,6 +1561,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void RIOGRANDEDONORTEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RIOGRANDEDONORTEActionPerformed
         if (botoesHabilitados[19]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(19, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             RIOGRANDEDONORTE.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1288,6 +1584,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void RIOGRANDEDOSULActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RIOGRANDEDOSULActionPerformed
         if (botoesHabilitados[20]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(20, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             RIOGRANDEDOSUL.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1296,6 +1607,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void RONDONIAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RONDONIAActionPerformed
         if (botoesHabilitados[21]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(21, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             RONDONIA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1304,6 +1630,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void RORAIMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RORAIMAActionPerformed
         if (botoesHabilitados[22]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(22, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             RORAIMA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1312,6 +1653,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void SANTACATARINAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SANTACATARINAActionPerformed
         if (botoesHabilitados[23]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(23, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             SANTACATARINA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1320,6 +1676,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void SAOPAULOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAOPAULOActionPerformed
         if (botoesHabilitados[24]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(24, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             SAOPAULO.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1328,6 +1699,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void SERGIPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SERGIPEActionPerformed
         if (botoesHabilitados[25]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(25, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             SERGIPE.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
@@ -1336,6 +1722,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void TOCANTINSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TOCANTINSActionPerformed
         if (botoesHabilitados[26]) {
+             switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    instance.alocaExercito(26, 1);
+                    TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+          instance.atualizaMapa(botoesEstado);
+          atualizaTabelaJogadores();
 
         } else {
             TOCANTINS.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));

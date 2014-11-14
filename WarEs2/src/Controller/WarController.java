@@ -36,7 +36,7 @@ public class WarController {
         dados = new Dado();
         baralho = new Baralho(12, 28);
         regras = new Regras();
-        turno = new Turno(3);
+        turno = new Turno(4);
         iniciador = new IniciaJogo();
         numeroDaTroca = 0;
     }
@@ -140,4 +140,22 @@ public class WarController {
        return turno.getJogadorCorrente();
    }
     
+   public void alocaExercito(int idEstado,int numeroExercito){
+       turno.distribuiExercito(jogadores.get(turno.getJogadorCorrente()),jogadores.get(turno.getJogadorCorrente()).getEstadoPorId(idEstado) , numeroExercito);
+   }
+   
+   public ArrayList<Integer> idsEstadosEvizinhosJogadorCorrente(){
+       ArrayList<Integer> idsEstadosEVizinhos = new ArrayList<>();
+       int[] temporario;
+       temporario = jogadores.get(turno.getJogadorCorrente()).getIdsEstados();
+       for (int i = 0; i < temporario.length; i++) {
+           idsEstadosEVizinhos.add(temporario[i]);
+       }
+       for (Estado estado: jogadores.get(turno.getJogadorCorrente()).getEstados()) {
+           for (int i = 0; i < estado.getVizinhos().length; i++) {
+               idsEstadosEVizinhos.add(estado.getVizinhos()[i]);
+           }
+       }
+       return idsEstadosEVizinhos;
+   }
 }

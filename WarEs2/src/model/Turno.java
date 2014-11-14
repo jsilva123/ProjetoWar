@@ -144,7 +144,7 @@ public class Turno {
      * @return
      */
     public boolean distribuiExercito(Jogador j, Estado e, int qtd) {
-        if (qtd < j.getnExercitosGanhos()) {
+        if (qtd <= j.getnExercitosGanhos()) {
             e.setNumeroExercitos(e.getNumeroExercitos() + qtd);
             j.setnExercitosGanhos(j.getnExercitosGanhos() - qtd);
             return true;
