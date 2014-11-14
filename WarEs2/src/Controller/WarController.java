@@ -208,6 +208,8 @@ public class WarController {
     
     public int getNumeroExercitoTroca(){
         return turno.getNumeroExercitoTroca();
+    }
+    
     public boolean deslocaExercitoJogador(int quantidadeExercitos){
         if(turno.getOrigem() == -1 || turno.getOrigem() == -1){
             return false;
