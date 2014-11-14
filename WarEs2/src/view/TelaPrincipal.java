@@ -1140,6 +1140,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         atualizaPainelDeAcoes();
         atualizaBotoesCartasTerritorio();
         
+        VALORTROCA.setText(Integer.toString(instance.getNumeroExercitoTroca()));     
+        
+        
     }//GEN-LAST:event_FINALIZARTURNOActionPerformed
 
     private void OBJETIVOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OBJETIVOActionPerformed

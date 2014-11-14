@@ -32,10 +32,10 @@ public class TelaMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        sair = new javax.swing.JButton();
+        jogar1 = new javax.swing.JButton();
         regras = new javax.swing.JButton();
         creditos = new javax.swing.JButton();
-        jogar1 = new javax.swing.JButton();
-        sair = new javax.swing.JButton();
         fotomenu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,6 +45,22 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sair.setFocusPainted(false);
+        jPanel1.add(sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 490, 160, 60));
+
+        jogar1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jogar1.setText("JOGAR");
+        jogar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jogar1.setFocusPainted(false);
+        jogar1.setOpaque(false);
+        jogar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jogar1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jogar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 140, 60));
+
         regras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         regras.setFocusPainted(false);
         jPanel1.add(regras, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 490, 200, 60));
@@ -53,22 +69,18 @@ public class TelaMenu extends javax.swing.JFrame {
         creditos.setFocusPainted(false);
         jPanel1.add(creditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 490, 110, 60));
 
-        jogar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jogar1.setFocusPainted(false);
-        jogar1.setOpaque(false);
-        jPanel1.add(jogar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 140, 60));
-
-        sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        sair.setFocusPainted(false);
-        jPanel1.add(sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 490, 160, 60));
-
         fotomenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/menu.png"))); // NOI18N
-        jPanel1.add(fotomenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
+        jPanel1.add(fotomenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 570));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jogar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jogar1ActionPerformed
+         new TelaInicial().setVisible(true);
+         //this.dispose();
+    }//GEN-LAST:event_jogar1ActionPerformed
 
     /**
      * @param args the command line arguments

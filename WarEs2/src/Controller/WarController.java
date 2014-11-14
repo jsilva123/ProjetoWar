@@ -190,4 +190,8 @@ public class WarController {
     public boolean trocaCartasTerritorio(){
         return turno.trocaCartas(null, null, null, null, baralho);
     }
+    
+    public int getNumeroExercitoTroca(){
+        return turno.getNumeroExercitoTroca();
+    }
 }
