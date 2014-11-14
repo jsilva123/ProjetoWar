@@ -8,6 +8,7 @@ package view;
 import Controller.WarController;
 import com.sun.glass.ui.Cursor;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -96,13 +97,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         CARTA5 = new javax.swing.JButton();
         VALORDATROCA = new javax.swing.JLabel();
         VALORTROCA = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
         TROCAR = new javax.swing.JButton();
-        finalizar_mover = new javax.swing.JButton();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
+        usarCarta0 = new javax.swing.JCheckBox();
+        usarCarta1 = new javax.swing.JCheckBox();
+        usarCarta2 = new javax.swing.JCheckBox();
+        usarCarta3 = new javax.swing.JCheckBox();
+        usarCarta4 = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         CARTAS = new javax.swing.JLabel();
         Alocacao = new javax.swing.JPanel();
@@ -290,6 +290,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         CARTA1.setBackground(new java.awt.Color(158, 216, 242));
         CARTA1.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         CARTA1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cartas Território/miniaturaversocarta.jpg"))); // NOI18N
+        CARTA1.setEnabled(false);
         CARTA1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         CARTA1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         CARTA1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -299,11 +300,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Cartas.add(CARTA1);
-        CARTA1.setBounds(20, 0, 100, 113);
+        CARTA1.setBounds(20, 0, 100, 111);
 
         CARTA2.setBackground(new java.awt.Color(158, 216, 242));
         CARTA2.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         CARTA2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cartas Território/miniaturaversocarta.jpg"))); // NOI18N
+        CARTA2.setEnabled(false);
         CARTA2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         CARTA2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         CARTA2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -313,11 +315,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Cartas.add(CARTA2);
-        CARTA2.setBounds(140, 0, 100, 113);
+        CARTA2.setBounds(140, 0, 100, 111);
 
         CARTA4.setBackground(new java.awt.Color(158, 216, 242));
         CARTA4.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         CARTA4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cartas Território/miniaturaversocarta.jpg"))); // NOI18N
+        CARTA4.setEnabled(false);
         CARTA4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         CARTA4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         CARTA4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -327,11 +330,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Cartas.add(CARTA4);
-        CARTA4.setBounds(20, 130, 100, 113);
+        CARTA4.setBounds(20, 130, 100, 111);
 
         CARTA3.setBackground(new java.awt.Color(158, 216, 242));
         CARTA3.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         CARTA3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cartas Território/miniaturaversocarta.jpg"))); // NOI18N
+        CARTA3.setEnabled(false);
         CARTA3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         CARTA3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         CARTA3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -341,11 +345,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Cartas.add(CARTA3);
-        CARTA3.setBounds(260, 0, 100, 113);
+        CARTA3.setBounds(260, 0, 100, 111);
 
         CARTA5.setBackground(new java.awt.Color(158, 216, 242));
         CARTA5.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         CARTA5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cartas Território/miniaturaversocarta.jpg"))); // NOI18N
+        CARTA5.setEnabled(false);
         CARTA5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         CARTA5.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         CARTA5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -355,19 +360,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Cartas.add(CARTA5);
-        CARTA5.setBounds(140, 130, 100, 113);
+        CARTA5.setBounds(140, 130, 100, 111);
 
-        VALORDATROCA.setText("Valor ");
+        VALORDATROCA.setText("Exércitos ganhos");
         Cartas.add(VALORDATROCA);
-        VALORDATROCA.setBounds(290, 140, 60, 30);
+        VALORDATROCA.setBounds(250, 140, 130, 20);
 
         VALORTROCA.setText("3");
         Cartas.add(VALORTROCA);
-        VALORTROCA.setBounds(340, 160, 49, 20);
-
-        jCheckBox1.setText("Usar");
-        Cartas.add(jCheckBox1);
-        jCheckBox1.setBounds(140, 110, 70, 24);
+        VALORTROCA.setBounds(350, 160, 20, 20);
 
         TROCAR.setBackground(new java.awt.Color(158, 216, 242));
         TROCAR.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
@@ -382,36 +383,56 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Cartas.add(TROCAR);
-        TROCAR.setBounds(280, 180, 60, 50);
+        TROCAR.setBounds(280, 190, 60, 50);
 
-        finalizar_mover.setText("Finalizar");
-        finalizar_mover.addActionListener(new java.awt.event.ActionListener() {
+        usarCarta0.setText("Usar");
+        usarCarta0.setEnabled(false);
+        usarCarta0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finalizar_moverActionPerformed(evt);
+                usarCarta0ActionPerformed(evt);
             }
         });
-        Cartas.add(finalizar_mover);
-        finalizar_mover.setBounds(280, 240, 90, 30);
+        Cartas.add(usarCarta0);
+        usarCarta0.setBounds(20, 110, 70, 23);
 
-        jCheckBox2.setText("Usar");
-        Cartas.add(jCheckBox2);
-        jCheckBox2.setBounds(260, 110, 70, 24);
+        usarCarta1.setText("Usar");
+        usarCarta1.setEnabled(false);
+        usarCarta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usarCarta1ActionPerformed(evt);
+            }
+        });
+        Cartas.add(usarCarta1);
+        usarCarta1.setBounds(140, 110, 70, 23);
 
-        jCheckBox3.setText("Usar");
-        Cartas.add(jCheckBox3);
-        jCheckBox3.setBounds(140, 240, 70, 24);
+        usarCarta2.setText("Usar");
+        usarCarta2.setEnabled(false);
+        Cartas.add(usarCarta2);
+        usarCarta2.setBounds(260, 110, 70, 23);
 
-        jCheckBox4.setText("Usar");
-        Cartas.add(jCheckBox4);
-        jCheckBox4.setBounds(20, 240, 70, 24);
+        usarCarta3.setText("Usar");
+        usarCarta3.setEnabled(false);
+        usarCarta3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usarCarta3ActionPerformed(evt);
+            }
+        });
+        Cartas.add(usarCarta3);
+        usarCarta3.setBounds(20, 240, 70, 23);
 
-        jCheckBox5.setText("Usar");
-        Cartas.add(jCheckBox5);
-        jCheckBox5.setBounds(20, 110, 70, 24);
+        usarCarta4.setText("Usar");
+        usarCarta4.setEnabled(false);
+        usarCarta4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usarCarta4ActionPerformed(evt);
+            }
+        });
+        Cartas.add(usarCarta4);
+        usarCarta4.setBounds(140, 240, 70, 23);
 
-        jLabel1.setText("da troca:");
+        jLabel1.setText("nessa troca:");
         Cartas.add(jLabel1);
-        jLabel1.setBounds(270, 160, 80, 17);
+        jLabel1.setBounds(250, 160, 100, 15);
 
         CARTAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         Cartas.add(CARTAS);
@@ -558,7 +579,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         x.setText("X");
         Ataque.add(x);
-        x.setBounds(190, 20, 30, 17);
+        x.setBounds(190, 20, 30, 15);
 
         ATAQUE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         ATAQUE.setOpaque(true);
@@ -625,19 +646,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel3.setText("Origem: ");
         Mover.add(jLabel3);
-        jLabel3.setBounds(10, 10, 90, 17);
+        jLabel3.setBounds(10, 10, 90, 15);
 
         jLabel4.setText("Destino: ");
         Mover.add(jLabel4);
-        jLabel4.setBounds(10, 40, 90, 17);
+        jLabel4.setBounds(10, 40, 90, 15);
 
         jLabel5.setText("Rio de Janeiro");
         Mover.add(jLabel5);
-        jLabel5.setBounds(80, 10, 180, 17);
+        jLabel5.setBounds(80, 10, 180, 15);
 
         jLabel6.setText("Mato Grosso Do Sul");
         Mover.add(jLabel6);
-        jLabel6.setBounds(80, 40, 180, 17);
+        jLabel6.setBounds(80, 40, 180, 15);
 
         MOVER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         Mover.add(MOVER);
@@ -1032,23 +1053,93 @@ public class TelaPrincipal extends javax.swing.JFrame {
        instance.passaEtapa();
        atualizaPainelDeAcoes();
     }//GEN-LAST:event_FINALIZARATAQUEActionPerformed
-
-    private void finalizar_moverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizar_moverActionPerformed
-
-        instance.receberExercitos();
-        TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
-        habilitarBotoes(instance.getJogadorCorrente().getIdsEstados());
-
-        instance.passaEtapa();
-
-       atualizaPainelDeAcoes();
-    }//GEN-LAST:event_finalizar_moverActionPerformed
-
+    
+    private void atualizaBotoesCartasTerritorio(){
+        int qtdCartasTerrit = instance.getJogadorCorrente().getCartasTerritorio().size();
+        switch(qtdCartasTerrit){
+            case 0:
+                CARTA1.setEnabled(false);
+                usarCarta0.setEnabled(false);
+                CARTA2.setEnabled(false);
+                usarCarta1.setEnabled(false);
+                CARTA3.setEnabled(false);
+                usarCarta2.setEnabled(false);
+                CARTA4.setEnabled(false);
+                usarCarta3.setEnabled(false);
+                CARTA5.setEnabled(false);
+                usarCarta4.setEnabled(false);
+                break;
+            case 1:
+                CARTA1.setEnabled(true);
+                usarCarta0.setEnabled(true);
+                CARTA2.setEnabled(false);
+                usarCarta1.setEnabled(false);
+                CARTA3.setEnabled(false);
+                usarCarta2.setEnabled(false);
+                CARTA4.setEnabled(false);
+                usarCarta3.setEnabled(false);
+                CARTA5.setEnabled(false);
+                usarCarta4.setEnabled(false);
+                break;
+            case 2:
+                CARTA1.setEnabled(true);
+                usarCarta0.setEnabled(true);
+                CARTA2.setEnabled(true);
+                usarCarta1.setEnabled(true);
+                CARTA3.setEnabled(false);
+                usarCarta2.setEnabled(false);
+                CARTA4.setEnabled(false);
+                usarCarta3.setEnabled(false);
+                CARTA5.setEnabled(false);
+                usarCarta4.setEnabled(false);
+                break;
+            case 3:
+                CARTA1.setEnabled(true);
+                usarCarta0.setEnabled(true);
+                CARTA2.setEnabled(true);
+                usarCarta1.setEnabled(true);
+                CARTA3.setEnabled(true);
+                usarCarta2.setEnabled(true);
+                CARTA4.setEnabled(false);
+                usarCarta3.setEnabled(false);
+                CARTA5.setEnabled(false);
+                usarCarta4.setEnabled(false);
+                break;
+            case 4:
+                CARTA1.setEnabled(true);
+                usarCarta0.setEnabled(true);
+                CARTA2.setEnabled(true);
+                usarCarta1.setEnabled(true);
+                CARTA3.setEnabled(true);
+                usarCarta2.setEnabled(true);
+                CARTA4.setEnabled(true);
+                usarCarta3.setEnabled(true);
+                CARTA5.setEnabled(false);
+                usarCarta4.setEnabled(false);                
+                break;
+            case 5:                
+                CARTA1.setEnabled(true);
+                usarCarta0.setEnabled(true);
+                CARTA2.setEnabled(true);
+                usarCarta1.setEnabled(true);
+                CARTA3.setEnabled(true);
+                usarCarta2.setEnabled(true);
+                CARTA4.setEnabled(true);
+                usarCarta3.setEnabled(true);
+                CARTA5.setEnabled(true);
+                usarCarta4.setEnabled(true);
+                break;
+        }
+        
+    }
 
     private void FINALIZARTURNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FINALIZARTURNOActionPerformed
         // TODO add your handling code here:
+       
         instance.finalizaTurno();
         atualizaPainelDeAcoes();
+        atualizaBotoesCartasTerritorio();
+        
     }//GEN-LAST:event_FINALIZARTURNOActionPerformed
 
     private void OBJETIVOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OBJETIVOActionPerformed
@@ -1118,7 +1209,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(rootPane, "Você não possui essa carta!");
         }
-
+        
     }//GEN-LAST:event_CARTA1ActionPerformed
 
     private void CARTA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CARTA2ActionPerformed
@@ -1153,9 +1244,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Você não possui essa carta!");
         }
     }//GEN-LAST:event_CARTA5ActionPerformed
-
+    
+    private ArrayList<Integer> verificaQtdCartasEstSelecs(){
+        ArrayList<Integer> cartasTerritorioSelec = new ArrayList<>();        
+        if(usarCarta0.isSelected())
+            cartasTerritorioSelec.add(0);
+        if(usarCarta1.isSelected())
+            cartasTerritorioSelec.add(1);
+        if(usarCarta2.isSelected())
+            cartasTerritorioSelec.add(2);
+        if(usarCarta3.isSelected())
+            cartasTerritorioSelec.add(3);
+        if(usarCarta4.isSelected())
+            cartasTerritorioSelec.add(4);
+        return cartasTerritorioSelec;          
+    }
+    
     private void TROCARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TROCARActionPerformed
-        // TODO add your handling code here:
+        int qtdCartas = verificaQtdCartasEstSelecs().size();
+        if(qtdCartas == 3){
+            if(instance.trocaCartasTerritorio()){
+                console.append("\n Troca realizada com sucesso !");
+            }
+            else{
+                JOptionPane.showMessageDialog(rootPane, "Combinação de cartas "
+                        + "erradas! É preciso selecionar 3 cartas com figuras "
+                        + "iguais ou então 3 cartas com figuras diferentes");
+            }
+        } 
+        else{
+            JOptionPane.showMessageDialog(rootPane, "Você não possui cartas suficientes ou "
+                    + "não selecionou 3 cartas !");
+            }
+        
+        atualizaBotoesCartasTerritorio();
     }//GEN-LAST:event_TROCARActionPerformed
 
     private void OBJETIVO1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OBJETIVO1ActionPerformed
@@ -1772,6 +1894,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }// TODO add your handling code here:
     }//GEN-LAST:event_TOCANTINSActionPerformed
 
+    private void usarCarta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usarCarta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usarCarta1ActionPerformed
+
+    private void usarCarta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usarCarta4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usarCarta4ActionPerformed
+
+    private void usarCarta0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usarCarta0ActionPerformed
+        
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_usarCarta0ActionPerformed
+
+    private void usarCarta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usarCarta3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usarCarta3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1846,15 +1986,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel dado2_vermelho;
     private javax.swing.JLabel dado3_amarelo;
     private javax.swing.JLabel dado3_vermelho;
-    private javax.swing.JButton finalizar_mover;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton43;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1874,6 +2008,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tabelaJogadores;
+    private javax.swing.JCheckBox usarCarta0;
+    private javax.swing.JCheckBox usarCarta1;
+    private javax.swing.JCheckBox usarCarta2;
+    private javax.swing.JCheckBox usarCarta3;
+    private javax.swing.JCheckBox usarCarta4;
     private javax.swing.JLabel x;
     // End of variables declaration//GEN-END:variables
 }

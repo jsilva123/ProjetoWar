@@ -186,4 +186,8 @@ public class WarController {
     public void finalizaTurno(){
         turno.finalizaTurno(jogadores.size());
     }
+    
+    public boolean trocaCartasTerritorio(){
+        return turno.trocaCartas(null, null, null, null, baralho);
+    }
 }
