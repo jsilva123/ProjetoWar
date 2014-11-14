@@ -8,8 +8,12 @@ public class Turno {
     private int jogadorCorrente;
     private int etapa;
     private final int numMaxEtapa;
+    private boolean primeiraRodada;
     private int numTroca;
     private Regras regras;
+    private int idEstadoAtacante;
+    private int idEstadoDefensor;
+    
 
     public Turno(int numMaxEtapa) {
         this.jogadorCorrente = 0;
@@ -17,10 +21,37 @@ public class Turno {
         this.numMaxEtapa = numMaxEtapa;
         this.numTroca = 0;
         this.regras = new Regras();
+        idEstadoAtacante = -1;
+        idEstadoDefensor = -1;
+        this.primeiraRodada = true;
     }
 
     public int getEtapa() {
         return etapa;
+    }
+
+    public int getIdEstadoAtacante() {
+        return idEstadoAtacante;
+    }
+
+    public boolean isPrimeiraRodada() {
+        return primeiraRodada;
+    }
+
+    public void setPrimeiraRodada(boolean primeiraRodada) {
+        this.primeiraRodada = primeiraRodada;
+    }
+
+    public void setIdEstadoAtacante(int idEstadoAtacante) {
+        this.idEstadoAtacante = idEstadoAtacante;
+    }
+
+    public int getIdEstadoDefensor() {
+        return idEstadoDefensor;
+    }
+
+    public void setIdEstadoDefensor(int idEstadoDefensor) {
+        this.idEstadoDefensor = idEstadoDefensor;
     }
 
     public int getJogadorCorrente() {
@@ -32,7 +63,7 @@ public class Turno {
         if (jogadorCorrente == numJogadores) {
             jogadorCorrente = 0;
         }
-
+        etapa = 0;
     }
 
     public void finalizaEtapa() {
