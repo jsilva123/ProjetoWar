@@ -7,21 +7,21 @@ public class CartaEstado {
     // 3 = circulo
     // 4 = coringa
     
-    private final Estado estado;
+    private final ConstantesEstados estado;
     
     public CartaEstado(ConstantesEstados estado){
-        this.estado = new Estado(estado);
+        this.estado = estado;
     }
     
     public int getSimbolo() {
-        return estado.getConstantesEstados().getSimbolo();
+        return estado.getSimbolo();
     }
     
     public int getIdCartaEstado(){
         return estado.getIdEstado();
     }
 
-    public Estado getEstado() {
+    public ConstantesEstados getEstado() {
         return estado;
     }
     

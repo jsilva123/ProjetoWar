@@ -131,7 +131,6 @@ public class Jogador {
     }
 
     
-    
     public boolean getAtivo() {
         return ativo;
     }
@@ -162,6 +161,22 @@ public class Jogador {
 
     public void setConquistouTerritorio(boolean conquistouTerritorio) {
         this.conquistouTerritorio = conquistouTerritorio;
+    }
+    
+    public Estado getEstadoPorId(int idEstado){
+        for (Estado estado : Jogador.this.getEstados()) {
+            if(estado.getIdEstado() == idEstado){
+                return estado;
+            }
+        }
+        return null;
+    }
+    public int[] getIdsEstados(){// todos os ids de estado de um jogador
+        int[] ids = new int[estados.size()];
+        for (int i = 0; i < estados.size(); i++) {
+              ids[i] = estados.get(i).getIdEstado();
+        }
+        return ids;
     }
     
     

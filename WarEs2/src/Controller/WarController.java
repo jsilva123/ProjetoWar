@@ -89,8 +89,8 @@ public class WarController {
         turno.getJogadorCorrente();
     }
 
-    public int nExercitosReceber(Jogador jogador) {
-        return (jogador.getEstados().size() / 2);
+    public int getEtapaCorrente() {
+        return turno.getEtapa();
     }
 
     public void atualizaMapa(JButton[] botoes) {
@@ -108,20 +108,82 @@ public class WarController {
         });
     }
 
-    public Jogador getJogadorCorrente(){
+    public Jogador getJogadorCorrente() {
         return jogadores.get(turno.getJogadorCorrente());
     }
-    
-    public String getCaminhoFotoObjetivoJogador(){
+
+    public String getCaminhoFotoObjetivoJogador() {
         return "/view/imagens/Cartas Objetivo/" + Integer.toString(jogadores.get(turno.getJogadorCorrente()).getCartaObjetivo().getIdCarta()) + ".jpg";
     }
-    
-    public String getCaminhoFotoEstadoJogador(int numeroDaCarta){
+
+    public String getCaminhoFotoEstadoJogador(int numeroDaCarta) {
         return "/view/imagens/Cartas Território/" + Integer.toString(jogadores.get(turno.getJogadorCorrente()).getCartasTerritorio().get(numeroDaCarta).getIdCartaEstado()) + ".jpg";
     }
-    
-    public int getNumeroDeCartasEstadoJogador(){
+
+    public int getNumeroDeCartasEstadoJogador() {
         return jogadores.get(turno.getJogadorCorrente()).getCartasTerritorio().size();
     }
+
+    public void passaEtapa() {
+        turno.finalizaEtapa();
+    }
+
+    public void receberExercitos() {
+        turno.recebeExercitos(jogadores.get(turno.getJogadorCorrente()));
+    }
+
+    public int getNumExercitoGanhos() {
+        return jogadores.get(turno.getJogadorCorrente()).getnExercitosGanhos();
+    }
+
+    public int getNumeroJogadorCorrente() {
+        return turno.getJogadorCorrente();
+    }
+
+    public void alocaExercito(int idEstado, int numeroExercito) {
+        turno.distribuiExercito(jogadores.get(turno.getJogadorCorrente()), jogadores.get(turno.getJogadorCorrente()).getEstadoPorId(idEstado), numeroExercito);
+    }
+
+    public int[] getIdsEstadosEvizinhosJogadorCorrente() {
+        ArrayList<Integer> idsEstadosEVizinhos = new ArrayList<>();
+        int[] temporario;
+        temporario = jogadores.get(turno.getJogadorCorrente()).getIdsEstados();
+        for (int i = 0; i < temporario.length; i++) {
+            idsEstadosEVizinhos.add(temporario[i]);
+        }
+        for (Estado estado : jogadores.get(turno.getJogadorCorrente()).getEstados()) {
+            for (int i = 0; i < estado.getVizinhos().length; i++) {
+                idsEstadosEVizinhos.add(estado.getVizinhos()[i]);
+            }
+        }
+        temporario = new int[idsEstadosEVizinhos.size()];
+        for (int i = 0; i < idsEstadosEVizinhos.size(); i++) {
+            temporario[i] = idsEstadosEVizinhos.get(i);
+        }
+        return temporario;
+    }
+
+    public int getIdAtacante() {
+    return turno.getIdEstadoAtacante();
+    }
+
+    public int getIdDefensor() {
+    return turno.getIdEstadoDefensor();
+    }
     
+    public void setIdAtacante(int idAtacante){
+        turno.setIdEstadoAtacante(idAtacante);
+    }
+    
+    public void setIdDefensor(int idDefensor){
+        turno.setIdEstadoDefensor(idDefensor);
+    }
+    
+    public boolean isPrimeiraRodada(){
+        return turno.isPrimeiraRodada();
+    }
+    
+    public void finalizaTurno(){
+        turno.finalizaTurno(jogadores.size());
+    }
 }

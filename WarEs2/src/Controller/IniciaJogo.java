@@ -31,7 +31,7 @@ public class IniciaJogo {
 
         for (CartaEstado cartaEstado : cartaEstados) {
             if (cartaEstado.getSimbolo() != 4) { // para não distribuir curingas no início
-                jogadores.get(corrente).getEstados().add(new Estado(cartaEstado.getEstado().getConstantesEstados()));
+                jogadores.get(corrente).getEstados().add(new Estado(cartaEstado.getEstado()));
                 ultimoJogador = corrente;
                 corrente++;
                 if (corrente == jogadores.size()) {

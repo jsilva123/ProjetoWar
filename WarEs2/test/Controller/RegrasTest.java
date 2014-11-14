@@ -174,23 +174,6 @@ public class RegrasTest {
     }
 
     /**
-     * Test of atualizaAposConquista method, of class Regras.
-     */
-    @Test
-    public void testAtualizaAposConquista() {
-        System.out.println("atualizaAposConquista");
-        Jogador vencedor = null;
-        Jogador perdedor = null;
-        Estado conquistado = null;
-        Estado atacante = null;
-        int qtdDeslocamento = 0;
-        Regras instance = new Regras();
-        instance.atualizaAposConquista(vencedor, perdedor, conquistado, atacante, qtdDeslocamento);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of deslocaExercitoAposConquista method, of class Regras.
      */
     @Test
