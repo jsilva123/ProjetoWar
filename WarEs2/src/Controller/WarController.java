@@ -48,6 +48,21 @@ public class WarController {
         return instance;
     }
 
+    public void setOrigem(int idOrigem) {
+        turno.setOrigem(idOrigem);
+    }
+    
+    public void setDestino(int idDestino) {
+        turno.setOrigem(idDestino);
+    }
+    
+    public int getOrigem(){
+        return turno.getOrigem();
+    }
+    public int getDestino(){
+        return turno.getDestino();
+    }
+
     public void setNumeroJogadores(int numeroJogadores) {
         this.numeroJogadores = numeroJogadores;
     }
@@ -164,26 +179,37 @@ public class WarController {
     }
 
     public int getIdAtacante() {
-    return turno.getIdEstadoAtacante();
+        return turno.getIdEstadoAtacante();
     }
 
     public int getIdDefensor() {
-    return turno.getIdEstadoDefensor();
+        return turno.getIdEstadoDefensor();
     }
-    
-    public void setIdAtacante(int idAtacante){
+
+    public void setIdAtacante(int idAtacante) {
         turno.setIdEstadoAtacante(idAtacante);
     }
-    
-    public void setIdDefensor(int idDefensor){
+
+    public void setIdDefensor(int idDefensor) {
         turno.setIdEstadoDefensor(idDefensor);
     }
-    
-    public boolean isPrimeiraRodada(){
+
+    public boolean isPrimeiraRodada() {
         return turno.isPrimeiraRodada();
     }
-    
-    public void finalizaTurno(){
+
+    public void finalizaTurno() {
         turno.finalizaTurno(jogadores.size());
+    }
+    
+    public boolean deslocaExercitoJogador(int quantidadeExercitos){
+        if(turno.getOrigem() == -1 || turno.getOrigem() == -1){
+            return false;
+        }
+        if(regras.validaDeslocamento(  getJogadorCorrente().getEstadoPorId(turno.getOrigem()), getJogadorCorrente().getEstadoPorId(turno.getDestino()), quantidadeExercitos , getJogadorCorrente().getUltimoDestinoDeslocamento())) {
+            getJogadorCorrente().desloca(turno.getOrigem(), turno.getDestino(), quantidadeExercitos);
+            return true;
+        }
+        return false;
     }
 }

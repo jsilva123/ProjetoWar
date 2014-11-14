@@ -13,6 +13,24 @@ public class Turno {
     private Regras regras;
     private int idEstadoAtacante;
     private int idEstadoDefensor;
+    private int origem;
+    private int destino;
+
+    public int getOrigem() {
+        return origem;
+    }
+
+    public void setOrigem(int origem) {
+        this.origem = origem;
+    }
+
+    public int getDestino() {
+        return destino;
+    }
+
+    public void setDestino(int destino) {
+        this.destino = destino;
+    }
     
 
     public Turno(int numMaxEtapa) {
@@ -24,6 +42,8 @@ public class Turno {
         idEstadoAtacante = -1;
         idEstadoDefensor = -1;
         this.primeiraRodada = true;
+        destino = -1;
+        origem = -1;
     }
 
     public int getEtapa() {
@@ -73,7 +93,7 @@ public class Turno {
             etapa = 0;
         }
     }
-
+    
     //implementação das ações que podem ser realizados por um jogador durante seu turno
     /**
      * realiza a troca de cartas por execitos. Valores estabelecidos pela tabela

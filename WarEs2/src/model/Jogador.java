@@ -12,6 +12,7 @@ public class Jogador {
     private CartaObjetivo Cartaobjetivo;
     private ArrayList<CartaEstado> cartasTerritorio;
     private int nExercitosGanhos;
+    private int idUltimoDestinoDeslocamento;
     private int qtdRegioes;
 
     public int getQtdRegioes() {
@@ -21,6 +22,16 @@ public class Jogador {
     public void setQtdRegioes(int qtdRegioes) {
         this.qtdRegioes = qtdRegioes;
     }
+
+    public Estado getUltimoDestinoDeslocamento() {
+        return getEstadoPorId(idUltimoDestinoDeslocamento);
+    }
+
+    public void setIdUltimoDestinoDeslocamento(int idUltimoDestinoDeslocamento) {
+        this.idUltimoDestinoDeslocamento = idUltimoDestinoDeslocamento;
+    }
+
+   
     
     private boolean ativo;
     private Color assassino;
@@ -34,6 +45,7 @@ public class Jogador {
         this.estados = new ArrayList<>();
         this.cartasTerritorio = new ArrayList<>();
         this.qtdRegioes = 0;
+        this.idUltimoDestinoDeslocamento = -1;
         
         this.ativo = true;
     }
@@ -164,7 +176,7 @@ public class Jogador {
     }
     
     public Estado getEstadoPorId(int idEstado){
-        for (Estado estado : Jogador.this.getEstados()) {
+        for (Estado estado : estados) {
             if(estado.getIdEstado() == idEstado){
                 return estado;
             }
@@ -177,6 +189,20 @@ public class Jogador {
               ids[i] = estados.get(i).getIdEstado();
         }
         return ids;
+    }
+    
+    /**
+     * Desloca exercitos do estado origem para o estado destino
+     *
+     * @author Pessanha e Martelo
+     * @param origem Local atual do exercito
+     * @param destino Local para onde o exercito sera alocado
+     * @param qtdDeslocamento quantidade de exercito a ser deslocada
+     */
+    public void desloca(int origem, int destino, int qtdDeslocamento) {
+        getEstadoPorId(origem).perdeExercitos(qtdDeslocamento);
+        getEstadoPorId(destino).ganhaExercitos(qtdDeslocamento);
+        idUltimoDestinoDeslocamento = getEstadoPorId(destino).getIdEstado();
     }
     
     

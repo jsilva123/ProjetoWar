@@ -52,7 +52,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             tabelaJogadores.setValueAt(instance.getTotalDeExercitoJogador(i), i, 1);
         }
         tabelaJogadores.setRowSelectionInterval(instance.getNumeroJogadorCorrente(), instance.getNumeroJogadorCorrente());
-       
+
         tabelaJogadores.setSelectionBackground(instance.getCorJogador(instance.getNumeroJogadorCorrente()));
     }
 
@@ -299,7 +299,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Cartas.add(CARTA1);
-        CARTA1.setBounds(20, 0, 100, 113);
+        CARTA1.setBounds(20, 0, 100, 111);
 
         CARTA2.setBackground(new java.awt.Color(158, 216, 242));
         CARTA2.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
@@ -313,7 +313,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Cartas.add(CARTA2);
-        CARTA2.setBounds(140, 0, 100, 113);
+        CARTA2.setBounds(140, 0, 100, 111);
 
         CARTA4.setBackground(new java.awt.Color(158, 216, 242));
         CARTA4.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
@@ -327,7 +327,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Cartas.add(CARTA4);
-        CARTA4.setBounds(20, 130, 100, 113);
+        CARTA4.setBounds(20, 130, 100, 111);
 
         CARTA3.setBackground(new java.awt.Color(158, 216, 242));
         CARTA3.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
@@ -341,7 +341,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Cartas.add(CARTA3);
-        CARTA3.setBounds(260, 0, 100, 113);
+        CARTA3.setBounds(260, 0, 100, 111);
 
         CARTA5.setBackground(new java.awt.Color(158, 216, 242));
         CARTA5.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
@@ -355,7 +355,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Cartas.add(CARTA5);
-        CARTA5.setBounds(140, 130, 100, 113);
+        CARTA5.setBounds(140, 130, 100, 111);
 
         VALORDATROCA.setText("Valor ");
         Cartas.add(VALORDATROCA);
@@ -367,7 +367,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jCheckBox1.setText("Usar");
         Cartas.add(jCheckBox1);
-        jCheckBox1.setBounds(140, 110, 70, 24);
+        jCheckBox1.setBounds(140, 110, 70, 23);
 
         TROCAR.setBackground(new java.awt.Color(158, 216, 242));
         TROCAR.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
@@ -395,23 +395,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jCheckBox2.setText("Usar");
         Cartas.add(jCheckBox2);
-        jCheckBox2.setBounds(260, 110, 70, 24);
+        jCheckBox2.setBounds(260, 110, 70, 23);
 
         jCheckBox3.setText("Usar");
         Cartas.add(jCheckBox3);
-        jCheckBox3.setBounds(140, 240, 70, 24);
+        jCheckBox3.setBounds(140, 240, 70, 23);
 
         jCheckBox4.setText("Usar");
         Cartas.add(jCheckBox4);
-        jCheckBox4.setBounds(20, 240, 70, 24);
+        jCheckBox4.setBounds(20, 240, 70, 23);
 
         jCheckBox5.setText("Usar");
         Cartas.add(jCheckBox5);
-        jCheckBox5.setBounds(20, 110, 70, 24);
+        jCheckBox5.setBounds(20, 110, 70, 23);
 
         jLabel1.setText("da troca:");
         Cartas.add(jLabel1);
-        jLabel1.setBounds(270, 160, 80, 17);
+        jLabel1.setBounds(270, 160, 80, 15);
 
         CARTAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         Cartas.add(CARTAS);
@@ -558,7 +558,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         x.setText("X");
         Ataque.add(x);
-        x.setBounds(190, 20, 30, 17);
+        x.setBounds(190, 20, 30, 15);
 
         ATAQUE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         ATAQUE.setOpaque(true);
@@ -625,19 +625,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel3.setText("Origem: ");
         Mover.add(jLabel3);
-        jLabel3.setBounds(10, 10, 90, 17);
+        jLabel3.setBounds(10, 10, 90, 15);
 
         jLabel4.setText("Destino: ");
         Mover.add(jLabel4);
-        jLabel4.setBounds(10, 40, 90, 17);
+        jLabel4.setBounds(10, 40, 90, 15);
 
         jLabel5.setText("Rio de Janeiro");
         Mover.add(jLabel5);
-        jLabel5.setBounds(80, 10, 180, 17);
+        jLabel5.setBounds(80, 10, 180, 15);
 
         jLabel6.setText("Mato Grosso Do Sul");
         Mover.add(jLabel6);
-        jLabel6.setBounds(80, 40, 180, 17);
+        jLabel6.setBounds(80, 40, 180, 15);
 
         MOVER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         Mover.add(MOVER);
@@ -978,6 +978,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        if ((Integer) N_EXERCITOS_SELECT.getValue() <= 0) {
+            JOptionPane.showMessageDialog(rootPane, "Você não escolheu quantos exércitos deseja mover");
+        } else {
+            if (instance.deslocaExercitoJogador((Integer) N_EXERCITOS_SELECT.getValue())) {
+                console.append("\n deslocado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Quantidade inválida ou deslocamente errado!");
+            }
+        }
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public void atualizaPainelDeAcoes() {
@@ -989,19 +999,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jTabbedPane1.setEnabledAt(3, false);
                 break;
             case 1:
-                 jTabbedPane1.setEnabledAt(1, true);
+                jTabbedPane1.setEnabledAt(1, true);
                 jTabbedPane1.setSelectedIndex(1);
                 jTabbedPane1.setEnabledAt(2, false);
                 jTabbedPane1.setEnabledAt(3, false);
                 break;
             case 2:
-                 jTabbedPane1.setEnabledAt(2, true);
+                jTabbedPane1.setEnabledAt(2, true);
                 jTabbedPane1.setSelectedIndex(2);
                 jTabbedPane1.setEnabledAt(1, false);
                 jTabbedPane1.setEnabledAt(3, false);
                 break;
             case 3:
-                 jTabbedPane1.setEnabledAt(3, true);
+                jTabbedPane1.setEnabledAt(3, true);
                 jTabbedPane1.setSelectedIndex(3);
                 jTabbedPane1.setEnabledAt(1, false);
                 jTabbedPane1.setEnabledAt(2, false);
@@ -1029,8 +1039,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void FINALIZARATAQUEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FINALIZARATAQUEActionPerformed
         // TODO add your handling code here:
-       instance.passaEtapa();
-       atualizaPainelDeAcoes();
+
+        instance.passaEtapa();
+        desabilitaBotoes();
+        atualizaPainelDeAcoes();
     }//GEN-LAST:event_FINALIZARATAQUEActionPerformed
 
     private void finalizar_moverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizar_moverActionPerformed
@@ -1041,7 +1053,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         instance.passaEtapa();
 
-       atualizaPainelDeAcoes();
+        atualizaPainelDeAcoes();
     }//GEN-LAST:event_finalizar_moverActionPerformed
 
 
@@ -1066,7 +1078,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_DADOSActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
+        // Mover (mapinha)
+
+        habilitarBotoes(instance.getJogadorCorrente().getIdsEstados());
+
+
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -1085,6 +1101,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
         // TODO add your handling code here:
+        instance.setOrigem(-1);
+        instance.setDestino(-1);
+
     }//GEN-LAST:event_jButton43ActionPerformed
 
     private void RIODEJANEIROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RIODEJANEIROActionPerformed
@@ -1207,6 +1226,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
                     break;
                 case 3:
+
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(0);
+                        jLabel5.setText("Acre");
+                    } else {
+                        jLabel6.setText("Acre");
+                        instance.setDestino(0);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1254,6 +1281,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(2);
+                        jLabel5.setText("Amapá");
+                    } else {
+                        jLabel6.setText("Amapá");
+                        instance.setDestino(2);
+                    }
+
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1278,6 +1314,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(3);
+                        jLabel5.setText("Amazonas");
+                    } else {
+                        jLabel6.setText("Amazonas");
+                        instance.setDestino(2);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1300,6 +1344,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(4);
+                        jLabel5.setText("Bahia");
+                    } else {
+                        jLabel6.setText("Bahia");
+                        instance.setDestino(4);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1324,6 +1376,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(5);
+                        jLabel5.setText("Ceará");
+                    } else {
+                        jLabel6.setText("Ceará");
+                        instance.setDestino(5);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1347,6 +1406,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(6);
+                        jLabel5.setText("Distrito Federal");
+                    } else {
+                        jLabel6.setText("Distrito Federal");
+                        instance.setDestino(6);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1370,6 +1436,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(7);
+                        jLabel5.setText("Espiríto Santo");
+                    } else {
+                        jLabel6.setText("Espiríto Santo");
+                        instance.setDestino(7);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1393,6 +1466,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(8);
+                        jLabel5.setText("Goiás");
+                    } else {
+                        jLabel6.setText("Goiás");
+                        instance.setDestino(8);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1416,6 +1496,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(9);
+                        jLabel5.setText("Maranhão");
+                    } else {
+                        jLabel6.setText("Maranhão");
+                        instance.setDestino(9);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1439,6 +1526,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(10);
+                        jLabel5.setText("Mato Grosso");
+                    } else {
+                        jLabel6.setText("Mato Grosso");
+                        instance.setDestino(10);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1462,6 +1556,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(11);
+                        jLabel5.setText("Mato Grosso do Sul");
+                    } else {
+                        jLabel6.setText("Mato Grosso do Sul");
+                        instance.setDestino(11);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1485,6 +1586,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(12);
+                        jLabel5.setText("Minas Gerais");
+                    } else {
+                        jLabel6.setText("Minas Gerais");
+                        instance.setDestino(12);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1509,6 +1617,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(14);
+                        jLabel5.setText("Mato Grosso do Sul");
+                    } else {
+                        jLabel6.setText("Mato Grosso do Sul");
+                        instance.setDestino(14);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1532,6 +1647,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(15);
+                        jLabel5.setText("Paraná");
+                    } else {
+                        jLabel6.setText("Paraná");
+                        instance.setDestino(15);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1555,6 +1677,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(16);
+                        jLabel5.setText("Pernambuco");
+                    } else {
+                        jLabel6.setText("Pernambuco");
+                        instance.setDestino(16);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1578,6 +1707,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(17);
+                        jLabel5.setText("Piauí");
+                    } else {
+                        jLabel6.setText("Piauí");
+                        instance.setDestino(17);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1601,6 +1737,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(19);
+                        jLabel5.setText("Rio Grande do Norte");
+                    } else {
+                        jLabel6.setText("Rio Grande do Norte");
+                        instance.setDestino(19);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1624,6 +1767,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(20);
+                        jLabel5.setText("Rio Grande do Sul");
+                    } else {
+                        jLabel6.setText("Rio Grande do Sul");
+                        instance.setDestino(20);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1647,6 +1797,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(21);
+                        jLabel5.setText("Rondônia");
+                    } else {
+                        jLabel6.setText("Rondônia");
+                        instance.setDestino(21);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1670,6 +1827,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(22);
+                        jLabel5.setText("Roraima");
+                    } else {
+                        jLabel6.setText("Roraima");
+                        instance.setDestino(22);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1693,6 +1857,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(23);
+                        jLabel5.setText("Santa Catarina");
+                    } else {
+                        jLabel6.setText("Santa Catarina");
+                        instance.setDestino(23);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1716,6 +1887,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(24);
+                        jLabel5.setText("São Paulo");
+                    } else {
+                        jLabel6.setText("São Paulo");
+                        instance.setDestino(24);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1739,6 +1917,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(25);
+                        jLabel5.setText("Sergipe");
+                    } else {
+                        jLabel6.setText("Sergipe");
+                        instance.setDestino(25);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
@@ -1762,6 +1947,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 case 2:
                     break;
                 case 3:
+                    if (instance.getOrigem() == -1) {
+                        instance.setOrigem(26);
+                        jLabel5.setText("Tocantins");
+                    } else {
+                        jLabel6.setText("Tocantins");
+                        instance.setDestino(26);
+                    }
                     break;
             }
             instance.atualizaMapa(botoesEstado);
