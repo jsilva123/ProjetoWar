@@ -131,7 +131,6 @@ public class Jogador {
     }
 
     
-    
     public boolean getAtivo() {
         return ativo;
     }
@@ -167,5 +166,13 @@ public class Jogador {
     public Estado getEstadoPorId(int idEstado){
         return null;
     }
+    public int[] getIdsEstados(){// todos os ids de estado de um jogador
+        int[] ids = new int[estados.size()];
+        for (int i = 0; i < estados.size(); i++) {
+              ids[i] = estados.get(i).getIdEstado();
+        }
+        return ids;
+    }
+    
 
 }

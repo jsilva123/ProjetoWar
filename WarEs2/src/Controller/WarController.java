@@ -36,7 +36,7 @@ public class WarController {
         dados = new Dado();
         baralho = new Baralho(12, 28);
         regras = new Regras();
-        turno = new Turno(4);
+        turno = new Turno(3);
         iniciador = new IniciaJogo();
         numeroDaTroca = 0;
     }
@@ -88,9 +88,9 @@ public class WarController {
     public void primeiraRodada() {
         turno.getJogadorCorrente();
     }
-
-    public int nExercitosReceber(Jogador jogador) {
-        return (jogador.getEstados().size() / 2);
+    
+    public int getEtapaCorrente(){
+        return turno.getEtapa();
     }
 
     public void atualizaMapa(JButton[] botoes) {
@@ -123,5 +123,21 @@ public class WarController {
     public int getNumeroDeCartasEstadoJogador(){
         return jogadores.get(turno.getJogadorCorrente()).getCartasTerritorio().size();
     }
+    
+    public void passaEtapa(){
+        turno.finalizaEtapa();
+    }
+    
+    public void receberExercitos(){
+        turno.recebeExercitos(jogadores.get(turno.getJogadorCorrente()));
+    }
+    
+    public int getNumExercitoGanhos(){
+        return jogadores.get(turno.getJogadorCorrente()).getnExercitosGanhos();
+    }
+    
+   public int getNumeroJogadorCorrente(){
+       return turno.getJogadorCorrente();
+   }
     
 }

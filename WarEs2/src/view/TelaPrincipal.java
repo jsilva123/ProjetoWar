@@ -6,6 +6,7 @@
 package view;
 
 import Controller.WarController;
+import com.sun.glass.ui.Cursor;
 import java.awt.Color;
 import java.util.Random;
 import javax.swing.JButton;
@@ -19,6 +20,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private WarController instance;
     private JButton[] botoesEstado;
+    private boolean[] botoesHabilitados;
 
     /**
      * Creates new form TelaPrincipal
@@ -26,6 +28,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
         initComponents();
         instance = WarController.getInstance();
+        botoesHabilitados = new boolean[27];
         iniciaComponentesDaTela();
         this.setLocationRelativeTo(null);
 
@@ -54,8 +57,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
         geraVetorDeBotoes();
         instance.atualizaMapa(botoesEstado);
+        atualizaJogadorCorrente();
+        desabilitaBotoes();
+
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(2, false);
+        jTabbedPane1.setEnabledAt(3, false);
 
     }
 
@@ -75,17 +82,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MATOGROSSODOSUL = new javax.swing.JButton();
         BAHIA = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        Trocar = new javax.swing.JPanel();
-        TROCAR = new javax.swing.JButton();
-        FINALIZARTRCA = new javax.swing.JButton();
+        Cartas = new javax.swing.JPanel();
+        CARTA1 = new javax.swing.JButton();
+        CARTA2 = new javax.swing.JButton();
+        CARTA4 = new javax.swing.JButton();
+        CARTA3 = new javax.swing.JButton();
+        CARTA5 = new javax.swing.JButton();
         VALORDATROCA = new javax.swing.JLabel();
-        ALOCACAO1 = new javax.swing.JLabel();
+        VALORTROCA = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        TROCAR = new javax.swing.JButton();
+        finalizar_mover = new javax.swing.JButton();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
+        CARTAS = new javax.swing.JLabel();
         Alocacao = new javax.swing.JPanel();
         FINALIZARALOCAR = new javax.swing.JButton();
-        EXERCITORESTANTE = new javax.swing.JLabel();
         ALOCAR = new javax.swing.JButton();
         PARARALOCACAO = new javax.swing.JButton();
         TOTALEXERCITOS = new javax.swing.JLabel();
+        TotalExercitos = new javax.swing.JLabel();
         ALOCACAO = new javax.swing.JLabel();
         Ataque = new javax.swing.JPanel();
         dado1_vermelho = new javax.swing.JLabel();
@@ -106,18 +125,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         N_EXERCITOS_SELECT = new javax.swing.JSpinner();
         N_EXERCITOS = new javax.swing.JLabel();
-        finalizar_mover = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton43 = new javax.swing.JButton();
-        MOVER = new javax.swing.JLabel();
-        Cartas = new javax.swing.JPanel();
         FINALIZARTURNO = new javax.swing.JButton();
-        CARTA1 = new javax.swing.JButton();
-        CARTA2 = new javax.swing.JButton();
-        CARTA4 = new javax.swing.JButton();
-        CARTA3 = new javax.swing.JButton();
-        CARTA5 = new javax.swing.JButton();
-        CARTAS = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        MOVER = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         MATOGROSSO = new javax.swing.JButton();
@@ -145,6 +160,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         PARA = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         OBJETIVO = new javax.swing.JButton();
+        OBJETIVO1 = new javax.swing.JButton();
         FOTODEFUNDO = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -171,6 +187,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         AMAZONAS.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         AMAZONAS.setText("1");
         AMAZONAS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AMAZONAS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AMAZONASActionPerformed(evt);
+            }
+        });
         jPanel1.add(AMAZONAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 40, 20));
 
         Console.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
@@ -222,16 +243,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
         RORAIMA.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         RORAIMA.setText("1");
         RORAIMA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RORAIMA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RORAIMAActionPerformed(evt);
+            }
+        });
         jPanel1.add(RORAIMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 40, 20));
 
         MATOGROSSODOSUL.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         MATOGROSSODOSUL.setText("1");
         MATOGROSSODOSUL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MATOGROSSODOSUL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MATOGROSSODOSULActionPerformed(evt);
+            }
+        });
         jPanel1.add(MATOGROSSODOSUL, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 40, 20));
 
         BAHIA.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         BAHIA.setText("1");
         BAHIA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BAHIA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BAHIAActionPerformed(evt);
+            }
+        });
         jPanel1.add(BAHIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 40, 20));
 
         jTabbedPane1.setFocusable(false);
@@ -243,30 +279,139 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        Trocar.setLayout(null);
+        Cartas.setLayout(null);
 
-        TROCAR.setText("Trocar");
-        Trocar.add(TROCAR);
-        TROCAR.setBounds(280, 170, 90, 30);
-
-        FINALIZARTRCA.setText("Finalizar");
-        FINALIZARTRCA.addActionListener(new java.awt.event.ActionListener() {
+        CARTA1.setBackground(new java.awt.Color(158, 216, 242));
+        CARTA1.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        CARTA1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cartas Território/miniaturaversocarta.jpg"))); // NOI18N
+        CARTA1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        CARTA1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        CARTA1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        CARTA1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FINALIZARTRCAActionPerformed(evt);
+                CARTA1ActionPerformed(evt);
             }
         });
-        Trocar.add(FINALIZARTRCA);
-        FINALIZARTRCA.setBounds(280, 240, 90, 30);
+        Cartas.add(CARTA1);
+        CARTA1.setBounds(20, 0, 100, 113);
 
-        VALORDATROCA.setText("Valor da troca: + 10");
-        Trocar.add(VALORDATROCA);
-        VALORDATROCA.setBounds(20, 220, 160, 40);
+        CARTA2.setBackground(new java.awt.Color(158, 216, 242));
+        CARTA2.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        CARTA2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cartas Território/miniaturaversocarta.jpg"))); // NOI18N
+        CARTA2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        CARTA2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        CARTA2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        CARTA2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CARTA2ActionPerformed(evt);
+            }
+        });
+        Cartas.add(CARTA2);
+        CARTA2.setBounds(140, 0, 100, 113);
 
-        ALOCACAO1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
-        Trocar.add(ALOCACAO1);
-        ALOCACAO1.setBounds(0, 0, 390, 280);
+        CARTA4.setBackground(new java.awt.Color(158, 216, 242));
+        CARTA4.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        CARTA4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cartas Território/miniaturaversocarta.jpg"))); // NOI18N
+        CARTA4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        CARTA4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        CARTA4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        CARTA4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CARTA4ActionPerformed(evt);
+            }
+        });
+        Cartas.add(CARTA4);
+        CARTA4.setBounds(20, 130, 100, 113);
 
-        jTabbedPane1.addTab("Trocar", Trocar);
+        CARTA3.setBackground(new java.awt.Color(158, 216, 242));
+        CARTA3.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        CARTA3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cartas Território/miniaturaversocarta.jpg"))); // NOI18N
+        CARTA3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        CARTA3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        CARTA3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        CARTA3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CARTA3ActionPerformed(evt);
+            }
+        });
+        Cartas.add(CARTA3);
+        CARTA3.setBounds(260, 0, 100, 113);
+
+        CARTA5.setBackground(new java.awt.Color(158, 216, 242));
+        CARTA5.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        CARTA5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cartas Território/miniaturaversocarta.jpg"))); // NOI18N
+        CARTA5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        CARTA5.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        CARTA5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        CARTA5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CARTA5ActionPerformed(evt);
+            }
+        });
+        Cartas.add(CARTA5);
+        CARTA5.setBounds(140, 130, 100, 113);
+
+        VALORDATROCA.setText("Valor ");
+        Cartas.add(VALORDATROCA);
+        VALORDATROCA.setBounds(290, 140, 60, 30);
+
+        VALORTROCA.setText("3");
+        Cartas.add(VALORTROCA);
+        VALORTROCA.setBounds(340, 160, 49, 20);
+
+        jCheckBox1.setText("Usar");
+        Cartas.add(jCheckBox1);
+        jCheckBox1.setBounds(140, 110, 70, 24);
+
+        TROCAR.setBackground(new java.awt.Color(158, 216, 242));
+        TROCAR.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        TROCAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/iconetroca.png"))); // NOI18N
+        TROCAR.setToolTipText("Alocar Exército");
+        TROCAR.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        TROCAR.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        TROCAR.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        TROCAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TROCARActionPerformed(evt);
+            }
+        });
+        Cartas.add(TROCAR);
+        TROCAR.setBounds(280, 180, 60, 50);
+
+        finalizar_mover.setText("Finalizar");
+        finalizar_mover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finalizar_moverActionPerformed(evt);
+            }
+        });
+        Cartas.add(finalizar_mover);
+        finalizar_mover.setBounds(280, 240, 90, 30);
+
+        jCheckBox2.setText("Usar");
+        Cartas.add(jCheckBox2);
+        jCheckBox2.setBounds(260, 110, 70, 24);
+
+        jCheckBox3.setText("Usar");
+        Cartas.add(jCheckBox3);
+        jCheckBox3.setBounds(140, 240, 70, 24);
+
+        jCheckBox4.setText("Usar");
+        Cartas.add(jCheckBox4);
+        jCheckBox4.setBounds(20, 240, 70, 24);
+
+        jCheckBox5.setText("Usar");
+        Cartas.add(jCheckBox5);
+        jCheckBox5.setBounds(20, 110, 70, 24);
+
+        jLabel1.setText("da troca:");
+        Cartas.add(jLabel1);
+        jLabel1.setBounds(270, 160, 80, 17);
+
+        CARTAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
+        Cartas.add(CARTAS);
+        CARTAS.setBounds(0, 0, 390, 280);
+
+        jTabbedPane1.addTab("Cartas", Cartas);
 
         Alocacao.setLayout(null);
 
@@ -279,13 +424,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Alocacao.add(FINALIZARALOCAR);
         FINALIZARALOCAR.setBounds(280, 240, 90, 30);
 
-        EXERCITORESTANTE.setText("Exércitos restantes: 5");
-        Alocacao.add(EXERCITORESTANTE);
-        EXERCITORESTANTE.setBounds(120, 150, 180, 20);
-
         ALOCAR.setBackground(new java.awt.Color(158, 216, 242));
         ALOCAR.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         ALOCAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/map_pin_fill-48.png"))); // NOI18N
+        ALOCAR.setText("Território");
         ALOCAR.setToolTipText("Alocar Exército");
         ALOCAR.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ALOCAR.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -296,11 +438,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Alocacao.add(ALOCAR);
-        ALOCAR.setBounds(80, 70, 60, 50);
+        ALOCAR.setBounds(60, 90, 110, 80);
 
         PARARALOCACAO.setBackground(new java.awt.Color(158, 216, 242));
         PARARALOCACAO.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         PARARALOCACAO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/cancelar.png"))); // NOI18N
+        PARARALOCACAO.setText("Cancelar ");
         PARARALOCACAO.setToolTipText("Remover Exército");
         PARARALOCACAO.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         PARARALOCACAO.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -311,11 +454,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Alocacao.add(PARARALOCACAO);
-        PARARALOCACAO.setBounds(210, 70, 60, 50);
+        PARARALOCACAO.setBounds(210, 90, 110, 80);
 
-        TOTALEXERCITOS.setText("Total de Exércitos: 15");
+        TOTALEXERCITOS.setText("Total de Exércitos:  +");
         Alocacao.add(TOTALEXERCITOS);
-        TOTALEXERCITOS.setBounds(120, 10, 160, 17);
+        TOTALEXERCITOS.setBounds(90, 40, 160, 30);
+
+        TotalExercitos.setText("0");
+        Alocacao.add(TotalExercitos);
+        TotalExercitos.setBounds(240, 40, 49, 30);
 
         ALOCACAO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         Alocacao.add(ALOCACAO);
@@ -328,23 +475,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         dado1_vermelho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima1v.gif"))); // NOI18N
         Ataque.add(dado1_vermelho);
-        dado1_vermelho.setBounds(120, 70, 70, 70);
+        dado1_vermelho.setBounds(110, 180, 70, 70);
 
         dado2_vermelho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima2v.gif"))); // NOI18N
         Ataque.add(dado2_vermelho);
-        dado2_vermelho.setBounds(190, 70, 70, 70);
+        dado2_vermelho.setBounds(110, 110, 70, 70);
 
         dado3_vermelho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima3v.gif"))); // NOI18N
         Ataque.add(dado3_vermelho);
-        dado3_vermelho.setBounds(260, 70, 70, 70);
+        dado3_vermelho.setBounds(110, 40, 70, 70);
 
         dado3_amarelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima3.gif"))); // NOI18N
         Ataque.add(dado3_amarelo);
-        dado3_amarelo.setBounds(260, 150, 80, 70);
+        dado3_amarelo.setBounds(200, 40, 80, 70);
 
         dado2_amarelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima2.gif"))); // NOI18N
         Ataque.add(dado2_amarelo);
-        dado2_amarelo.setBounds(190, 150, 70, 70);
+        dado2_amarelo.setBounds(200, 180, 70, 70);
 
         PARARATAQUE.setBackground(new java.awt.Color(158, 216, 242));
         PARARATAQUE.setForeground(new java.awt.Color(158, 216, 242));
@@ -356,11 +503,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Ataque.add(PARARATAQUE);
-        PARARATAQUE.setBounds(40, 180, 60, 50);
+        PARARATAQUE.setBounds(20, 190, 60, 50);
 
         dado1_amarelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima1.gif"))); // NOI18N
         Ataque.add(dado1_amarelo);
-        dado1_amarelo.setBounds(120, 150, 70, 70);
+        dado1_amarelo.setBounds(200, 110, 70, 70);
 
         FINALIZARATAQUE.setText("Finalizar");
         FINALIZARATAQUE.addActionListener(new java.awt.event.ActionListener() {
@@ -381,7 +528,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Ataque.add(ATACAR);
-        ATACAR.setBounds(40, 40, 60, 50);
+        ATACAR.setBounds(20, 50, 60, 50);
 
         DADOS.setBackground(new java.awt.Color(158, 216, 242));
         DADOS.setForeground(new java.awt.Color(158, 216, 242));
@@ -393,19 +540,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Ataque.add(DADOS);
-        DADOS.setBounds(40, 110, 60, 50);
+        DADOS.setBounds(20, 120, 60, 50);
 
         ATACANTE.setText("Rio de janeiro");
         Ataque.add(ATACANTE);
-        ATACANTE.setBounds(130, 30, 80, 17);
+        ATACANTE.setBounds(70, 10, 130, 40);
 
         DEFENSOR.setText("Minas Gerais");
         Ataque.add(DEFENSOR);
-        DEFENSOR.setBounds(270, 30, 90, 17);
+        DEFENSOR.setBounds(220, 10, 130, 40);
 
         x.setText("X");
         Ataque.add(x);
-        x.setBounds(230, 30, 20, 17);
+        x.setBounds(190, 20, 30, 17);
 
         ATAQUE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         ATAQUE.setOpaque(true);
@@ -425,23 +572,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Mover.add(jButton3);
-        jButton3.setBounds(60, 100, 60, 50);
+        jButton3.setBounds(170, 90, 60, 50);
         Mover.add(N_EXERCITOS_SELECT);
-        N_EXERCITOS_SELECT.setBounds(200, 120, 70, 30);
+        N_EXERCITOS_SELECT.setBounds(250, 160, 70, 40);
 
         N_EXERCITOS.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         N_EXERCITOS.setText("Número De Exércitos:");
         Mover.add(N_EXERCITOS);
-        N_EXERCITOS.setBounds(160, 80, 170, 40);
-
-        finalizar_mover.setText("Finalizar");
-        finalizar_mover.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finalizar_moverActionPerformed(evt);
-            }
-        });
-        Mover.add(finalizar_mover);
-        finalizar_mover.setBounds(280, 240, 90, 30);
+        N_EXERCITOS.setBounds(80, 160, 170, 40);
 
         jButton15.setBackground(new java.awt.Color(158, 216, 242));
         jButton15.setForeground(new java.awt.Color(158, 216, 242));
@@ -454,7 +592,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Mover.add(jButton15);
-        jButton15.setBounds(60, 30, 60, 50);
+        jButton15.setBounds(80, 90, 60, 50);
 
         jButton43.setBackground(new java.awt.Color(158, 216, 242));
         jButton43.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
@@ -468,15 +606,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Mover.add(jButton43);
-        jButton43.setBounds(60, 170, 60, 50);
-
-        MOVER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
-        Mover.add(MOVER);
-        MOVER.setBounds(0, 0, 400, 280);
-
-        jTabbedPane1.addTab("Mover", Mover);
-
-        Cartas.setLayout(null);
+        jButton43.setBounds(260, 90, 60, 50);
 
         FINALIZARTURNO.setText("Finalizar Turno");
         FINALIZARTURNO.addActionListener(new java.awt.event.ActionListener() {
@@ -484,89 +614,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 FINALIZARTURNOActionPerformed(evt);
             }
         });
-        Cartas.add(FINALIZARTURNO);
+        Mover.add(FINALIZARTURNO);
         FINALIZARTURNO.setBounds(250, 240, 120, 30);
 
-        CARTA1.setBackground(new java.awt.Color(158, 216, 242));
-        CARTA1.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        CARTA1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/Question-48.png"))); // NOI18N
-        CARTA1.setText("CARTA 1");
-        CARTA1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        CARTA1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        CARTA1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        CARTA1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CARTA1ActionPerformed(evt);
-            }
-        });
-        Cartas.add(CARTA1);
-        CARTA1.setBounds(20, 10, 80, 80);
+        jLabel3.setText("Origem: ");
+        Mover.add(jLabel3);
+        jLabel3.setBounds(10, 10, 90, 17);
 
-        CARTA2.setBackground(new java.awt.Color(158, 216, 242));
-        CARTA2.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        CARTA2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/Question-48.png"))); // NOI18N
-        CARTA2.setText("CARTA 2");
-        CARTA2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        CARTA2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        CARTA2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        CARTA2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CARTA2ActionPerformed(evt);
-            }
-        });
-        Cartas.add(CARTA2);
-        CARTA2.setBounds(140, 10, 80, 80);
+        jLabel4.setText("Destino: ");
+        Mover.add(jLabel4);
+        jLabel4.setBounds(10, 40, 90, 17);
 
-        CARTA4.setBackground(new java.awt.Color(158, 216, 242));
-        CARTA4.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        CARTA4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/Question-48.png"))); // NOI18N
-        CARTA4.setText("CARTA 4");
-        CARTA4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        CARTA4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        CARTA4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        CARTA4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CARTA4ActionPerformed(evt);
-            }
-        });
-        Cartas.add(CARTA4);
-        CARTA4.setBounds(20, 100, 80, 80);
+        jLabel5.setText("Rio de Janeiro");
+        Mover.add(jLabel5);
+        jLabel5.setBounds(80, 10, 180, 17);
 
-        CARTA3.setBackground(new java.awt.Color(158, 216, 242));
-        CARTA3.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        CARTA3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/Question-48.png"))); // NOI18N
-        CARTA3.setText("CARTA 3");
-        CARTA3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        CARTA3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        CARTA3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        CARTA3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CARTA3ActionPerformed(evt);
-            }
-        });
-        Cartas.add(CARTA3);
-        CARTA3.setBounds(260, 10, 80, 80);
+        jLabel6.setText("Mato Grosso Do Sul");
+        Mover.add(jLabel6);
+        jLabel6.setBounds(80, 40, 180, 17);
 
-        CARTA5.setBackground(new java.awt.Color(158, 216, 242));
-        CARTA5.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        CARTA5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/Question-48.png"))); // NOI18N
-        CARTA5.setText("CARTA 5");
-        CARTA5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        CARTA5.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        CARTA5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        CARTA5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CARTA5ActionPerformed(evt);
-            }
-        });
-        Cartas.add(CARTA5);
-        CARTA5.setBounds(140, 100, 80, 80);
+        MOVER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
+        Mover.add(MOVER);
+        MOVER.setBounds(0, 0, 400, 280);
 
-        CARTAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
-        Cartas.add(CARTAS);
-        CARTAS.setBounds(0, 0, 390, 280);
-
-        jTabbedPane1.addTab("Cartas", Cartas);
+        jTabbedPane1.addTab("Mover", Mover);
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 375, 300));
 
@@ -580,66 +651,131 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MATOGROSSO.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         MATOGROSSO.setText("1");
         MATOGROSSO.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MATOGROSSO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MATOGROSSOActionPerformed(evt);
+            }
+        });
         jPanel1.add(MATOGROSSO, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 40, 20));
 
         AMAPA.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         AMAPA.setText("1");
         AMAPA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AMAPA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AMAPAActionPerformed(evt);
+            }
+        });
         jPanel1.add(AMAPA, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 40, 20));
 
         RONDONIA.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         RONDONIA.setText("1");
         RONDONIA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RONDONIA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RONDONIAActionPerformed(evt);
+            }
+        });
         jPanel1.add(RONDONIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 40, 20));
 
         ACRE.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         ACRE.setText("1");
         ACRE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ACRE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ACREActionPerformed(evt);
+            }
+        });
         jPanel1.add(ACRE, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 40, 20));
 
         TOCANTINS.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         TOCANTINS.setText("1");
         TOCANTINS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TOCANTINS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TOCANTINSActionPerformed(evt);
+            }
+        });
         jPanel1.add(TOCANTINS, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 40, 20));
 
         MARANHAO.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         MARANHAO.setText("1");
         MARANHAO.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MARANHAO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MARANHAOActionPerformed(evt);
+            }
+        });
         jPanel1.add(MARANHAO, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 40, 20));
 
         PIAUI.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         PIAUI.setText("1");
         PIAUI.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PIAUI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PIAUIActionPerformed(evt);
+            }
+        });
         jPanel1.add(PIAUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 40, 20));
 
         CEARA.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         CEARA.setText("1");
         CEARA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CEARA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CEARAActionPerformed(evt);
+            }
+        });
         jPanel1.add(CEARA, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 40, 20));
 
         GOIAS.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         GOIAS.setText("1");
         GOIAS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        GOIAS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GOIASActionPerformed(evt);
+            }
+        });
         jPanel1.add(GOIAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 40, 20));
 
         MINASGERAIS.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         MINASGERAIS.setText("1");
         MINASGERAIS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MINASGERAIS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MINASGERAISActionPerformed(evt);
+            }
+        });
         jPanel1.add(MINASGERAIS, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 40, 20));
 
         SAOPAULO.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         SAOPAULO.setText("1");
         SAOPAULO.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SAOPAULO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SAOPAULOActionPerformed(evt);
+            }
+        });
         jPanel1.add(SAOPAULO, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 40, 20));
 
         PARANA.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         PARANA.setText("1");
         PARANA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PARANA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PARANAActionPerformed(evt);
+            }
+        });
         jPanel1.add(PARANA, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 40, 20));
 
         ESPIRITOSANTO.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         ESPIRITOSANTO.setText("1");
         ESPIRITOSANTO.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ESPIRITOSANTO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ESPIRITOSANTOActionPerformed(evt);
+            }
+        });
         jPanel1.add(ESPIRITOSANTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 40, 20));
 
         RIODEJANEIRO.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
@@ -655,46 +791,91 @@ public class TelaPrincipal extends javax.swing.JFrame {
         RIOGRANDEDONORTE.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         RIOGRANDEDONORTE.setText("1");
         RIOGRANDEDONORTE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RIOGRANDEDONORTE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RIOGRANDEDONORTEActionPerformed(evt);
+            }
+        });
         jPanel1.add(RIOGRANDEDONORTE, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 40, 20));
 
         ALAGOAS.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         ALAGOAS.setText("1");
         ALAGOAS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ALAGOAS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALAGOASActionPerformed(evt);
+            }
+        });
         jPanel1.add(ALAGOAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 40, 20));
 
         SERGIPE.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         SERGIPE.setText("1");
         SERGIPE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SERGIPE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SERGIPEActionPerformed(evt);
+            }
+        });
         jPanel1.add(SERGIPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 40, 20));
 
         RIOGRANDEDOSUL.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         RIOGRANDEDOSUL.setText("1");
         RIOGRANDEDOSUL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RIOGRANDEDOSUL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RIOGRANDEDOSULActionPerformed(evt);
+            }
+        });
         jPanel1.add(RIOGRANDEDOSUL, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 510, 40, 20));
 
         SANTACATARINA.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         SANTACATARINA.setText("1");
         SANTACATARINA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SANTACATARINA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SANTACATARINAActionPerformed(evt);
+            }
+        });
         jPanel1.add(SANTACATARINA, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 40, 20));
 
         PERNAMBUCO.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         PERNAMBUCO.setText("1");
         PERNAMBUCO.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PERNAMBUCO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PERNAMBUCOActionPerformed(evt);
+            }
+        });
         jPanel1.add(PERNAMBUCO, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 40, 20));
 
         PARAIBA.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         PARAIBA.setText("1");
         PARAIBA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PARAIBA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PARAIBAActionPerformed(evt);
+            }
+        });
         jPanel1.add(PARAIBA, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 40, 20));
 
         DF.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         DF.setText("1");
         DF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DFActionPerformed(evt);
+            }
+        });
         jPanel1.add(DF, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 40, 20));
 
         PARA.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         PARA.setText("1");
         PARA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PARA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PARAActionPerformed(evt);
+            }
+        });
         jPanel1.add(PARA, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 40, 20));
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
@@ -713,7 +894,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 OBJETIVOActionPerformed(evt);
             }
         });
-        jPanel1.add(OBJETIVO, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, 80, 80));
+        jPanel1.add(OBJETIVO, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, 80, 80));
+
+        OBJETIVO1.setBackground(new java.awt.Color(158, 216, 242));
+        OBJETIVO1.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        OBJETIVO1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Botões/Question-48.png"))); // NOI18N
+        OBJETIVO1.setText("Tabela De Troca");
+        OBJETIVO1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        OBJETIVO1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        OBJETIVO1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        OBJETIVO1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OBJETIVO1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(OBJETIVO1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 120, 80));
 
         FOTODEFUNDO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mapa.jpg"))); // NOI18N
         jPanel1.add(FOTODEFUNDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 580));
@@ -756,6 +951,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    public void habilitarBotoes(int[] botoes) {
+        for (int i = 0; i < botoes.length; i++) {
+            botoesHabilitados[botoes[i]] = true;
+        }
+    }
+
+    public void desabilitaBotoes() {
+        for (Boolean botoesEstado : botoesHabilitados) {
+            botoesEstado = false;
+        }
+    }
+
     private void PARARATAQUEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PARARATAQUEActionPerformed
         int numDado = new Random().nextInt(6);
         tabelaJogadores.setRowSelectionInterval(numDado, numDado);
@@ -769,10 +976,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void FINALIZARALOCARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FINALIZARALOCARActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.setEnabledAt(0, false);
-        jTabbedPane1.setEnabledAt(1, true);
-        jTabbedPane1.setSelectedIndex(1);
-        jTabbedPane1.setEnabledAt(2, false);
+        jTabbedPane1.setEnabledAt(2, true);
+        jTabbedPane1.setSelectedIndex(2);
+        jTabbedPane1.setEnabledAt(1, false);
+        jTabbedPane1.setEnabledAt(3, false);
     }//GEN-LAST:event_FINALIZARALOCARActionPerformed
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
@@ -782,19 +989,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void FINALIZARATAQUEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FINALIZARATAQUEActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.setEnabledAt(0, false);
-        jTabbedPane1.setEnabledAt(2, true);
-        jTabbedPane1.setSelectedIndex(2);
-        jTabbedPane1.setEnabledAt(1, false);
-    }//GEN-LAST:event_FINALIZARATAQUEActionPerformed
-
-    private void finalizar_moverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizar_moverActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.setEnabledAt(0, false);
+        jTabbedPane1.setEnabledAt(3, true);
         jTabbedPane1.setSelectedIndex(3);
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(2, false);
+    }//GEN-LAST:event_FINALIZARATAQUEActionPerformed
+
+    private void finalizar_moverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizar_moverActionPerformed
+
+        instance.receberExercitos();
+        TotalExercitos.setText(Integer.toString(instance.getNumExercitoGanhos()));
+        habilitarBotoes(instance.getJogadorCorrente().getIdsEstados());
+
+        instance.passaEtapa();
+
+        jTabbedPane1.setEnabledAt(1, true);
+        jTabbedPane1.setSelectedIndex(1);
+        jTabbedPane1.setEnabledAt(2, false);
+        jTabbedPane1.setEnabledAt(3, false);
     }//GEN-LAST:event_finalizar_moverActionPerformed
+
+    public void atualizaJogadorCorrente() {
+        tabelaJogadores.setRowSelectionInterval(instance.getNumeroJogadorCorrente(), instance.getNumeroJogadorCorrente());
+        tabelaJogadores.setSelectionBackground(instance.getCorJogador(instance.getNumeroJogadorCorrente()));
+    }
 
     private void FINALIZARTURNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FINALIZARTURNOActionPerformed
         // TODO add your handling code here:
@@ -802,6 +1020,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTabbedPane1.setEnabledAt(0, true);
         jTabbedPane1.setSelectedIndex(0);
         jTabbedPane1.setEnabledAt(2, false);
+        jTabbedPane1.setEnabledAt(3, false);
     }//GEN-LAST:event_FINALIZARTURNOActionPerformed
 
     private void OBJETIVOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OBJETIVOActionPerformed
@@ -826,7 +1045,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void ALOCARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALOCARActionPerformed
-        // TODO add your handling code here:
+
+
     }//GEN-LAST:event_ALOCARActionPerformed
 
     private void PARARALOCACAOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PARARALOCACAOActionPerformed
@@ -838,12 +1058,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton43ActionPerformed
 
     private void RIODEJANEIROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RIODEJANEIROActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RIODEJANEIROActionPerformed
+        if (botoesHabilitados[18]) {
 
-    private void FINALIZARTRCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FINALIZARTRCAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FINALIZARTRCAActionPerformed
+        } else {
+            RIODEJANEIRO.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_RIODEJANEIROActionPerformed
 
     private void CARTA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CARTA1ActionPerformed
 
@@ -888,6 +1109,239 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_CARTA5ActionPerformed
 
+    private void TROCARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TROCARActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TROCARActionPerformed
+
+    private void OBJETIVO1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OBJETIVO1ActionPerformed
+        String caminho = "/view/imagens/Planos de fundo/tabeladetrocas.jpg";
+        JOptionPane.showMessageDialog(this, null, "Objetivo", 2, new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/tabeladetrocas.jpg")));
+    }//GEN-LAST:event_OBJETIVO1ActionPerformed
+
+    private void PARAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PARAActionPerformed
+        if (botoesHabilitados[13]) {
+
+        } else {
+            PARA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_PARAActionPerformed
+
+    private void ACREActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ACREActionPerformed
+
+        if (botoesHabilitados[0]) {
+            switch (instance.getEtapaCorrente()) {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+
+        } else {
+            ACRE.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }
+    }//GEN-LAST:event_ACREActionPerformed
+
+    private void ALAGOASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALAGOASActionPerformed
+
+        if (botoesHabilitados[1]) {
+
+        } else {
+            ALAGOAS.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }
+    }//GEN-LAST:event_ALAGOASActionPerformed
+
+    private void AMAPAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AMAPAActionPerformed
+
+        if (botoesHabilitados[2]) {
+
+        } else {
+            AMAPA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_AMAPAActionPerformed
+
+    private void AMAZONASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AMAZONASActionPerformed
+
+        if (botoesHabilitados[3]) {
+
+        } else {
+            AMAZONAS.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_AMAZONASActionPerformed
+
+    private void BAHIAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BAHIAActionPerformed
+        if (botoesHabilitados[4]) {
+
+        } else {
+            BAHIA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_BAHIAActionPerformed
+
+    private void CEARAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CEARAActionPerformed
+
+        if (botoesHabilitados[5]) {
+
+        } else {
+            CEARA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_CEARAActionPerformed
+
+    private void DFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DFActionPerformed
+        if (botoesHabilitados[6]) {
+
+        } else {
+            DF.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_DFActionPerformed
+
+    private void ESPIRITOSANTOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ESPIRITOSANTOActionPerformed
+        if (botoesHabilitados[7]) {
+
+        } else {
+            ESPIRITOSANTO.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_ESPIRITOSANTOActionPerformed
+
+    private void GOIASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GOIASActionPerformed
+        if (botoesHabilitados[8]) {
+
+        } else {
+            GOIAS.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_GOIASActionPerformed
+
+    private void MARANHAOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MARANHAOActionPerformed
+        if (botoesHabilitados[9]) {
+
+        } else {
+            MARANHAO.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_MARANHAOActionPerformed
+
+    private void MATOGROSSOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MATOGROSSOActionPerformed
+        if (botoesHabilitados[10]) {
+
+        } else {
+            MATOGROSSO.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        } // TODO add your handling code here:
+    }//GEN-LAST:event_MATOGROSSOActionPerformed
+
+    private void MATOGROSSODOSULActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MATOGROSSODOSULActionPerformed
+        if (botoesHabilitados[11]) {
+
+        } else {
+            MATOGROSSODOSUL.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_MATOGROSSODOSULActionPerformed
+
+    private void MINASGERAISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MINASGERAISActionPerformed
+        if (botoesHabilitados[12]) {
+
+        } else {
+            MINASGERAIS.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_MINASGERAISActionPerformed
+
+    private void PARAIBAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PARAIBAActionPerformed
+
+        if (botoesHabilitados[14]) {
+
+        } else {
+            PARAIBA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_PARAIBAActionPerformed
+
+    private void PARANAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PARANAActionPerformed
+        if (botoesHabilitados[15]) {
+
+        } else {
+            PARANA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_PARANAActionPerformed
+
+    private void PERNAMBUCOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PERNAMBUCOActionPerformed
+        if (botoesHabilitados[16]) {
+
+        } else {
+            PERNAMBUCO.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_PERNAMBUCOActionPerformed
+
+    private void PIAUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PIAUIActionPerformed
+        if (botoesHabilitados[17]) {
+
+        } else {
+            PIAUI.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_PIAUIActionPerformed
+
+    private void RIOGRANDEDONORTEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RIOGRANDEDONORTEActionPerformed
+        if (botoesHabilitados[19]) {
+
+        } else {
+            RIOGRANDEDONORTE.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_RIOGRANDEDONORTEActionPerformed
+
+    private void RIOGRANDEDOSULActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RIOGRANDEDOSULActionPerformed
+        if (botoesHabilitados[20]) {
+
+        } else {
+            RIOGRANDEDOSUL.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_RIOGRANDEDOSULActionPerformed
+
+    private void RONDONIAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RONDONIAActionPerformed
+        if (botoesHabilitados[21]) {
+
+        } else {
+            RONDONIA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_RONDONIAActionPerformed
+
+    private void RORAIMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RORAIMAActionPerformed
+        if (botoesHabilitados[22]) {
+
+        } else {
+            RORAIMA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_RORAIMAActionPerformed
+
+    private void SANTACATARINAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SANTACATARINAActionPerformed
+        if (botoesHabilitados[23]) {
+
+        } else {
+            SANTACATARINA.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_SANTACATARINAActionPerformed
+
+    private void SAOPAULOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAOPAULOActionPerformed
+        if (botoesHabilitados[24]) {
+
+        } else {
+            SAOPAULO.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_SAOPAULOActionPerformed
+
+    private void SERGIPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SERGIPEActionPerformed
+        if (botoesHabilitados[25]) {
+
+        } else {
+            SERGIPE.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_SERGIPEActionPerformed
+
+    private void TOCANTINSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TOCANTINSActionPerformed
+        if (botoesHabilitados[26]) {
+
+        } else {
+            TOCANTINS.setCursor(java.awt.Cursor.getPredefinedCursor(Cursor.CURSOR_DISAPPEAR));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_TOCANTINSActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -896,7 +1350,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton ACRE;
     private javax.swing.JButton ALAGOAS;
     private javax.swing.JLabel ALOCACAO;
-    private javax.swing.JLabel ALOCACAO1;
     private javax.swing.JButton ALOCAR;
     private javax.swing.JButton AMAPA;
     private javax.swing.JButton AMAZONAS;
@@ -919,10 +1372,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel DEFENSOR;
     private javax.swing.JButton DF;
     private javax.swing.JButton ESPIRITOSANTO;
-    private javax.swing.JLabel EXERCITORESTANTE;
     private javax.swing.JButton FINALIZARALOCAR;
     private javax.swing.JButton FINALIZARATAQUE;
-    private javax.swing.JButton FINALIZARTRCA;
     private javax.swing.JButton FINALIZARTURNO;
     private javax.swing.JLabel FOTODEFUNDO;
     private javax.swing.JButton GOIAS;
@@ -936,6 +1387,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel N_EXERCITOS;
     private javax.swing.JSpinner N_EXERCITOS_SELECT;
     private javax.swing.JButton OBJETIVO;
+    private javax.swing.JButton OBJETIVO1;
     private javax.swing.JButton PARA;
     private javax.swing.JButton PARAIBA;
     private javax.swing.JButton PARANA;
@@ -954,8 +1406,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton TOCANTINS;
     private javax.swing.JLabel TOTALEXERCITOS;
     private javax.swing.JButton TROCAR;
-    private javax.swing.JPanel Trocar;
+    private javax.swing.JLabel TotalExercitos;
     private javax.swing.JLabel VALORDATROCA;
+    private javax.swing.JLabel VALORTROCA;
     private javax.swing.JTextArea console;
     private javax.swing.JLabel dado1_amarelo;
     private javax.swing.JLabel dado1_vermelho;
@@ -967,6 +1420,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton43;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

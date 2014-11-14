@@ -13,7 +13,7 @@ public class Turno {
 
     public Turno(int numMaxEtapa) {
         this.jogadorCorrente = 0;
-        this.etapa = 1;
+        this.etapa = 0;
         this.numMaxEtapa = numMaxEtapa;
         this.numTroca = 0;
         this.regras = new Regras();
@@ -115,7 +115,6 @@ public class Turno {
         int numExercitosPossuidos = j.getTotalDeExercitos();
         int qtdExercitosRecebidos = numExercitosPossuidos / 2;
         int qtdPorRegiao = 0;
-        j.setnExercitosGanhos(j.getnExercitosGanhos() + qtdExercitosRecebidos);
         
         //ganha exercitos por região
         
@@ -129,7 +128,9 @@ public class Turno {
             qtdPorRegiao += Regioes.SUDESTE.getBonusExercito();
         if(regras.verificaJogadorPossuiTodaRegiao(j, Regioes.SUL))
             qtdPorRegiao += Regioes.SUL.getBonusExercito();
-            
+        
+        qtdExercitosRecebidos += qtdPorRegiao;
+        j.setnExercitosGanhos(j.getnExercitosGanhos() + qtdExercitosRecebidos);
     }
 
     /**
