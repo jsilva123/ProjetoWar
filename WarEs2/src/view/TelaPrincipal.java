@@ -315,7 +315,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         TOTALEXERCITOS.setText("Total de Exércitos: 15");
         Alocacao.add(TOTALEXERCITOS);
-        TOTALEXERCITOS.setBounds(120, 10, 160, 17);
+        TOTALEXERCITOS.setBounds(120, 10, 160, 15);
 
         ALOCACAO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         Alocacao.add(ALOCACAO);
@@ -328,23 +328,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         dado1_vermelho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima1v.gif"))); // NOI18N
         Ataque.add(dado1_vermelho);
-        dado1_vermelho.setBounds(120, 70, 70, 70);
+        dado1_vermelho.setBounds(120, 50, 70, 70);
 
         dado2_vermelho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima2v.gif"))); // NOI18N
         Ataque.add(dado2_vermelho);
-        dado2_vermelho.setBounds(190, 70, 70, 70);
+        dado2_vermelho.setBounds(190, 50, 70, 70);
 
         dado3_vermelho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima3v.gif"))); // NOI18N
         Ataque.add(dado3_vermelho);
-        dado3_vermelho.setBounds(260, 70, 70, 70);
+        dado3_vermelho.setBounds(260, 50, 70, 70);
 
         dado3_amarelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima3.gif"))); // NOI18N
         Ataque.add(dado3_amarelo);
-        dado3_amarelo.setBounds(260, 150, 80, 70);
+        dado3_amarelo.setBounds(260, 140, 80, 70);
 
         dado2_amarelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima2.gif"))); // NOI18N
         Ataque.add(dado2_amarelo);
-        dado2_amarelo.setBounds(190, 150, 70, 70);
+        dado2_amarelo.setBounds(190, 140, 70, 70);
 
         PARARATAQUE.setBackground(new java.awt.Color(158, 216, 242));
         PARARATAQUE.setForeground(new java.awt.Color(158, 216, 242));
@@ -360,7 +360,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         dado1_amarelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Dados/anima1.gif"))); // NOI18N
         Ataque.add(dado1_amarelo);
-        dado1_amarelo.setBounds(120, 150, 70, 70);
+        dado1_amarelo.setBounds(120, 140, 70, 70);
 
         FINALIZARATAQUE.setText("Finalizar");
         FINALIZARATAQUE.addActionListener(new java.awt.event.ActionListener() {
@@ -397,15 +397,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         ATACANTE.setText("Rio de janeiro");
         Ataque.add(ATACANTE);
-        ATACANTE.setBounds(130, 30, 80, 17);
+        ATACANTE.setBounds(90, 20, 130, 15);
 
         DEFENSOR.setText("Minas Gerais");
         Ataque.add(DEFENSOR);
-        DEFENSOR.setBounds(270, 30, 90, 17);
+        DEFENSOR.setBounds(240, 20, 130, 15);
 
         x.setText("X");
         Ataque.add(x);
-        x.setBounds(230, 30, 20, 17);
+        x.setBounds(210, 20, 20, 15);
 
         ATAQUE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Planos de fundo/mar.png"))); // NOI18N
         ATAQUE.setOpaque(true);

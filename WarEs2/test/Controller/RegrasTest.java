@@ -134,8 +134,8 @@ public class RegrasTest {
         CartaEstado c3 = null;
         Regras instance = new Regras();
         boolean expResult = false;
-        boolean result = instance.validaTrocaCartas( c1, c2, c3);
-        assertEquals(expResult, result);
+       // boolean result = instance.validaTrocaCartas( c1, c2, c3);
+       // assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

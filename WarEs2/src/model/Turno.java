@@ -29,6 +29,7 @@ public class Turno {
 
     public void finalizaTurno(int numJogadores) {
         jogadorCorrente++;
+        etapa = 0;
         if (jogadorCorrente == numJogadores) {
             jogadorCorrente = 0;
         }
@@ -38,7 +39,7 @@ public class Turno {
     public void finalizaEtapa() {
         etapa++;
         if (etapa == numMaxEtapa) {
-            etapa = 1;
+            etapa = 0;
         }
     }
     
@@ -59,25 +60,25 @@ public class Turno {
         if (regras.validaTrocaCartas(c1, c2, c3)) {
             switch (numTroca) {
                 case 1:
-                    j.setnExercitosGanhos(j.getnExercitosGanhos() + 4);
+                    j.setnExercitosGanhos(j.getnExercitosGanhos() + 3);
                     break;
                 case 2:
-                    j.setnExercitosGanhos(j.getnExercitosGanhos() + 6);
+                    j.setnExercitosGanhos(j.getnExercitosGanhos() + 5);
                     break;
                 case 3:
-                    j.setnExercitosGanhos(j.getnExercitosGanhos() + 8);
+                    j.setnExercitosGanhos(j.getnExercitosGanhos() + 7);
                     break;
                 case 4:
-                    j.setnExercitosGanhos(j.getnExercitosGanhos() + 10);
+                    j.setnExercitosGanhos(j.getnExercitosGanhos() + 9);
                     break;
                 case 5:
-                    j.setnExercitosGanhos(j.getnExercitosGanhos() + 12);
+                    j.setnExercitosGanhos(j.getnExercitosGanhos() + 11);
                     break;
                 case 6:
-                    j.setnExercitosGanhos(j.getnExercitosGanhos() + 15);
+                    j.setnExercitosGanhos(j.getnExercitosGanhos() + 14);
                     break;
                 default:
-                    j.setnExercitosGanhos(j.getnExercitosGanhos() + (15 + (numTroca - 6) * 5));
+                    j.setnExercitosGanhos(j.getnExercitosGanhos() + (14 + (numTroca - 6) * 5));
                     break;
             }
 
