@@ -164,6 +164,11 @@ public class Jogador {
     }
     
     public Estado getEstadoPorId(int idEstado){
+        for (Estado estado : Jogador.this.getEstados()) {
+            if(estado.getIdEstado() == idEstado){
+                return estado;
+            }
+        }
         return null;
     }
     public int[] getIdsEstados(){// todos os ids de estado de um jogador
