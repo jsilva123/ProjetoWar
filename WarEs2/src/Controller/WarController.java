@@ -202,6 +202,12 @@ public class WarController {
         turno.finalizaTurno(jogadores.size());
     }
     
+    public boolean trocaCartasTerritorio(){
+        return turno.trocaCartas(null, null, null, null, baralho);
+    }
+    
+    public int getNumeroExercitoTroca(){
+        return turno.getNumeroExercitoTroca();
     public boolean deslocaExercitoJogador(int quantidadeExercitos){
         if(turno.getOrigem() == -1 || turno.getOrigem() == -1){
             return false;

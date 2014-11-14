@@ -37,7 +37,7 @@ public class Turno {
         this.jogadorCorrente = 0;
         this.etapa = 0;
         this.numMaxEtapa = numMaxEtapa;
-        this.numTroca = 0;
+        this.numTroca = 1;
         this.regras = new Regras();
         idEstadoAtacante = -1;
         idEstadoDefensor = -1;
@@ -93,20 +93,42 @@ public class Turno {
             etapa = 0;
         }
     }
+
+    public int getNumeroExercitoTroca(){
+        
+        switch (numTroca) {
+                case 1:
+                    return 3;                    
+                case 2:
+                    return 5;                    
+                case 3:
+                    return 7;                    
+                case 4:
+                    return 9;                    
+                case 5:
+                    return 11;          
+                case 6:
+                    return 14;
+                default:
+                    return (14 + (numTroca - 6) * 5);
+            }
+        
+    }
     
-    //implementação das ações que podem ser realizados por um jogador durante seu turno
+    
     /**
-     * realiza a troca de cartas por execitos. Valores estabelecidos pela tabela
-     * encontrada no tabuleiro do war original.
-     *
+     * realiza a troca de cartas por execitos.Valores estabelecidos pela tabela
+ encontrada no tabuleiro do war original.
      * @author Pessanha
      * @param j
      * @param c1
      * @param c2
      * @param c3
      * @param baralho baralho
+     * @return
      */
-    public void trocaCartas(Jogador j, CartaEstado c1, CartaEstado c2, CartaEstado c3, Baralho baralho) {
+  
+    public boolean trocaCartas(Jogador j, CartaEstado c1, CartaEstado c2, CartaEstado c3, Baralho baralho) {
         if (regras.validaTrocaCartas(c1, c2, c3)) {
             switch (numTroca) {
                 case 1:
@@ -152,8 +174,14 @@ public class Turno {
             baralho.getCartasEstados().add(c2);
             j.getCartasTerritorio().remove(c3);
             baralho.getCartasEstados().add(c3);
+            
+            numTroca ++;
+            
+            return true;
 
-        }
+        }        
+        return false;
+        
 
     }
 
