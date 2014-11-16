@@ -8,8 +8,8 @@ package Controller;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import model.Ataque;
 import model.Baralho;
-import model.Dado;
 import model.Estado;
 import model.Jogador;
 import model.Turno;
@@ -28,17 +28,18 @@ public class WarController {
     private ArrayList<Jogador> jogadores;
     private Baralho baralho;
     private Turno turno;
-    private Dado dados;
     private IniciaJogo iniciador;
     private Regras regras;
+    private Ataque ataque;
 
     private WarController() {
-        dados = new Dado();
         baralho = new Baralho(12, 28);
         regras = new Regras();
         turno = new Turno(4);
         iniciador = new IniciaJogo();
         numeroDaTroca = 0;
+        this.fimDeJogo = false;
+        this.ataque = new Ataque();
     }
 
     public static WarController getInstance() {
@@ -51,15 +52,16 @@ public class WarController {
     public void setOrigem(int idOrigem) {
         turno.setOrigem(idOrigem);
     }
-    
+
     public void setDestino(int idDestino) {
         turno.setOrigem(idDestino);
     }
-    
-    public int getOrigem(){
+
+    public int getOrigem() {
         return turno.getOrigem();
     }
-    public int getDestino(){
+
+    public int getDestino() {
         return turno.getDestino();
     }
 
@@ -106,6 +108,10 @@ public class WarController {
 
     public int getEtapaCorrente() {
         return turno.getEtapa();
+    }
+
+    public void setEtapaCorrente(int etapa) {
+        turno.setEtapa(etapa);
     }
 
     public void atualizaMapa(JButton[] botoes) {
@@ -155,8 +161,8 @@ public class WarController {
         return turno.getJogadorCorrente();
     }
 
-    public void alocaExercito(int idEstado, int numeroExercito) {
-        turno.distribuiExercito(jogadores.get(turno.getJogadorCorrente()), jogadores.get(turno.getJogadorCorrente()).getEstadoPorId(idEstado), numeroExercito);
+    public boolean alocaExercito(int idEstado, int numeroExercito) {
+        return jogadores.get(turno.getJogadorCorrente()).distribuiExercito(idEstado, numeroExercito);
     }
 
     public int[] getIdsEstadosEvizinhosJogadorCorrente() {
@@ -178,22 +184,6 @@ public class WarController {
         return temporario;
     }
 
-    public int getIdAtacante() {
-        return turno.getIdEstadoAtacante();
-    }
-
-    public int getIdDefensor() {
-        return turno.getIdEstadoDefensor();
-    }
-
-    public void setIdAtacante(int idAtacante) {
-        turno.setIdEstadoAtacante(idAtacante);
-    }
-
-    public void setIdDefensor(int idDefensor) {
-        turno.setIdEstadoDefensor(idDefensor);
-    }
-
     public boolean isPrimeiraRodada() {
         return turno.isPrimeiraRodada();
     }
@@ -201,23 +191,75 @@ public class WarController {
     public void finalizaTurno() {
         turno.finalizaTurno(jogadores.size());
     }
-    
-    public boolean trocaCartasTerritorio(){
-        return turno.trocaCartas(null, null, null, null, baralho);
+
+    public boolean trocaCartasTerritorio(int idCarta1, int idCarta2, int idCarta3) {
+        return turno.trocaCartas(jogadores.get(turno.getJogadorCorrente()), idCarta1, idCarta2, idCarta3, baralho);
     }
-    
-    public int getNumeroExercitoTroca(){
+
+    public int getNumeroExercitoTroca() {
         return turno.getNumeroExercitoTroca();
     }
-    
-    public boolean deslocaExercitoJogador(int quantidadeExercitos){
-        if(turno.getOrigem() == -1 || turno.getOrigem() == -1){
+
+    public boolean deslocaExercitoJogador(int quantidadeExercitos) {
+        if (turno.getOrigem() == -1 || turno.getOrigem() == -1) {
             return false;
         }
-        if(regras.validaDeslocamento(  getJogadorCorrente().getEstadoPorId(turno.getOrigem()), getJogadorCorrente().getEstadoPorId(turno.getDestino()), quantidadeExercitos , getJogadorCorrente().getUltimoDestinoDeslocamento())) {
+        if (regras.validaDeslocamento(getJogadorCorrente().getEstadoPorId(turno.getOrigem()), getJogadorCorrente().getEstadoPorId(turno.getDestino()), quantidadeExercitos, getJogadorCorrente().getUltimoDestinoDeslocamento())) {
             getJogadorCorrente().desloca(turno.getOrigem(), turno.getDestino(), quantidadeExercitos);
             return true;
         }
         return false;
     }
+
+    // *********************************************************************************************************
+    // Ataque
+
+    public void resetaAtaque() {
+        ataque = new Ataque();
+        ataque.setJogadorAtacante(jogadores.get(turno.getJogadorCorrente()));
+    }
+
+    public boolean escolheuOrigemAtaque() {
+        return ataque.escolheuOrigemDoAtaque();
+    }
+
+    public boolean escolheuDestinoAtaque() {
+        return ataque.escolheuDestinoAtaque();
+    }
+
+    public boolean setOrigemAtaque(int idEstadoatacante) {
+        return ataque.setOrigemAtaque(idEstadoatacante);
+    }
+
+    public boolean setDestinoAtaque(int idEstadoDefensor) {
+        return ataque.setDestinoAtaque(idEstadoDefensor);
+
+    }
+    
+    public int[] vizinhosDoEstadoAtacante(){
+        return ataque.vizinhosDoEstadoAtacante();
+    }
+    
+    public void setJogadorDefensor(int idEstadoDefensor){
+        jogadores.stream().filter((jogador) -> (jogador.possuitalEstado(idEstadoDefensor))).forEach((jogador) -> {
+            ataque.setJogadorDefensor(jogador);
+        });
+    }
+
+    public void ataque(){
+        ataque.batalha();
+    }
+    
+    public boolean podeRealizarAtaque(){
+        return ataque.podeAtacar();
+    }
+    
+    public int[] getValorDadosAtaque(){
+        return ataque.getValorDadosAtaque();
+    }
+    
+    public int[] getvalorDadosDefesa(){
+        return ataque.getValorDadosDefesa();
+    }
+    
 }

@@ -203,8 +203,8 @@ public class TelaInicial extends javax.swing.JFrame {
         jPanel1.add(corPreta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 50, -1));
 
         corBranca.setEditable(false);
-        corBranca.setBackground(java.awt.Color.white);
-        corBranca.setForeground(java.awt.Color.red);
+        corBranca.setBackground(java.awt.Color.lightGray);
+        corBranca.setForeground(java.awt.Color.gray);
         jPanel1.add(corBranca, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 330, 50, -1));
 
         corVerde.setEditable(false);
@@ -317,13 +317,13 @@ public class TelaInicial extends javax.swing.JFrame {
     public Color[] juntaCores(int numeroJogadores) {
         switch (numeroJogadores) {
             case 3:
-                return new Color[]{Color.RED,Color.BLACK,Color.WHITE};
+                return new Color[]{Color.RED,Color.BLACK,Color.LIGHT_GRAY};
             case 4:
-                return new Color[]{Color.RED,Color.BLACK,Color.WHITE,Color.GREEN};
+                return new Color[]{Color.RED,Color.BLACK,Color.LIGHT_GRAY,Color.GREEN};
             case 5:
-                return new Color[]{Color.RED,Color.BLACK,Color.WHITE,Color.GREEN,Color.BLUE};
+                return new Color[]{Color.RED,Color.BLACK,Color.LIGHT_GRAY,Color.GREEN,Color.BLUE};
             default:
-                return new Color[]{Color.RED,Color.BLACK,Color.WHITE,Color.GREEN,Color.BLUE,Color.YELLOW};
+                return new Color[]{Color.RED,Color.BLACK,Color.LIGHT_GRAY,Color.GREEN,Color.BLUE,Color.YELLOW};
         }
     }
 

@@ -13,29 +13,10 @@ public class Jogador {
     private ArrayList<CartaEstado> cartasTerritorio;
     private int nExercitosGanhos;
     private int idUltimoDestinoDeslocamento;
-    private int qtdRegioes;
-
-    public int getQtdRegioes() {
-        return qtdRegioes;
-    }
-
-    public void setQtdRegioes(int qtdRegioes) {
-        this.qtdRegioes = qtdRegioes;
-    }
-
-    public Estado getUltimoDestinoDeslocamento() {
-        return getEstadoPorId(idUltimoDestinoDeslocamento);
-    }
-
-    public void setIdUltimoDestinoDeslocamento(int idUltimoDestinoDeslocamento) {
-        this.idUltimoDestinoDeslocamento = idUltimoDestinoDeslocamento;
-    }
-
-   
-    
     private boolean ativo;
     private Color assassino;
     private boolean conquistouTerritorio;
+
 
     public Jogador(String nome, Color cor) {
         this.ultimoJogador = false;
@@ -44,10 +25,17 @@ public class Jogador {
         this.cor = cor;
         this.estados = new ArrayList<>();
         this.cartasTerritorio = new ArrayList<>();
-        this.qtdRegioes = 0;
         this.idUltimoDestinoDeslocamento = -1;
         
         this.ativo = true;
+    }
+
+    public Estado getUltimoDestinoDeslocamento() {
+        return getEstadoPorId(idUltimoDestinoDeslocamento);
+    }
+
+    public void setIdUltimoDestinoDeslocamento(int idUltimoDestinoDeslocamento) {
+        this.idUltimoDestinoDeslocamento = idUltimoDestinoDeslocamento;
     }
 
     public int getnExercitosGanhos() {
@@ -131,8 +119,8 @@ public class Jogador {
             return "Vermelho";
         } else if (getCor() == Color.BLACK) {
             return "Preto";
-        } else if (getCor() == Color.WHITE) {
-            return "Branco";
+        } else if (getCor() == Color.LIGHT_GRAY) {
+            return "Cinza";
         } else if (getCor() == Color.GREEN) {
             return "Verde";
         } else if (getCor() == Color.YELLOW) {
@@ -205,6 +193,41 @@ public class Jogador {
         idUltimoDestinoDeslocamento = getEstadoPorId(destino).getIdEstado();
     }
     
+    public boolean distribuiExercito( int idEstado, int qtd) {
+        if (qtd <= nExercitosGanhos) {
+            ganhaExercitos(idEstado, qtd);
+            nExercitosGanhos = nExercitosGanhos - qtd;
+            return true;
+        } else {
+            return false;
+        }
+
+    }
     
+    public boolean possuitalEstado(int idEstado){
+        if (estados.stream().anyMatch((estado) -> (estado.getIdEstado() == idEstado))) {
+            return true;
+        }
+        return false;
+    }
+    
+    public int[] vizinhosDoEstadoQueNaoSaoDoJogador(int idEstadoAtacante){
+        int[] idsDosvizinhos;
+        idsDosvizinhos = getEstadoPorId(idEstadoAtacante).getVizinhos();
+        
+        ArrayList<Integer> idsCorretos = new ArrayList<>();
+        
+        for (int i = 0; i < idsDosvizinhos.length; i++) {
+           if(!possuitalEstado(idsDosvizinhos[i])){
+               idsCorretos.add(idsDosvizinhos[i]);
+           }
+        }
+        int[] idsRetorno = new int[idsCorretos.size()];
+        for (int i = 0; i < idsRetorno.length; i++) {
+           idsRetorno[i] = idsCorretos.get(i);
+            
+        }
+        return idsRetorno;
+    }
 
 }

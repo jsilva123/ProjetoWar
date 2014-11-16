@@ -14,17 +14,6 @@ import model.Estado;
 import model.Jogador;
 import model.Regioes;
 
-/**
- *
- * @author Luiz Felipe e Roberto 
- */
-
-
-
-/**
- * 
- * @author Martelo
- */
 public class Regras {
     
     /**
@@ -103,17 +92,17 @@ public class Regras {
                 }                
                 return false;       
             case 8: //destroi branco
-                if (!jogador.getCor().equals(java.awt.Color.WHITE) && jogador.getAtivo()) {
+                if (!jogador.getCor().equals(java.awt.Color.LIGHT_GRAY) && jogador.getAtivo()) {
                     for (Jogador j : jogadores) {
-                        if (j.getCor().equals(java.awt.Color.WHITE) && !j.getAtivo()) {
+                        if (j.getCor().equals(java.awt.Color.LIGHT_GRAY) && !j.getAtivo()) {
                             return j.getAssassino().equals(jogador.getCor());
                         }
                     }
-                } else if (jogador.getCor().equals(java.awt.Color.WHITE)) {
+                } else if (jogador.getCor().equals(java.awt.Color.LIGHT_GRAY)) {
                     return jogador.getEstados().size() >= 15;
                 }                
                 for (Jogador j : jogadores) {
-                    if (j.getCor().equals(java.awt.Color.WHITE)) {
+                    if (j.getCor().equals(java.awt.Color.LIGHT_GRAY)) {
                         if(j.getAtivo()== false)
                             return jogador.getEstados().size() >= 15;
                     }
@@ -213,9 +202,6 @@ public class Regras {
      * @param j
      * @return - retorna os estador a terem os exercitos aumentados
      */
-    public boolean verificaPossuiEstadoCarta(CartaEstado c1, Jogador j) {
-        return j.getEstados().stream().anyMatch((estado) -> (estado.getIdEstado()== c1.getIdCartaEstado()));
-    }
 
     /**
      * Deve ser verificada a cada rodada
@@ -258,9 +244,7 @@ public class Regras {
                 || (c1.getSimbolo() == c2.getSimbolo() && c1.getSimbolo() == c3.getSimbolo());
     }
 
-    public boolean conquistaCarta(Estado e) {
-        return conquistaTerritorio(e);
-    }
+    
 
     public boolean validaDeslocamento(Estado origem, Estado destino, int qtdDeslocamento, Estado ultimoDestino) {
         if (ultimoDestino == null) {
@@ -270,16 +254,7 @@ public class Regras {
         }
     }
 
-
-
-    public boolean deslocaExercitoAposConquista(int numAtaque, int numDesloca) {
-        return numDesloca <= numAtaque;
-    }
-
-    public boolean conquistaTerritorio(Estado defensor) {
-        return defensor.getNumeroExercitos() == 0;
-    }
-
+   
 
 
     public boolean condicaoAtaque(Estado atacante, Estado defensor, int numExercitos) {

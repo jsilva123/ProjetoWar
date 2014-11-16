@@ -34,6 +34,7 @@ public enum ConstantesEstados {
     SANTACATARINA(23, "Santa Catarina",1,new int[] {20,15}),
     SAOPAULO(24, "São Paulo",2,new int[] {15,11,18}),
     SERGIPE(25, "Sergipe",2,new int[] {4,1}),
+    
     TOCANTINS(26, "Tocantins",3,new int[] {8,10,13,9,17,4}),
     CURINGA(27,"Curinga",4,new int []{});
 

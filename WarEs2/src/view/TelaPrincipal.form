@@ -438,7 +438,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="350" y="160" width="20" height="20"/>
+                      <AbsoluteConstraints x="320" y="160" width="20" height="20"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -463,7 +463,7 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="280" y="190" width="60" height="50"/>
+                      <AbsoluteConstraints x="270" y="190" width="60" height="50"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -693,19 +693,19 @@
                 <Component class="javax.swing.JLabel" name="dado1_vermelho">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/imagens/Dados/anima1v.gif"/>
+                      <Image iconType="3" name="/view/imagens/Dados/gv3.gif"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="110" y="180" width="70" height="70"/>
+                      <AbsoluteConstraints x="110" y="40" width="70" height="70"/>
                     </Constraint>
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="dado2_vermelho">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/imagens/Dados/anima2v.gif"/>
+                      <Image iconType="3" name="/view/imagens/Dados/gv2.gif"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -717,36 +717,36 @@
                 <Component class="javax.swing.JLabel" name="dado3_vermelho">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/imagens/Dados/anima3v.gif"/>
+                      <Image iconType="3" name="/view/imagens/Dados/gv1.gif"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="110" y="40" width="70" height="70"/>
+                      <AbsoluteConstraints x="110" y="180" width="70" height="70"/>
                     </Constraint>
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="dado3_amarelo">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/imagens/Dados/anima3.gif"/>
+                      <Image iconType="3" name="/view/imagens/Dados/ga1.gif"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="200" y="40" width="80" height="70"/>
+                      <AbsoluteConstraints x="200" y="180" width="80" height="70"/>
                     </Constraint>
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="dado2_amarelo">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/imagens/Dados/anima2.gif"/>
+                      <Image iconType="3" name="/view/imagens/Dados/ga3.gif"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="200" y="180" width="70" height="70"/>
+                      <AbsoluteConstraints x="200" y="110" width="70" height="70"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -777,12 +777,12 @@
                 <Component class="javax.swing.JLabel" name="dado1_amarelo">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/imagens/Dados/anima1.gif"/>
+                      <Image iconType="3" name="/view/imagens/Dados/ga2.gif"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="200" y="110" width="70" height="70"/>
+                      <AbsoluteConstraints x="200" y="40" width="70" height="70"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -853,7 +853,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="70" y="10" width="130" height="40"/>
+                      <AbsoluteConstraints x="80" y="10" width="130" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -863,7 +863,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="240" y="10" width="130" height="40"/>
+                      <AbsoluteConstraints x="230" y="10" width="170" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -1157,6 +1157,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ACREMouseEntered"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ACREActionPerformed"/>
           </Events>
           <Constraints>
